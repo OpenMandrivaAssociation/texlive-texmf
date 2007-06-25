@@ -15,6 +15,8 @@ URL:            http://tug.org/texlive/
 Source0:        texlive-texmf-src.tar.bz2
 # Source1 is http://www.tug.org/texlive/Contents/inst/archive/texmf-var.zip
 Source1:        texlive.texmf-var-%{version}.zip
+Source2:        texlive.2007.ls-R
+Source3:        texlive.var.2007.ls-R
 # missing files (note - Fedora installs this with a patch)
 Source50:       dvips-config.generic
 # Fedora
@@ -22,6 +24,10 @@ Patch0:         texlive-2007-badenv.patch
 Patch1:         texlive-2007-tkdefaults.patch
 # Suse
 Patch300:       texlive-texmf.patch
+# Needed for texinfo
+Provides:       tetex = 0:3.0
+Conflicts:      tetex < 0:3.0
+BuildConflicts: tetex < 0:3.0
 Provides:       latex-pgf = 0:1.01
 Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
@@ -102,6 +108,7 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 %package dvips
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
+Conflicts:      tetex-dvipdfm < 1:3.0
 Obsoletes:      tetex-dvips
 Provides:       tetex-dvips
 Requires:       texlive-texmf-common = %{version}-%{release}
@@ -309,6 +316,9 @@ install -p -m644 {eplain,tds}.info %{buildroot}%{_infodir}/
 %{__mkdir_p} %{buildroot}%{_texmf_var}
 %{__mkdir_p} %{buildroot}%{_texmf_vendor}
 
+%{__cp} -a %{SOURCE2} %{buildroot}%{_texmf_main}/default.ls-R
+%{__cp} -a %{SOURCE3} %{buildroot}%{_texmf_var}/default.ls-R
+
 %{__cp} -a texmf/* %{buildroot}%{_texmf_main}
 %{__cp} -a texmf-var/* %{buildroot}%{_texmf_var}
 %{__cp} -a texmf-dist/* %{buildroot}%{_texmf_vendor}
@@ -318,7 +328,7 @@ install -d -m755 %{buildroot}%{_texmf_main}/fonts/{cmap,sfd,type3,type42}
 # move the configuration files and symlink them
 install -d -m755 %{buildroot}%{_texmf_conf}/web2c
 mv %{buildroot}%{_texmf_main}/web2c/*.cnf %{buildroot}%{_texmf_conf}/web2c/
-for file in `find %{buildroot}%{_texmf_conf}/web2c/ -name '*.cn*f'`; do
+for file in `find %{buildroot}%{_texmf_conf}/web2c/ -name '*.cnf'`; do
   filename="`basename ${file}`"
   ln -sf %{_texmf_conf}/web2c/${filename} %{buildroot}%{_texmf_main}/web2c/
 done
@@ -368,7 +378,7 @@ popd
 rm -rf %{buildroot}
 
 %post
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 %_install_info tds.info
 %_install_info eplain.info
 
@@ -376,57 +386,61 @@ rm -rf %{buildroot}
 # does not own any files, only directories - no texhash
 
 %post context
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post afm
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post dvipdfm
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post dvips
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post fonts
 # done in fonts because fonts package owns texhash
 #  this is really only needed for build system
 if [ ! -x %{_bindir}/texconfig-sys ]; then
-  cat %{_texmf_main}/default.ls-R > %{_texmf_main}/ls-R || :
-  cat %{_texmf_var}/default.ls-R  > %{_texmf_var}/ls-R  || :
+  if [ -r %{_texmf_main}/default.ls-R ]; then
+    %{__cat} %{_texmf_main}/default.ls-R > %{_texmf_main}/ls-R || :
+  fi
+  if [ -r %{_texmf_main}/default.ls-R ]; then
+    %{__cat} %{_texmf_var}/default.ls-R  > %{_texmf_var}/ls-R  || :
+  fi
 else
   %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 fi
 
 %post doc
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %preun
 %_remove_install_info tds.info
 %_remove_install_info eplain.info
 
 %postun
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 #%%postun common
-#%%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+#%[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun context
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun afm
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun dvipdfm
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun dvips
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun fonts
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun doc
-%{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %files
 %defattr(-,root,root,0755)
@@ -435,8 +449,6 @@ fi
 %config(noreplace) %{_sysconfdir}/rpm/macros.d/texlive.macros
 %{_texmf_vendor}/bibtex/
 %{_texmf_main}/bibtex/
-%exclude %{_texmf_main}/dvipdfm/
-%exclude %{_texmf_main}/dvipdfm/dvipdfmx.cfg
 %dir %{_texmf_main}/fmtutil/
 %{_texmf_vendor}/fonts/map/fontname/
 %{_texmf_vendor}/makeindex/
@@ -515,6 +527,9 @@ fi
 %{_texmf_vendor}/vtex/config/
 %{_texmf_main}/ttf2pk/ttf2pk.cfg
 %{_texmf_main}/ttf2pk/VPS.rpl
+#
+%{_texmf_main}/default.ls-R
+%{_texmf_var}/default.ls-R
 
 # the common package should not own any installed files.
 %files common
@@ -575,6 +590,7 @@ fi
 
 %files dvipdfm
 %defattr(-,root,root,0755)
+%{_texmf_main}/dvipdfm/
 %dir %{_texmf_var}/fonts/map/dvipdfm
 %dir %{_texmf_var}/fonts/map/dvipdfm/updmap
 %ghost %{_texmf_var}/fonts/map/dvipdfm/updmap/*
@@ -622,6 +638,9 @@ fi
 %{_texmf_main}/fonts/enc/
 %{_texmf_main}/fonts/lig/
 %{_texmf_main}/fonts/map/
+%exclude %{_texmf_main}/fonts/map/dvipdfm/
+%exclude %{_texmf_main}/fonts/map/dvips/
+%exclude %{_texmf_main}/fonts/map/pdftex/
 %{_texmf_main}/fonts/sfd/*
 #%{_texmf_main}/fonts/source/
 %{_texmf_vendor}/fonts/source/
