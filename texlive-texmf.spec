@@ -6,7 +6,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -500,7 +500,7 @@ fi
 %dir %{_texmf_main}/web2c
 %{_texmf_main}/web2c/*.tcx
 %{_texmf_main}/web2c/*.cnf
-%{_texmf_main}/web2c/*.pool
+%exclude %{_texmf_main}/web2c/*.pool
 # var
 %{_texmf_var}/xdvi/XDvi
 %{_texmf_var}/tex/
