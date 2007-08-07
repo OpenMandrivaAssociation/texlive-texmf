@@ -6,7 +6,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 2
+Release:        %mkrel 3
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -515,12 +515,15 @@ fi
 %{_infodir}/eplain.info*
 #
 %{_texmf_main}/texconfig/g/
-%{_texmf_main}/texconfig/generic
-%{_texmf_main}/texconfig/README
-%{_texmf_main}/texconfig/tcfmgr
-%{_texmf_main}/texconfig/tcfmgr.map
 %{_texmf_main}/texconfig/v/
 %{_texmf_main}/texconfig/x/
+%exclude %{_texmf_main}/texconfig/g/generic
+%exclude %{_texmf_main}/texconfig/generic
+%exclude %{_texmf_main}/texconfig/README
+%exclude %{_texmf_main}/texconfig/tcfmgr
+%exclude %{_texmf_main}/texconfig/tcfmgr.map
+%exclude %{_texmf_main}/texconfig/v/vt100
+%exclude %{_texmf_main}/texconfig/x/xterm
 #
 %{_texmf_main}/chktex/.chktexrc
 %{_texmf_main}/hbf2gf/
@@ -591,6 +594,9 @@ fi
 %files dvipdfm
 %defattr(-,root,root,0755)
 %{_texmf_main}/dvipdfm/
+%exclude %{_texmf_main}/dvipdfm/EUC-UCS2
+%exclude %{_texmf_main}/dvipdfm/UniKSCms-UCS2-H
+%exclude %{_texmf_main}/dvipdfm/UniKSCms-UCS2-V
 %dir %{_texmf_var}/fonts/map/dvipdfm
 %dir %{_texmf_var}/fonts/map/dvipdfm/updmap
 %ghost %{_texmf_var}/fonts/map/dvipdfm/updmap/*
@@ -601,6 +607,7 @@ fi
 %files dvips
 %defattr(-,root,root,0755)
 %{_texmf_main}/dvips/
+%exclude %{_texmf_main}/dvips/gsftopk/render.ps
 %{_texmf_var}/dvips/
 %{_texmf_vendor}/dvips/
 # these are what are also needed by fonts
@@ -669,10 +676,12 @@ fi
 # texmf-var
 #%{_texmf_var}/default.ls-R
 %{_texmf_var}/xdvi/XDvi
-%{_texmf_main}/xdvi/XDvi
-%{_texmf_main}/xdvi/xdvi.cfg
+%exclude %{_texmf_main}/xdvi/XDvi
+%exclude %{_texmf_main}/xdvi/xdvi.cfg
 %{_texmf_var}/web2c/mktex.cnf
 %{_texmf_main}/xdvi/pixmaps
+%exclude %{_texmf_main}/xdvi/pixmaps/toolbar.xpm
+%exclude %{_texmf_main}/xdvi/pixmaps/toolbar2.xpm
 #
 %{_texmf_vendor}/fonts/map/
 %{_texmf_vendor}/fonts/misc/
@@ -691,6 +700,10 @@ fi
 %defattr(0644,root,root,0755)
 %doc %{_texmf_main}/doc/
 %doc %{_texmf_vendor}/doc/
+%exclude %{_texmf_main}/doc/bibtex8/00readme.txt
+%exclude %{_texmf_main}/doc/bibtex8/HISTORY
+%exclude %{_texmf_main}/doc/bibtex8/csfile.txt
+%exclude %{_texmf_main}/doc/bibtex8/file_id.diz
 
 %files usrlocal
 %defattr(-,root,root,0755)
