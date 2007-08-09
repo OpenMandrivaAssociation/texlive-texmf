@@ -14,6 +14,8 @@ Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
 License:        Distributable
 URL:            http://tug.org/texlive/
+# rsync -avzH --exclude=.svn --exclude=bin --exclude source tug.org::tldevsrc/Master .
+# tar cvjf texlive-texmf-src.tar.bz2 Master
 Source0:        texlive-texmf-src.tar.bz2
 # Source1 is http://www.tug.org/texlive/Contents/inst/archive/texmf-var.zip
 Source1:        texlive.texmf-var-%{version}.zip
