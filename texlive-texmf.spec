@@ -1,3 +1,5 @@
+%bcond_without  obsolete_tetex
+
 %{!?_texmf_main: %global _texmf_main %{_datadir}/texmf}
 %{!?_texmf_vendor: %global _texmf_vendor %{_datadir}/texmf-texlive}
 %{!?_texmf_var: %global _texmf_var  %{_var}/lib/texmf}
@@ -6,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 3
+Release:        %mkrel 4
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -24,9 +26,13 @@ Patch0:         texlive-2007-badenv.patch
 Patch1:         texlive-2007-tkdefaults.patch
 # Suse
 Patch300:       texlive-texmf.patch
-# Needed for texinfo
+# XXX: Needed for texinfo
+%if %with %obsolete_tetex
 Provides:       tetex = 0:3.0
 Conflicts:      tetex < 0:3.0
+%else
+Provides:       tetex = 3.0
+%endif
 BuildConflicts: tetex < 0:3.0
 Provides:       latex-pgf = 0:1.01
 Provides:       latex-xcolor = 0:2.00
@@ -58,7 +64,9 @@ electronic documents.
 %package cmsuper
 Group:          Publishing
 Summary:        The CM-Super font set
+%if %with %obsolete_tetex
 Obsoletes:      tetex-cmsuper
+%endif
 Provides:       tetex-cmsuper
 
 %description cmsuper
@@ -75,9 +83,11 @@ included).
 %package afm
 Group:          Publishing
 Summary:        Texmf files needed for texlive-afm
+%if %with %obsolete_tetex
 Obsoletes:      tetex-afm
+%endif
 Provides:       tetex-afm
-Requires:       texlive-texmf-common = %{version}
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description afm
 This package contains the components of the TEXMF tree needed for the
@@ -86,11 +96,13 @@ texlive-afm package.
 %package doc
 Group:          Publishing
 Summary:        TeX documentation
+%if %with %obsolete_tetex
 Obsoletes:      tetex-doc
+%endif
 Provides:       tetex-doc
 Obsoletes:      texlive-doc
 Provides:       texlive-doc
-Requires:       texlive-texmf-common = %{version}-%{release}
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description doc
 This package contains the documentation for packages installed as part of
@@ -100,7 +112,7 @@ and familiarize yourself with the use of the texdoc command.
 %package dvipdfm
 Group:          Publishing
 Summary:        A DVI to PDF converter
-Requires:       texlive-texmf-common = %{version}-%{release}
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description dvipdfm
 dvidpfm is a DVI to PDF translator for use with TeX.
@@ -109,9 +121,11 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
 Conflicts:      tetex-dvipdfm < 1:3.0
+%if %with %obsolete_tetex
 Obsoletes:      tetex-dvips
+%endif
 Provides:       tetex-dvips
-Requires:       texlive-texmf-common = %{version}-%{release}
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description dvips
 This package contains the components of the TEXMF tree needed for the
@@ -120,7 +134,7 @@ texlive-dvips package.
 %package fonts
 Group:          Publishing
 Summary:        Texmf files needed for texlive-fonts
-Requires:       texlive-texmf-dvips = %{version}-%{release}
+Requires:       texlive-texmf-dvips = %{epoch}:%{version}-%{release}
 
 %description fonts
 This package contains the components of the TEXMF tree needed for the
@@ -129,13 +143,19 @@ texlive-fonts package.
 %package latex
 Group:          Publishing
 Summary:        Texmf files needed for texlive-latex
-Requires:       texlive-texmf = %{version}-%{release}
-Requires:       texlive-texmf-common = %{version}
+Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+%if %with %obsolete_tetex
 Obsoletes:      tetex-latex
+%endif
 Provides:       tetex-latex
+%if %with %obsolete_tetex
 Obsoletes:      tetex-IEEEtran
+%endif
 Provides:       tetex-IEEEtran
+%if %with %obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.07
+%endif
 Provides:       latex-beamer = 0:3.07
 
 %description latex
@@ -145,7 +165,9 @@ texlive-latex package.
 %package usrlocal
 Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
+%if %with %obsolete_tetex
 Obsoletes:      tetex-usrlocal
+%endif
 Provides:       tetex-usrlocal
 
 %description usrlocal
