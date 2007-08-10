@@ -192,8 +192,6 @@ install -m644 %{SOURCE50} texmf-var/dvips/config/config.generic
 # these may be useful to hang onto
 mkdir -p texmf/doc/from_texlive
 mv texmf/lists texmf/doc/from_texlive/
-mv texmf-dist/tpm/* texmf/doc/from_texlive/tpm/
-rmdir texmf-dist/tpm
 
 # we use web2c/fmutil.cnf for defaults
 rm texmf/fmtutil/*
