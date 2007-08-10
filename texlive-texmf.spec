@@ -8,13 +8,13 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 4
+Release:        %mkrel 5
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
 License:        Distributable
 URL:            http://tug.org/texlive/
-# rsync -avzH --exclude=.svn --exclude=bin --exclude source tug.org::tldevsrc/Master .
+# rsync -avzH --exclude=.svn --exclude=bin tug.org::tldevsrc/Master .
 # tar cvjf texlive-texmf-src.tar.bz2 Master
 Source0:        texlive-texmf-src.tar.bz2
 # Source1 is http://www.tug.org/texlive/Contents/inst/archive/texmf-var.zip
@@ -29,7 +29,7 @@ Patch1:         texlive-2007-tkdefaults.patch
 # Suse
 Patch300:       texlive-texmf.patch
 # XXX: Needed for texinfo
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Provides:       tetex = 0:3.0
 Conflicts:      tetex < 0:3.0
 %else
@@ -66,7 +66,7 @@ electronic documents.
 %package cmsuper
 Group:          Publishing
 Summary:        The CM-Super font set
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-cmsuper
 %endif
 Provides:       tetex-cmsuper
@@ -85,7 +85,7 @@ included).
 %package afm
 Group:          Publishing
 Summary:        Texmf files needed for texlive-afm
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-afm
 %endif
 Provides:       tetex-afm
@@ -98,7 +98,7 @@ texlive-afm package.
 %package doc
 Group:          Publishing
 Summary:        TeX documentation
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-doc
 %endif
 Provides:       tetex-doc
@@ -123,7 +123,7 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
 Conflicts:      tetex-dvipdfm < 1:3.0
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-dvips
 %endif
 Provides:       tetex-dvips
@@ -147,15 +147,15 @@ Group:          Publishing
 Summary:        Texmf files needed for texlive-latex
 Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-latex
 %endif
 Provides:       tetex-latex
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-IEEEtran
 %endif
 Provides:       tetex-IEEEtran
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.07
 %endif
 Provides:       latex-beamer = 0:3.07
@@ -167,7 +167,7 @@ texlive-latex package.
 %package usrlocal
 Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
-%if %with %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-usrlocal
 %endif
 Provides:       tetex-usrlocal
@@ -192,19 +192,18 @@ install -m644 %{SOURCE50} texmf-var/dvips/config/config.generic
 # these may be useful to hang onto
 mkdir -p texmf/doc/from_texlive
 mv texmf/lists texmf/doc/from_texlive/
-mv texmf/tpm texmf/doc/from_texlive/
-mv texmf-dist/tpm/* texmf/doc/from_texlive/tpm/ && rmdir texmf-dist/tpm
+mv texmf-dist/tpm/* texmf/doc/from_texlive/tpm/
+rmdir texmf-dist/tpm
 
 # we use web2c/fmutil.cnf for defaults
-rm -f texmf/fmtutil/*
+rm texmf/fmtutil/*
 
 # these we do not want
 # - they are owned by main package in /usr/bin
-rm -rf texmf/scripts/tetex
-rm -rf texmf/scripts/thumbpdf
-rm -rf texmf/scripts/pdfcrop
+rm -r texmf/scripts/tetex
+rm -r texmf/scripts/thumbpdf
+rm -r texmf/scripts/pdfcrop
 
-%build
 # setup texmf.cnf properly
 pushd texmf/web2c
 %{__sed} -i 's?^TEXMFMAIN =.*?TEXMFMAIN = %{_texmf_main}?' texmf.cnf
@@ -219,9 +218,10 @@ pushd texmf/web2c
 popd
 
 # nuke these
-rm -rf texmf-dist/source
-rm -f  texmf/web2c/texmf.cnf-4WIN
-rm -f  texmf/texdoctk/texdocrc-win32.defaults
+rm -r source
+rm -r texmf-dist/source
+rm texmf/web2c/texmf.cnf-4WIN
+rm texmf/texdoctk/texdocrc-win32.defaults
 
 install -d -m755 texmf-var/fonts/map/{dvipdfm,dvips,pdftex}/updmap
 # for ghosting
@@ -230,14 +230,11 @@ touch texmf-var/fonts/map/dvips/updmap/{builtin35.map,ps2pk.map,psfonts_pk.map,d
 touch texmf-var/fonts/map/pdftex/updmap/{pdftex_dl14.map,pdftex.map,pdftex_ndl14.map}
 
 # We really don't want these imho
-rm -rf texmf-dist/fonts/pk && mkdir texmf-dist/fonts/pk
-rm -rf texmf/doc/man
-rm -rf texmf-dist/doc/man
+rm -r texmf-dist/fonts/pk && mkdir texmf-dist/fonts/pk
 # We want these but in the right place
 mv texmf/doc/info/{tds,eplain}.info .
 # now nuke the info dir
-rm -rf texmf/doc/info
-rm -rf texmf-dist/doc/info
+rm -r texmf/doc/info
 
 # Create symlinks for Euler fonts (RH #9782)
 pushd texmf-dist/tex/latex/amsfonts
@@ -303,7 +300,7 @@ echo "Version ${PST_CIRC_V}" >> texmf-dist/doc/generic/pst-circ/Version-${PST_CI
 mkdir -p texmf/scripts/hyphen/sh
 pushd texmf/tex/generic/hyphen/
 install -m755 bahyph.sh ../../../scripts/hyphen/sh/
-rm -f bahyph.sh
+rm bahyph.sh
 ln -s ../../../scripts/hyphen/sh/bahyph.sh .
 popd
 
@@ -320,17 +317,17 @@ done
 %{_bindir}/find . -name '*.sh' -o -name '*.bat' | %{_bindir}/xargs %{__chmod} 0755
 %{_bindir}/find ./texmf-dist/scripts/context/stubs/unix/* -type f | %{_bindir}/xargs %{__chmod} 0755
 
-# these files owned by binary texlive package
-rm -f texmf/web2c/pdfetex-pl.pool
-rm -f texmf/web2c/pdfetex.pool
-
 # these files owned by binary texlive-fonts package
-rm -f texmf/web2c/{mktex.opt,mktexdir,mktexdir.opt,mktexnam,mktexnam.opt,mktexupd}
+rm texmf/web2c/{mktex.opt,mktexdir,mktexdir.opt,mktexnam,mktexnam.opt,mktexupd}
 # these files owned by binary texlive-dvips package
-rm -rf texmf/dvips/base
+rm -r texmf/dvips/base
+
+%build
 
 %install
-rm -rf %{buildroot} && mkdir -p %{buildroot}
+rm -rf %{buildroot}
+
+mkdir -p %{buildroot}
 
 install -d -m755 %{buildroot}%{_infodir}
 install -p -m644 {eplain,tds}.info %{buildroot}%{_infodir}/
