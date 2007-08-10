@@ -465,6 +465,7 @@ fi
 
 %files
 %defattr(-,root,root,0755)
+%exclude %{_texmf_vendor}/tex4ht/
 %{_texmf_main}/README
 %{_texmf_vendor}/README
 %config(noreplace) %{_sysconfdir}/rpm/macros.d/texlive.macros
@@ -495,6 +496,8 @@ fi
 %{_texmf_vendor}/tex/texsis/
 %{_texmf_vendor}/tex/xmltex/
 %{_texmf_vendor}/tex/ytex/
+%exclude %{_texmf_vendor}/tex/jadetex/
+%exclude %{_texmf_vendor}/tex/latex3/
 %dir %{_texmf_vendor}/tex/lambda
 %{_texmf_vendor}/tex/lambda/antomega/
 %{_texmf_vendor}/tex/lambda/config/
