@@ -1,4 +1,4 @@
-%bcond_without  obsolete_tetex
+%bcond_with     obsolete_tetex
 
 %{!?_texmf_main: %global _texmf_main %{_datadir}/texmf}
 %{!?_texmf_vendor: %global _texmf_vendor %{_datadir}/texmf-texlive}
@@ -32,10 +32,10 @@ Patch300:       texlive-texmf.patch
 %if %with obsolete_tetex
 Provides:       tetex = 0:3.0
 Conflicts:      tetex < 0:3.0
+BuildConflicts: tetex < 0:3.0
 %else
 Provides:       tetex = 3.0
 %endif
-BuildConflicts: tetex < 0:3.0
 Provides:       latex-pgf = 0:1.01
 Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
