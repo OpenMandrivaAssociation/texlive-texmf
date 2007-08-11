@@ -335,6 +335,7 @@ install -p -m644 {eplain,tds}.info %{buildroot}%{_infodir}/
 # install the texmf
 %{__mkdir_p} %{buildroot}%{_texmf_main}
 %{__mkdir_p} %{buildroot}%{_texmf_var}
+%{__mkdir_p} %{buildroot}%{_texmf_conf}
 %{__mkdir_p} %{buildroot}%{_texmf_vendor}
 
 %{__cp} -a %{SOURCE2} %{buildroot}%{_texmf_main}/default.ls-R
