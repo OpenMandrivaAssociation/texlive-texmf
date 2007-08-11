@@ -21,6 +21,8 @@ Source0:        texlive-texmf-src.tar.bz2
 Source1:        texlive.texmf-var-%{version}.zip
 Source2:        texlive.2007.ls-R
 Source3:        texlive.var.2007.ls-R
+Source4:        texlive.conf.2007.ls-R
+Source5:        texlive.vendor.2007.ls-R
 # missing files (note - Fedora installs this with a patch)
 Source50:       dvips-config.generic
 # Fedora
@@ -337,6 +339,8 @@ install -p -m644 {eplain,tds}.info %{buildroot}%{_infodir}/
 
 %{__cp} -a %{SOURCE2} %{buildroot}%{_texmf_main}/default.ls-R
 %{__cp} -a %{SOURCE3} %{buildroot}%{_texmf_var}/default.ls-R
+%{__cp} -a %{SOURCE4} %{buildroot}%{_texmf_conf}/default.ls-R
+%{__cp} -a %{SOURCE5} %{buildroot}%{_texmf_vendor}/default.ls-R
 
 %{__cp} -a texmf/* %{buildroot}%{_texmf_main}
 %{__cp} -a texmf-var/* %{buildroot}%{_texmf_var}
@@ -397,7 +401,7 @@ popd
 rm -rf %{buildroot}
 
 %post
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 %_install_info tds.info
 %_install_info eplain.info
 
@@ -405,61 +409,67 @@ rm -rf %{buildroot}
 # does not own any files, only directories - no texhash
 
 %post context
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post afm
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post dvipdfm
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post dvips
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %post fonts
 # done in fonts because fonts package owns texhash
 #  this is really only needed for build system
 if [ ! -x %{_bindir}/texconfig-sys ]; then
   if [ -r %{_texmf_main}/default.ls-R ]; then
-    %{__cat} %{_texmf_main}/default.ls-R > %{_texmf_main}/ls-R || :
+    %{__cp} -af %{_texmf_main}/default.ls-R %{_texmf_main}/ls-R || :
   fi
   if [ -r %{_texmf_main}/default.ls-R ]; then
-    %{__cat} %{_texmf_var}/default.ls-R  > %{_texmf_var}/ls-R  || :
+    %{__cp} -af %{_texmf_var}/default.ls-R %{_texmf_var}/ls-R  || :
+  fi
+  if [ -r %{_texmf_conf}/default.ls-R ]; then
+    %{__cp} -af %{_texmf_conf}/default.ls-R %{_texmf_conf}/ls-R  || :
+  fi
+  if [ -r %{_texmf_vendor}/default.ls-R ]; then
+    %{__cp} -af %{_texmf_vendor}/default.ls-R %{_texmf_vendor}/ls-R  || :
   fi
 else
-  %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+  LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 fi
 
 %post doc
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %preun
 %_remove_install_info tds.info
 %_remove_install_info eplain.info
 
 %postun
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 #%%postun common
-#%[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+#%[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun context
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun afm
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun dvipdfm
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun dvips
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun fonts
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun doc
-[ -x %{_bindir}/texconfig-sys ] && %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %files
 %defattr(-,root,root,0755)
@@ -555,6 +565,8 @@ fi
 #
 %{_texmf_main}/default.ls-R
 %{_texmf_var}/default.ls-R
+%{_texmf_conf}/default.ls-R
+%{_texmf_vendor}/default.ls-R
 
 # the common package should not own any installed files.
 %files common
