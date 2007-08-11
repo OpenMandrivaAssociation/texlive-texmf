@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 6
+Release:        %mkrel 7
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -124,8 +124,8 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 %package dvips
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
-Conflicts:      tetex-dvipdfm < 1:3.0
 %if %with obsolete_tetex
+Conflicts:      tetex-dvipdfm < 1:3.0
 Obsoletes:      tetex-dvips
 %endif
 Provides:       tetex-dvips
