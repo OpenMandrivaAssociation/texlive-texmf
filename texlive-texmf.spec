@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 7
+Release:        %mkrel 8
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
