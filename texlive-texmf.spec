@@ -1,4 +1,4 @@
-%bcond_without obsolete_tetex
+%bcond_with     obsolete_tetex
 
 %{!?_texmf_main: %global _texmf_main %{_datadir}/texmf}
 %{!?_texmf_vendor: %global _texmf_vendor %{_datadir}/texmf-texlive}
@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 10
+Release:        %mkrel 11
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
