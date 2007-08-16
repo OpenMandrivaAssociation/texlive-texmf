@@ -1,4 +1,4 @@
-%bcond_with     obsolete_tetex
+%bcond_without obsolete_tetex
 
 %{!?_texmf_main: %global _texmf_main %{_datadir}/texmf}
 %{!?_texmf_vendor: %global _texmf_vendor %{_datadir}/texmf-texlive}
@@ -480,6 +480,7 @@ fi
 %config(noreplace) %{_sysconfdir}/rpm/macros.d/texlive.macros
 %{_texmf_vendor}/bibtex/
 %{_texmf_main}/bibtex/
+%exclude %{_texmf_vendor}/bibtex/bst/context/
 %dir %{_texmf_main}/fmtutil/
 %{_texmf_vendor}/fonts/map/fontname/
 %{_texmf_vendor}/makeindex/
@@ -528,6 +529,7 @@ fi
 #  Not really worth worrying about.
 %{_texmf_main}/tex/generic/
 %{_texmf_vendor}/tex/generic/
+%exclude %{_texmf_vendor}/tex/generic/context/
 #
 %{_texmf_main}/texdoctk/
 %dir %{_texmf_main}/web2c
@@ -603,8 +605,8 @@ fi
 %{_texmf_vendor}/context/
 %{_texmf_vendor}/fonts/afm/hoekwater/context/
 %{_texmf_vendor}/fonts/enc/dvips/context/
-%{_texmf_vendor}/fonts/map/dvipdfm/context/
-%{_texmf_vendor}/fonts/map/pdftex/context/
+#%{_texmf_vendor}/fonts/map/dvipdfm/context/
+#%{_texmf_vendor}/fonts/map/pdftex/context/
 %{_texmf_vendor}/fonts/pfm/hoekwater/context/
 %{_texmf_vendor}/fonts/tfm/hoekwater/context/
 %{_texmf_vendor}/fonts/type1/hoekwater/context/
@@ -619,11 +621,12 @@ fi
 %{_texmf_vendor}/fonts/afm/public/cm-super/
 %{_texmf_vendor}/fonts/type1/public/cm-super/
 %{_texmf_vendor}/fonts/enc/dvips/cm-super/
-%{_texmf_vendor}/fonts/map/dvips/cm-super/
+#%{_texmf_vendor}/fonts/map/dvips/cm-super/
 
 %files afm
 %defattr(0644,root,root,0755)
 %{_texmf_vendor}/fonts/afm/
+%exclude %{_texmf_vendor}/fonts/afm/hoekwater/context/
 %exclude %{_texmf_vendor}/fonts/afm/public/cm-super/
 
 %files dvipdfm
@@ -651,8 +654,8 @@ fi
 %dir %{_texmf_main}/fonts
 %{_texmf_main}/fonts/enc/dvips/
 %{_texmf_vendor}/fonts/enc/dvips/
+%exclude %{_texmf_vendor}/fonts/enc/dvips/context/
 %exclude %{_texmf_vendor}/fonts/enc/dvips/cm-super/
-%exclude %{_texmf_vendor}/fonts/map/dvips/cm-super/
 %{_texmf_main}/fonts/map/dvips/
 %{_texmf_vendor}/fonts/map/dvips/
 # not 100% positive this is right place
@@ -675,6 +678,7 @@ fi
 %{_texmf_vendor}/fonts/ovf/
 %{_texmf_vendor}/fonts/ovp/
 %{_texmf_vendor}/fonts/pfm/
+%exclude %{_texmf_vendor}/fonts/pfm/hoekwater/context/
 %dir %{_texmf_vendor}/fonts/pk
 %dir %{_texmf_main}/fonts/sfd
 %{_texmf_main}/fonts/enc/
@@ -688,6 +692,7 @@ fi
 %{_texmf_vendor}/fonts/source/
 #%{_texmf_main}/fonts/tfm/
 %{_texmf_vendor}/fonts/tfm/
+%exclude %{_texmf_vendor}/fonts/tfm/hoekwater/context/
 #%{_texmf_main}/fonts/type1/
 %{_texmf_vendor}/fonts/type1/
 %exclude %{_texmf_vendor}/fonts/type1/public/cm-super/
