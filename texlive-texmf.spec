@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 11
+Release:        %mkrel 12
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -58,6 +58,7 @@ This package owns the basic directory structure of the texmf
 %package context
 Summary:        Document engineering system based on TeX
 Group:          Publishing
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description context
 CONTeXT is a document engineering system based on TeX. TeX is a
@@ -72,6 +73,7 @@ Summary:        The CM-Super font set
 Obsoletes:      tetex-cmsuper
 %endif
 Provides:       tetex-cmsuper
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description cmsuper
 The CM-Super package contains Type 1 fonts converted from METAFONT
@@ -178,6 +180,26 @@ Provides:       tetex-usrlocal
 This packages provides just the directory %{_texmf_local}
 which is defined by the var TEXMFLOCAL in the default config file
 and can be used for system-wide texlive files.
+
+%package jadetex
+Summary:        TeX macros used by Jade TeX output
+Group:          Publishing
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+
+%description jadetex
+JadeTeX contains the additional LaTeX macros necessary for taking Jade
+TeX output files and processing them as TeX files, to obtain DVI, Postscript
+or PDF files for example.
+
+%package xmltex
+Summary:        Namespace-aware XML parser written in TeX
+Group:          Publishing
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+
+%description xmltex
+Namespace-aware XML parser written in TeX. This package
+also includes passivetex macros, which can be used to process an XML
+document which results from an XSL trasformation to formatting objects.
 
 %prep
 %setup -q -n Master
@@ -444,6 +466,12 @@ fi
 %post doc
 [ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
+%post jadetex
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+
+%post xmltex
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+
 %preun
 %_remove_install_info tds.info
 %_remove_install_info eplain.info
@@ -470,6 +498,12 @@ fi
 [ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %postun doc
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+
+%postun jadetex
+[ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
+
+%postun xmltex
 [ -x %{_bindir}/texconfig-sys ] && LC_ALL=C %{_bindir}/texconfig-sys rehash 2> /dev/null || :
 
 %files
@@ -504,7 +538,7 @@ fi
 %{_texmf_vendor}/tex/psizzl/
 %{_texmf_vendor}/tex/startex/
 %{_texmf_vendor}/tex/texsis/
-%{_texmf_vendor}/tex/xmltex/
+%exclude %{_texmf_vendor}/tex/xmltex/
 %{_texmf_vendor}/tex/ytex/
 %exclude %{_texmf_vendor}/tex/jadetex/
 %exclude %{_texmf_vendor}/tex/latex3/
@@ -749,3 +783,12 @@ fi
 %defattr(-,root,root,0755)
 %dir %{_texmf_local}
 %ghost %{_texmf_local}/ls-R
+
+%files jadetex
+%defattr(-,root,root,0755)
+%{_texmf_vendor}/tex/jadetex/
+
+%files xmltex
+%defattr(-,root,root,0755)
+%{_texmf_vendor}/tex/xmltex/
+
