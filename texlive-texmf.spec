@@ -127,7 +127,6 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
 %if %obsolete_tetex
-Conflicts:      tetex-dvipdfm < 1:3.0
 Obsoletes:      tetex-dvips
 %endif
 Provides:       tetex-dvips
