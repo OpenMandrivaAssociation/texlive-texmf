@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 14
+Release:        %mkrel 15
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -31,7 +31,7 @@ Patch1:         texlive-2007-tkdefaults.patch
 # Suse
 Patch300:       texlive-texmf.patch
 # XXX: Needed for texinfo
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Provides:       tetex = 0:3.0
 Conflicts:      tetex < 0:3.0
 BuildConflicts: tetex < 0:3.0
@@ -69,7 +69,7 @@ electronic documents.
 %package cmsuper
 Group:          Publishing
 Summary:        The CM-Super font set
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      tetex-cmsuper
 %endif
 Provides:       tetex-cmsuper
@@ -89,7 +89,7 @@ included).
 %package afm
 Group:          Publishing
 Summary:        Texmf files needed for texlive-afm
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      tetex-afm
 %endif
 Provides:       tetex-afm
@@ -102,7 +102,7 @@ texlive-afm package.
 %package doc
 Group:          Publishing
 Summary:        TeX documentation
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      tetex-doc
 %endif
 Provides:       tetex-doc
@@ -126,7 +126,7 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 %package dvips
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Conflicts:      tetex-dvipdfm < 1:3.0
 Obsoletes:      tetex-dvips
 %endif
@@ -151,15 +151,15 @@ Group:          Publishing
 Summary:        Texmf files needed for texlive-latex
 Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      tetex-latex
 %endif
 Provides:       tetex-latex
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      tetex-IEEEtran
 %endif
 Provides:       tetex-IEEEtran
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.07
 %endif
 Provides:       latex-beamer = 0:3.07
@@ -171,7 +171,7 @@ texlive-latex package.
 %package usrlocal
 Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
-%if %with obsolete_tetex
+%if %obsolete_tetex
 Obsoletes:      tetex-usrlocal
 %endif
 Provides:       tetex-usrlocal
