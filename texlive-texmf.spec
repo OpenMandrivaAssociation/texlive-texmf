@@ -427,7 +427,7 @@ cat <<EOF >%{buildroot}%{_texmf_vendor}/tex/latex/fancyheadings.sty
  \PackageWarning{fancyheadings}{%
       ============= WARNING ==============\MessageBreak
       fancyheadings is outdated\MessageBreak
-      Please use `fancyhdr' instead.\MessageBreak
+      Please use "fancyhdr" instead.\MessageBreak
       We are loading this package instead\MessageBreak
       ====================================\MessageBreak}
  \RequirePackage{fancyhdr}
