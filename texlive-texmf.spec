@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 16
+Release:        %mkrel 17
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -103,9 +103,9 @@ texlive-afm package.
 Group:          Publishing
 Summary:        TeX documentation
 %if %obsolete_tetex
-Obsoletes:      tetex-doc
+Obsoletes:      tetex-doc < %{epoch}:%{version}
 %endif
-Provides:       tetex-doc
+Provides:       tetex-doc = %{epoch}:%{version}-%{release}
 Obsoletes:      texlive-doc
 Provides:       texlive-doc
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
