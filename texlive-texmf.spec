@@ -42,6 +42,8 @@ Provides:       latex-pgf = 0:1.01
 Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
+# (tv) for texhash:
+BuildRequires: texlive-fonts
 
 %description
 texlive-texmf is a texmf distribution based upon TeX Live. All of the files
