@@ -419,6 +419,20 @@ pushd %{buildroot}%{_texmf_vendor}/tex/latex/pict2e
     done
 popd
 
+# (tv) provide a fancyheadings.sty wrapper (#36569) from
+# https://bugs.launchpad.net/ubuntu/+source/texlive-base/+bug/132399 :
+cat <<EOF >%{buildroot}%{_texmf_vendor}/tex/latex/fancyheadings.sty
+ \NeedsTeXFormat{LaTeX2e}
+ \ProvidesPackage{fancyheadings}
+ \PackageWarning{fancyheadings}{%
+      ============= WARNING ==============\MessageBreak
+      fancyheadings is outdated\MessageBreak
+      Please use `fancyhdr' instead.\MessageBreak
+      We are loading this package instead\MessageBreak
+      ====================================\MessageBreak}
+ \RequirePackage{fancyhdr}
+EOF
+
 %clean
 rm -rf %{buildroot}
 
