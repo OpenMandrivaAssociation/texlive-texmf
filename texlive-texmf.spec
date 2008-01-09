@@ -432,6 +432,7 @@ cat <<EOF >%{buildroot}%{_texmf_vendor}/tex/latex/fancyheadings.sty
       ====================================\MessageBreak}
  \RequirePackage{fancyhdr}
 EOF
+texhash %{buildroot}%{_texmf_vendor}
 
 %clean
 rm -rf %{buildroot}
