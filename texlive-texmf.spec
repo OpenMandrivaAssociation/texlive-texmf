@@ -53,6 +53,17 @@ provide a packaging similar in style and layout to teTeX.
 %package common
 Summary:        The basic texmf directory structure
 Group:          Publishing
+Conflicts:      tetex < 1:3.0
+Conflicts:	tetex-afm < 1:3.0
+Conflicts:	tetex-cmsuper < 1:3.0
+Conflicts:	tetex-context < 1:3.0
+Conflicts:	tetex-doc < 1:3.0
+Conflicts:	tetex-dvipdfm < 1:3.0
+Conflicts:	tetex-dvips < 1:3.0
+Conflicts:	tetex-latex < 1:3.0
+Conflicts:	tetex-latex-arab < 1:3.0
+Conflicts:	tetex-mfwin < 1:3.0
+Conflicts:	tetex-xdvi < 1:3.0
 
 %description common
 This package owns the basic directory structure of the texmf
