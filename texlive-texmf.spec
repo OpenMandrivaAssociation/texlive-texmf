@@ -132,6 +132,7 @@ Summary:        Texmf files needed for texlive-dvips
 Obsoletes:      tetex-dvips
 %endif
 Provides:       tetex-dvips
+Conflicts:      tetex < 1:3.0
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description dvips
