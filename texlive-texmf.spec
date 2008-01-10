@@ -16,7 +16,7 @@ License:        Distributable
 URL:            http://tug.org/texlive/
 # rsync -avzH --exclude=.svn --exclude=bin tug.org::tldevsrc/Master .
 # tar cvjf texlive-texmf-src.tar.bz2 Master
-Source0:        texlive-texmf-src.tar.bz2
+Source0:        texlive-texmf-src.tar.lzma
 # Source1 is http://www.tug.org/texlive/Contents/inst/archive/texmf-var.zip
 Source1:        texlive.texmf-var-%{version}.zip
 Source2:        texlive.2007.ls-R
