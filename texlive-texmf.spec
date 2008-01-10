@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 17
+Release:        %mkrel 18
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -60,7 +60,7 @@ This package owns the basic directory structure of the texmf
 %package context
 Summary:        Document engineering system based on TeX
 Group:          Publishing
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description context
 CONTeXT is a document engineering system based on TeX. TeX is a
@@ -75,7 +75,7 @@ Summary:        The CM-Super font set
 Obsoletes:      tetex-cmsuper
 %endif
 Provides:       tetex-cmsuper
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description cmsuper
 The CM-Super package contains Type 1 fonts converted from METAFONT
@@ -95,7 +95,7 @@ Summary:        Texmf files needed for texlive-afm
 Obsoletes:      tetex-afm
 %endif
 Provides:       tetex-afm
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description afm
 This package contains the components of the TEXMF tree needed for the
@@ -110,7 +110,7 @@ Obsoletes:      tetex-doc < %{epoch}:%{version}
 Provides:       tetex-doc = %{epoch}:%{version}-%{release}
 Obsoletes:      texlive-doc
 Provides:       texlive-doc
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description doc
 This package contains the documentation for packages installed as part of
@@ -120,7 +120,7 @@ and familiarize yourself with the use of the texdoc command.
 %package dvipdfm
 Group:          Publishing
 Summary:        A DVI to PDF converter
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description dvipdfm
 dvidpfm is a DVI to PDF translator for use with TeX.
@@ -132,7 +132,7 @@ Summary:        Texmf files needed for texlive-dvips
 Obsoletes:      tetex-dvips
 %endif
 Provides:       tetex-dvips
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description dvips
 This package contains the components of the TEXMF tree needed for the
@@ -141,7 +141,7 @@ texlive-dvips package.
 %package fonts
 Group:          Publishing
 Summary:        Texmf files needed for texlive-fonts
-Requires:       texlive-texmf-dvips = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-dvips = %{epoch}:%{version}-%{release}
 
 %description fonts
 This package contains the components of the TEXMF tree needed for the
@@ -150,8 +150,8 @@ texlive-fonts package.
 %package latex
 Group:          Publishing
 Summary:        Texmf files needed for texlive-latex
-Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 %if %obsolete_tetex
 Obsoletes:      tetex-latex
 %endif
@@ -185,7 +185,7 @@ and can be used for system-wide texlive files.
 %package jadetex
 Summary:        TeX macros used by Jade TeX output
 Group:          Publishing
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description jadetex
 JadeTeX contains the additional LaTeX macros necessary for taking Jade
@@ -195,7 +195,7 @@ or PDF files for example.
 %package xmltex
 Summary:        Namespace-aware XML parser written in TeX
 Group:          Publishing
-Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description xmltex
 Namespace-aware XML parser written in TeX. This package
