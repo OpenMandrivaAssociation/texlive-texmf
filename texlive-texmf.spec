@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 19
+Release:        %mkrel 20
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -131,6 +131,7 @@ and familiarize yourself with the use of the texdoc command.
 Group:          Publishing
 Summary:        A DVI to PDF converter
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
+Conflicts:      tetex < 1:3.0
 
 %description dvipdfm
 dvidpfm is a DVI to PDF translator for use with TeX.
