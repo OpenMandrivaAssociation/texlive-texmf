@@ -71,6 +71,7 @@ This package owns the basic directory structure of the texmf
 %package context
 Summary:        Document engineering system based on TeX
 Group:          Publishing
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description context
@@ -86,6 +87,7 @@ Summary:        The CM-Super font set
 Obsoletes:      tetex-cmsuper < 1:3.0
 %endif
 Provides:       tetex-cmsuper = 1:3.0
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description cmsuper
@@ -105,6 +107,7 @@ Summary:        Texmf files needed for texlive-afm
 %if %obsolete_tetex
 Conflicts:      tetex-afm < 1:3.0
 %endif
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description afm
@@ -120,6 +123,7 @@ Obsoletes:      tetex-doc < %{epoch}:%{version}
 Provides:       tetex-doc = %{epoch}:%{version}-%{release}
 Obsoletes:      texlive-doc
 Provides:       texlive-doc
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description doc
@@ -130,6 +134,7 @@ and familiarize yourself with the use of the texdoc command.
 %package dvipdfm
 Group:          Publishing
 Summary:        A DVI to PDF converter
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 Conflicts:      tetex < 1:3.0
 Conflicts:	tetex-dvipdfm < 1:3.0
@@ -144,6 +149,7 @@ Summary:        Texmf files needed for texlive-dvips
 Conflicts:      tetex-dvips < 1:3.0
 %endif
 Conflicts:      tetex < 1:3.0
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description dvips
@@ -153,6 +159,7 @@ texlive-dvips package.
 %package fonts
 Group:          Publishing
 Summary:        Texmf files needed for texlive-fonts
+Requires:       texlive-texmf-dvips = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-dvips = %{epoch}:%{version}-%{release}
 
 %description fonts
@@ -162,6 +169,8 @@ texlive-fonts package.
 %package latex
 Group:          Publishing
 Summary:        Texmf files needed for texlive-latex
+Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 %if %obsolete_tetex
@@ -196,6 +205,7 @@ and can be used for system-wide texlive files.
 %package jadetex
 Summary:        TeX macros used by Jade TeX output
 Group:          Publishing
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description jadetex
@@ -206,6 +216,7 @@ or PDF files for example.
 %package xmltex
 Summary:        Namespace-aware XML parser written in TeX
 Group:          Publishing
+Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description xmltex
