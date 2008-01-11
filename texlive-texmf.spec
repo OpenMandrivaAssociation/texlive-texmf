@@ -32,9 +32,8 @@ Patch1:         texlive-2007-tkdefaults.patch
 Patch300:       texlive-texmf.patch
 # XXX: Needed for texinfo
 %if %obsolete_tetex
-Provides:       tetex = 0:3.0
-Conflicts:      tetex < 0:3.0
-BuildConflicts: tetex < 0:3.0
+Conflicts:      tetex < 1:3.0
+BuildConflicts: tetex < 1:3.0
 %else
 Provides:       tetex = 3.0
 %endif
