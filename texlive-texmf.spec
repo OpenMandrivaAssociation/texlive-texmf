@@ -82,9 +82,9 @@ electronic documents.
 Group:          Publishing
 Summary:        The CM-Super font set
 %if %obsolete_tetex
-Obsoletes:      tetex-cmsuper
+Obsoletes:      tetex-cmsuper < 1:3.0
 %endif
-Provides:       tetex-cmsuper
+Provides:       tetex-cmsuper = 1:3.0
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description cmsuper
@@ -102,9 +102,9 @@ included).
 Group:          Publishing
 Summary:        Texmf files needed for texlive-afm
 %if %obsolete_tetex
-Obsoletes:      tetex-afm
+Obsoletes:      tetex-afm < 1:3.0
 %endif
-Provides:       tetex-afm
+Provides:       tetex-afm = 1:3.0
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
 %description afm
@@ -140,9 +140,9 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
 %if %obsolete_tetex
-Obsoletes:      tetex-dvips
+Obsoletes:      tetex-dvips < 1:3.0
 %endif
-Provides:       tetex-dvips
+Provides:       tetex-dvips = 1:3.0
 Conflicts:      tetex < 1:3.0
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
@@ -165,13 +165,13 @@ Summary:        Texmf files needed for texlive-latex
 Requires(post): texlive-texmf = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 %if %obsolete_tetex
-Obsoletes:      tetex-latex
+Obsoletes:      tetex-latex < 1:3.0
 %endif
-Provides:       tetex-latex
+Provides:       tetex-latex = 1:3.0
 %if %obsolete_tetex
-Obsoletes:      tetex-IEEEtran
+Obsoletes:      tetex-IEEEtran < 1.7b
 %endif
-Provides:       tetex-IEEEtran
+Provides:       tetex-IEEEtran = %{epoch}:%{version}-%{release}
 %if %obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.07
 %endif
@@ -185,9 +185,9 @@ texlive-latex package.
 Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
 %if %obsolete_tetex
-Obsoletes:      tetex-usrlocal
+Obsoletes:      tetex-usrlocal < 1:3.0
 %endif
-Provides:       tetex-usrlocal
+Provides:       tetex-usrlocal = 1:3.0
 
 %description usrlocal
 This packages provides just the directory %{_texmf_local}
