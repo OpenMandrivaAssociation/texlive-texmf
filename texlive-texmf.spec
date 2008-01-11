@@ -42,7 +42,8 @@ Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # (tv) for texhash:
-BuildRequires: texlive-fonts
+# (anssi) disabled temporarily for bootstrapping purposes:
+#BuildRequires: texlive-fonts
 
 %description
 texlive-texmf is a texmf distribution based upon TeX Live. All of the files
@@ -444,7 +445,8 @@ cat <<EOF >%{buildroot}%{_texmf_vendor}/tex/latex/fancyheadings.sty
       ====================================\MessageBreak}
  \RequirePackage{fancyhdr}
 EOF
-texhash %{buildroot}%{_texmf_vendor}
+# (anssi) disabled temporarily for bootstrapping purposes:
+#texhash %{buildroot}%{_texmf_vendor}
 
 %clean
 rm -rf %{buildroot}
