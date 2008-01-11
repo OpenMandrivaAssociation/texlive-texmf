@@ -131,6 +131,7 @@ Group:          Publishing
 Summary:        A DVI to PDF converter
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 Conflicts:      tetex < 1:3.0
+Conflicts:	tetex-dvipdfm < 1:3.0
 
 %description dvipdfm
 dvidpfm is a DVI to PDF translator for use with TeX.
