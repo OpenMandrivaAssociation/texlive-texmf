@@ -8,7 +8,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 20
+Release:        %mkrel 21
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -42,8 +42,7 @@ Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # (tv) for texhash:
-# (anssi) disabled temporarily for bootstrapping purposes:
-#BuildRequires: texlive-fonts
+BuildRequires: texlive-fonts
 
 %description
 texlive-texmf is a texmf distribution based upon TeX Live. All of the files
@@ -456,8 +455,7 @@ cat <<EOF >%{buildroot}%{_texmf_vendor}/tex/latex/fancyheadings.sty
       ====================================\MessageBreak}
  \RequirePackage{fancyhdr}
 EOF
-# (anssi) disabled temporarily for bootstrapping purposes:
-#texhash %{buildroot}%{_texmf_vendor}
+texhash %{buildroot}%{_texmf_vendor}
 
 %clean
 rm -rf %{buildroot}
