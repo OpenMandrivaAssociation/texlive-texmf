@@ -8,15 +8,19 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 21
+Release:        %mkrel 22
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
 License:        Distributable
 URL:            http://tug.org/texlive/
-# rsync -avzH --exclude=.svn --exclude=bin tug.org::tldevsrc/Master .
-# tar cvjf texlive-texmf-src.tar.bz2 Master
-Source0:        texlive-texmf-src.tar.lzma
+# #rsync -avzH --exclude=.svn --exclude=bin tug.org::tldevsrc/Master .
+# svn co -r6201 svn://tug.org/texlive/trunk/Master
+# find Master -name bin | xargs rm -r
+# find Master -name .svn | xargs rm -r
+# tar cf texlive-texmf-src-r6201.tar Master
+# lzma -z -9 texlive-texmf-src-r6201.tar
+Source0:        texlive-texmf-src-r6201.tar.lzma
 # Source1 is http://www.tug.org/texlive/Contents/inst/archive/texmf-var.zip
 Source1:        texlive.texmf-var-%{version}.zip
 Source2:        texlive.2007.ls-R
@@ -42,6 +46,7 @@ Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # (tv) for texhash:
+# FIXME: (walluck): this creates a circular dependency between texlive and texlive-texmf
 BuildRequires: texlive-fonts
 
 %description
@@ -53,16 +58,16 @@ provide a packaging similar in style and layout to teTeX.
 Summary:        The basic texmf directory structure
 Group:          Publishing
 Conflicts:      tetex < 1:3.0
-Conflicts:	tetex-afm < 1:3.0
-Conflicts:	tetex-cmsuper < 1:3.0
-Conflicts:	tetex-context < 1:3.0
-Conflicts:	tetex-doc < 1:3.0
-Conflicts:	tetex-dvipdfm < 1:3.0
-Conflicts:	tetex-dvips < 1:3.0
-Conflicts:	tetex-latex < 1:3.0
-Conflicts:	tetex-latex-arab < 1:3.0
-Conflicts:	tetex-mfwin < 1:3.0
-Conflicts:	tetex-xdvi < 1:3.0
+Conflicts:      tetex-afm < 1:3.0
+Conflicts:      tetex-cmsuper < 1:3.0
+Conflicts:      tetex-context < 1:3.0
+Conflicts:      tetex-doc < 1:3.0
+Conflicts:      tetex-dvipdfm < 1:3.0
+Conflicts:      tetex-dvips < 1:3.0
+Conflicts:      tetex-latex < 1:3.0
+Conflicts:      tetex-latex-arab < 1:3.0
+Conflicts:      tetex-mfwin < 1:3.0
+Conflicts:      tetex-xdvi < 1:3.0
 
 %description common
 This package owns the basic directory structure of the texmf
@@ -136,7 +141,7 @@ Summary:        A DVI to PDF converter
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 Conflicts:      tetex < 1:3.0
-Conflicts:	tetex-dvipdfm < 1:3.0
+Conflicts:      tetex-dvipdfm < 1:3.0
 
 %description dvipdfm
 dvidpfm is a DVI to PDF translator for use with TeX.
@@ -395,8 +400,8 @@ install -d -m755 %{buildroot}%{_texmf_main}/fonts/{cmap,sfd,type3,type42}
 
 # move the configuration files and symlink them
 install -d -m755 %{buildroot}%{_texmf_conf}/web2c
-mv %{buildroot}%{_texmf_main}/web2c/*.cnf %{buildroot}%{_texmf_conf}/web2c/
-for file in `find %{buildroot}%{_texmf_conf}/web2c/ -name '*.cnf'`; do
+mv %{buildroot}%{_texmf_main}/web2c/{*.cnf,*.cfg} %{buildroot}%{_texmf_conf}/web2c/
+for file in `find %{buildroot}%{_texmf_conf}/web2c/ -name '*.cnf' -o -name '*.cfg'`; do
   filename="`basename ${file}`"
   ln -sf %{_texmf_conf}/web2c/${filename} %{buildroot}%{_texmf_main}/web2c/
 done
@@ -455,7 +460,11 @@ cat <<EOF >%{buildroot}%{_texmf_vendor}/tex/latex/fancyheadings.sty
       ====================================\MessageBreak}
  \RequirePackage{fancyhdr}
 EOF
+
+# FIXME: (walluck): this should already be done in %%post
 texhash %{buildroot}%{_texmf_vendor}
+
+%{__rm} %{buildroot}%{_texmf_vendor}/doc/latex/splitindex/splitindex-Linux-i386
 
 %clean
 rm -rf %{buildroot}
@@ -550,7 +559,7 @@ fi
 %{_texmf_vendor}/README
 %config(noreplace) %{_sysconfdir}/rpm/macros.d/texlive.macros
 %{_texmf_vendor}/bibtex/
-%{_texmf_main}/bibtex/
+#%{_texmf_main}/bibtex/
 %exclude %{_texmf_vendor}/bibtex/bst/context/
 %dir %{_texmf_main}/fmtutil/
 %{_texmf_vendor}/fonts/map/fontname/
@@ -593,6 +602,7 @@ fi
 %{_texmf_vendor}/tex/lambda/base/*.sty
 %{_texmf_vendor}/tex/mex/
 %{_texmf_vendor}/tex/mltex/
+%{_texmf_vendor}/tex/mptopdf/
 %{_texmf_vendor}/tex/plain/
 %{_texmf_vendor}/tex/texinfo/
 # will result in a couple files being owned by texmf and texmf-fonts
@@ -605,6 +615,7 @@ fi
 %{_texmf_main}/texdoctk/
 %dir %{_texmf_main}/web2c
 %{_texmf_main}/web2c/*.tcx
+%{_texmf_main}/web2c/*.cfg
 %{_texmf_main}/web2c/*.cnf
 %exclude %{_texmf_main}/web2c/*.pool
 # var
@@ -740,6 +751,7 @@ fi
 %ghost %{_texmf_vendor}/ls-R
 %ghost %{_texmf_conf}/ls-R
 %ghost %{_texmf_var}/ls-R
+%config(noreplace) %{_texmf_conf}/web2c/*.cfg
 %config(noreplace) %{_texmf_conf}/web2c/*.cnf
 %{_texmf_main}/web2c/*.cnf
 #%{_texmf_main}/default.ls-R
@@ -803,7 +815,7 @@ fi
 %{_texmf_vendor}/tex/cslatex/
 %{_texmf_main}/tex/latex/
 %{_texmf_vendor}/tex/latex/
-%{_texmf_vendor}/tex/platex/
+#%{_texmf_vendor}/tex/platex/
 %{_texmf_vendor}/tex/xelatex/
 ##%{_texmf_vendor}/context/data/latex-scite.properties
 
@@ -828,4 +840,3 @@ fi
 %files xmltex
 %defattr(-,root,root,0755)
 %{_texmf_vendor}/tex/xmltex/
-
