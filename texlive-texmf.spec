@@ -1,3 +1,4 @@
+%define svn_rev r6201
 %define obsolete_tetex 1
 
 %{!?_texmf_main: %global _texmf_main %{_datadir}/texmf}
@@ -8,19 +9,19 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 22
+Release:        %mkrel 23.%{svn_rev}
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
 License:        Distributable
 URL:            http://tug.org/texlive/
 # #rsync -avzH --exclude=.svn --exclude=bin tug.org::tldevsrc/Master .
-# svn co -r6201 svn://tug.org/texlive/trunk/Master
+# svn co -%{svn_rev} svn://tug.org/texlive/trunk/Master
 # find Master -name bin | xargs rm -r
 # find Master -name .svn | xargs rm -r
-# tar cf texlive-texmf-src-r6201.tar Master
-# lzma -z -9 texlive-texmf-src-r6201.tar
-Source0:        texlive-texmf-src-r6201.tar.lzma
+# tar cf texlive-texmf-src-%{svn_rev}.tar Master
+# lzma -z -9 texlive-texmf-src-%{svn_rev}.tar
+Source0:        texlive-texmf-src-%{svn_rev}.tar.lzma
 # Source1 is http://www.tug.org/texlive/Contents/inst/archive/texmf-var.zip
 Source1:        texlive.texmf-var-%{version}.zip
 Source2:        texlive.2007.ls-R
