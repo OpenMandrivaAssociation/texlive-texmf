@@ -36,12 +36,8 @@ Patch1:         texlive-2007-tkdefaults.patch
 # Suse
 Patch300:       texlive-texmf.patch
 # XXX: Needed for texinfo
-%if %obsolete_tetex
 Conflicts:      tetex < 1:3.0
 BuildConflicts: tetex < 1:3.0
-%else
-Provides:       tetex = 3.0
-%endif
 Provides:       latex-pgf = 0:1.01
 Provides:       latex-xcolor = 0:2.00
 BuildArch:      noarch
@@ -90,6 +86,8 @@ Group:          Publishing
 Summary:        The CM-Super font set
 %if %obsolete_tetex
 Obsoletes:      tetex-cmsuper < 1:3.0
+%else
+Conflicts:      tetex-cmsuper < 1:3.0
 %endif
 Provides:       tetex-cmsuper = 1:3.0
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
@@ -111,6 +109,8 @@ Group:          Publishing
 Summary:        Texmf files needed for texlive-afm
 %if %obsolete_tetex
 Conflicts:      tetex-afm < 1:3.0
+%else
+Conflicts:      tetex-afm < 1:3.0
 %endif
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
@@ -124,6 +124,8 @@ Group:          Publishing
 Summary:        TeX documentation
 %if %obsolete_tetex
 Obsoletes:      tetex-doc < %{epoch}:%{version}
+%else
+Conflicts:      tetex-doc < %{epoch}:%{version}
 %endif
 Provides:       tetex-doc = %{epoch}:%{version}-%{release}
 Obsoletes:      texlive-doc
@@ -150,9 +152,7 @@ dvidpfm is a DVI to PDF translator for use with TeX.
 %package dvips
 Group:          Publishing
 Summary:        Texmf files needed for texlive-dvips
-%if %obsolete_tetex
 Conflicts:      tetex-dvips < 1:3.0
-%endif
 Conflicts:      tetex < 1:3.0
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
@@ -178,15 +178,17 @@ Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
-%if %obsolete_tetex
 Conflicts:      tetex-latex < 1:3.0
-%endif
 %if %obsolete_tetex
 Obsoletes:      tetex-IEEEtran < 1.7b
+%else
+Conflicts:      tetex-IEEEtran < 1.7b
 %endif
 Provides:       tetex-IEEEtran = %{epoch}:%{version}-%{release}
 %if %obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.08
+%else
+Conflicts:      tetex-beamer < 0:3.08
 %endif
 Provides:       latex-beamer = 0:3.08
 
@@ -199,6 +201,8 @@ Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
 %if %obsolete_tetex
 Obsoletes:      tetex-usrlocal < 1:3.0
+%else
+Conflicts:      tetex-usrlocal < 1:3.0
 %endif
 Provides:       tetex-usrlocal = 1:3.0
 
