@@ -107,11 +107,7 @@ included).
 %package afm
 Group:          Publishing
 Summary:        Texmf files needed for texlive-afm
-%if %obsolete_tetex
 Conflicts:      tetex-afm < 1:3.0
-%else
-Conflicts:      tetex-afm < 1:3.0
-%endif
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
