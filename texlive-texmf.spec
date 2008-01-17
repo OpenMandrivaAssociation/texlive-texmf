@@ -1,5 +1,5 @@
 %define svn_rev r6201
-%define obsolete_tetex 1
+%bcond_with     obsolete_tetex
 
 %{!?_texmf_main: %global _texmf_main %{_datadir}/texmf}
 %{!?_texmf_vendor: %global _texmf_vendor %{_datadir}/texmf-texlive}
@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 23.%{svn_rev}
+Release:        %mkrel 24.%{svn_rev}
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -84,12 +84,12 @@ electronic documents.
 %package cmsuper
 Group:          Publishing
 Summary:        The CM-Super font set
-%if %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-cmsuper < 1:3.0
+Provides:       tetex-cmsuper = 1:3.0
 %else
 Conflicts:      tetex-cmsuper < 1:3.0
 %endif
-Provides:       tetex-cmsuper = 1:3.0
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
@@ -118,12 +118,12 @@ texlive-afm package.
 %package doc
 Group:          Publishing
 Summary:        TeX documentation
-%if %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-doc < %{epoch}:%{version}
+Provides:       tetex-doc = %{epoch}:%{version}-%{release}
 %else
 Conflicts:      tetex-doc < %{epoch}:%{version}
 %endif
-Provides:       tetex-doc = %{epoch}:%{version}-%{release}
 Obsoletes:      texlive-doc
 Provides:       texlive-doc
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
@@ -175,13 +175,13 @@ Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 Conflicts:      tetex-latex < 1:3.0
-%if %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-IEEEtran < 1.7b
+Provides:       tetex-IEEEtran = %{epoch}:%{version}-%{release}
 %else
 Conflicts:      tetex-IEEEtran < 1.7b
 %endif
-Provides:       tetex-IEEEtran = %{epoch}:%{version}-%{release}
-%if %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.08
 %else
 Conflicts:      tetex-beamer < 0:3.08
@@ -195,12 +195,12 @@ texlive-latex package.
 %package usrlocal
 Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
-%if %obsolete_tetex
+%if %with obsolete_tetex
 Obsoletes:      tetex-usrlocal < 1:3.0
+Provides:       tetex-usrlocal = 1:3.0
 %else
 Conflicts:      tetex-usrlocal < 1:3.0
 %endif
-Provides:       tetex-usrlocal = 1:3.0
 
 %description usrlocal
 This packages provides just the directory %{_texmf_local}
