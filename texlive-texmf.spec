@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 24.%{svn_rev}
+Release:        %mkrel 24.%{svn_rev}.1
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -34,6 +34,9 @@ Patch1:         texlive-2007-tkdefaults.patch
 # Suse
 Patch300:       texlive-texmf.patch
 # XXX: Needed for texinfo
+# (Anssi 01/2008) texinfo needs either tetex or texlive-texmf, but it is
+# needed during building of texlive, so this provide is here for that:
+Provides:	texmf-data = 0
 Conflicts:      tetex < 1:3.0
 BuildConflicts: tetex < 1:3.0
 Provides:       latex-pgf = 0:1.01
