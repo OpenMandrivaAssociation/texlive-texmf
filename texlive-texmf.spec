@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 24.%{svn_rev}.1
+Release:        %mkrel 24.%{svn_rev}.2
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -87,10 +87,10 @@ Group:          Publishing
 Summary:        The CM-Super font set
 %if %with obsolete_tetex
 Obsoletes:      tetex-cmsuper < 1:3.0
-Provides:       tetex-cmsuper = 1:3.0
 %else
 Conflicts:      tetex-cmsuper < 1:3.0
 %endif
+Provides:       tetex-cmsuper = 1:3.0
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 
@@ -120,11 +120,11 @@ texlive-afm package.
 Group:          Publishing
 Summary:        TeX documentation
 %if %with obsolete_tetex
-Obsoletes:      tetex-doc < %{epoch}:%{version}
-Provides:       tetex-doc = %{epoch}:%{version}-%{release}
+Obsoletes:      tetex-doc < 1:3.0
 %else
-Conflicts:      tetex-doc < %{epoch}:%{version}
+Conflicts:      tetex-doc < 1:3.0
 %endif
+Provides:       tetex-doc = 1:3.0
 Obsoletes:      texlive-doc
 Provides:       texlive-doc
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
@@ -178,10 +178,10 @@ Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 Conflicts:      tetex-latex < 1:3.0
 %if %with obsolete_tetex
 Obsoletes:      tetex-IEEEtran < 1.7b
-Provides:       tetex-IEEEtran = %{epoch}:%{version}-%{release}
 %else
 Conflicts:      tetex-IEEEtran < 1.7b
 %endif
+Provides:       tetex-IEEEtran = %{epoch}:%{version}-%{release}
 %if %with obsolete_tetex
 Obsoletes:      latex-beamer < 0:3.08
 %else
@@ -198,10 +198,10 @@ Group:          Publishing
 Summary:        Virtual package for placing local system-wide teTeX files
 %if %with obsolete_tetex
 Obsoletes:      tetex-usrlocal < 1:3.0
-Provides:       tetex-usrlocal = 1:3.0
 %else
 Conflicts:      tetex-usrlocal < 1:3.0
 %endif
+Provides:       tetex-usrlocal = 1:3.0
 
 %description usrlocal
 This packages provides just the directory %{_texmf_local}
