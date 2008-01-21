@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 24.%{svn_rev}.2
+Release:        %mkrel 24.%{svn_rev}.3
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
