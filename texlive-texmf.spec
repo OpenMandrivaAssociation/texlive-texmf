@@ -15,6 +15,9 @@ Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
 License:        Distributable
 URL:            http://tug.org/texlive/
+#
+# (tv) it would be friendler to SVN to just add changes as patch or extra tarball:
+#
 # #rsync -avzH --exclude=.svn --exclude=bin tug.org::tldevsrc/Master .
 # svn export -%{svn_rev} svn://tug.org/texlive/trunk/Master
 # find Master -name bin | xargs rm -r
