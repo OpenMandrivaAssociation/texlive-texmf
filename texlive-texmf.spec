@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 4.%{svn_rev}.3
+Release:        %mkrel 4.%{svn_rev}.4
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -34,6 +34,8 @@ Source50:       dvips-config.generic
 # Fedora
 Patch0:         texlive-2007-badenv.patch
 Patch1:         texlive-2007-tkdefaults.patch
+# https://qa.mandriva.com/show_bug.cgi?id=38016
+Patch100:	texlive-mf-bug1.patch
 # Suse
 Patch300:       texlive-texmf.patch
 # XXX: Needed for texinfo
@@ -243,6 +245,11 @@ install -m644 %{SOURCE50} texmf-var/dvips/config/config.generic
 
 %patch0 -p0
 %patch1 -p0
+
+pushd texmf/web2c
+%patch100 -p0
+popd
+
 %patch300 -p0
 
 # these may be useful to hang onto
