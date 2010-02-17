@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 24.%{svn_rev}.6
+Release:        %mkrel 24.%{svn_rev}.7
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -180,6 +180,7 @@ Group:          Publishing
 Summary:        Texmf files needed for texlive-latex
 Requires:       texlive-texmf = %{epoch}:%{version}-%{release}
 Requires:       texlive-texmf-common = %{epoch}:%{version}-%{release}
+Requires:       texlive-texmf-cmsuper = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf = %{epoch}:%{version}-%{release}
 Requires(post): texlive-texmf-common = %{epoch}:%{version}-%{release}
 Conflicts:      tetex-latex < 1:3.0
