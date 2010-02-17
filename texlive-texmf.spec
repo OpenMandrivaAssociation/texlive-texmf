@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 24.%{svn_rev}.5
+Release:        %mkrel 24.%{svn_rev}.6
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -38,6 +38,8 @@ Patch1:         texlive-2007-tkdefaults.patch
 Patch100:	texlive-mf-bug1.patch
 # Suse
 Patch300:       texlive-texmf.patch
+BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # XXX: Needed for texinfo
 # (Anssi 01/2008) texinfo needs either tetex or texlive-texmf, but it is
 # needed during building of texlive, so this provide is here for that:
@@ -46,8 +48,8 @@ Conflicts:      tetex < 1:3.0
 BuildConflicts: tetex < 1:3.0
 Provides:       latex-pgf = 0:1.01
 Provides:       latex-xcolor = 0:2.00
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
+# (Lev) fix bug 42316:
+Requires:	perl, ruby
 # (tv) for texhash:
 # FIXME: (walluck): this creates a circular dependency between texlive and texlive-texmf
 BuildRequires: texlive-fonts
