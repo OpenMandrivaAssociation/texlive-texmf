@@ -9,7 +9,7 @@
 
 Name:           texlive-texmf
 Version:        2007
-Release:        %mkrel 24.%{svn_rev}.7
+Release:        %mkrel 24.%{svn_rev}.8
 Epoch:          0
 Summary:        Architecture independent parts of the TeX formatting system
 Group:          Publishing
@@ -36,6 +36,8 @@ Patch0:         texlive-2007-badenv.patch
 Patch1:         texlive-2007-tkdefaults.patch
 # https://qa.mandriva.com/show_bug.cgi?id=38016
 Patch100:	texlive-mf-bug1.patch
+# https://qa.mandriva.com/show_bug.cgi?id=40762
+Patch101:	texlive-texmf-usrlocal.patch
 # Suse
 Patch300:       texlive-texmf.patch
 BuildArch:      noarch
@@ -251,6 +253,7 @@ install -m644 %{SOURCE50} texmf-var/dvips/config/config.generic
 
 pushd texmf/web2c
 %patch100 -p0
+%patch101 -p0
 popd
 
 %patch300 -p0
