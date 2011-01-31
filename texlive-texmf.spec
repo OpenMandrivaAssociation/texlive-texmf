@@ -133,7 +133,7 @@ texlive-fonts package.
 Group:		Publishing
 Summary:	Texmf files needed for texlive-latex
 Requires:	texlive-texmf = %{version}-%{release}
-Requires:	tex-preview
+#Requires:	tex-preview
 
 %description latex
 This package contains the components of the TEXMF tree needed for the
