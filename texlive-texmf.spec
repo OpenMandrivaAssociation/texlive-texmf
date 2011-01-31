@@ -16,8 +16,7 @@
 
 Name:		texlive-texmf
 Version:	2007
-# must match release in textlive.spec
-Release:	%mkrel 22
+Release:	%mkrel 25
 Summary:	Architecture independent parts of the TeX formatting system
 
 Group:		Publishing
