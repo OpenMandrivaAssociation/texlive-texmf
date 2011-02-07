@@ -1,3 +1,7 @@
+# FIXME temporary hack for test builds
+%define __find_provides		%{nil}
+%define __find_requires		%{nil}
+
 Name:		texlive-texmf
 Version:	20100722
 Release:	%mkrel 1
@@ -65,8 +69,8 @@ provide a packaging similar in style and layout to teTeX.
 
 %files		doc
 %defattr(-,root,root,-)
-%%{_datadir}/texmf/doc/*
-%%{_datadir}/texmf-dist/doc/*
+%{_datadir}/texmf/doc/*
+%{_datadir}/texmf-dist/doc/*
 
 #-----------------------------------------------------------------------
 %prep
@@ -168,4 +172,7 @@ popd
 
 #-----------------------------------------------------------------------
 %clean
+# FIXME temporary hack for test builds
+%if 0
 rm -rf %{buildroot}
+%endif
