@@ -72,14 +72,14 @@ provide a packaging similar in style and layout to teTeX.
 %prep
 %setup -q -n texlive-20100722-texmf
 
-perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'					\
-	 -e 's%^(TEXMFLOCAL\s+*= ).*%$1{%{_datadir}/texmf-local,%{_datadir}/texmf}%;'		\
-	 -e 's%^(TEXMFFONTS\s+*= ).*%$1{%{_datadir}/texmf/fonts,%{_datadir}/texmf-dist/fonts}%;'\
-	 -e 's%^(TEXMFEXTRA\s+*= ).*%$1{%{_datadir}/texmf-extra,%{_datadir}/texmf}%;'		\
-	 -e 's%^(TEXMFPROJECT\s+*= ).*%$1{%{_datadir}/texmf-project,%{_datadir}/texmf}%;'	\
-	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'				\
-	 -e 's%^(HOMETEXMF\s+= ).*%$1\{$HOME/texmf,%{_datadir}/texmf}%;'			\
-	 -e 's%^(TEXMFCNF = ).*%$1%{_datadir}/texmf/web2c%;'					\
+perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'					 \
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1\{%{_datadir}/texmf-local,%{_datadir}/texmf\}%;'		 \
+	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{_datadir}/texmf/fonts,%{_datadir}/texmf-dist/fonts\}%;'\
+	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{_datadir}/texmf-extra,%{_datadir}/texmf\}%;'		 \
+	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{_datadir}/texmf-project,%{_datadir}/texmf\}%;'	 \
+	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'				 \
+	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'			 \
+	 -e 's%^(TEXMFCNF\s+= ).*%$1%{_datadir}/texmf/web2c%;'					 \
 	texmf/web2c/context.cnf
 
 #-----------------------------------------------------------------------
