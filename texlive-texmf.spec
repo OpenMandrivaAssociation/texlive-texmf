@@ -54,7 +54,9 @@ provide a packaging similar in style and layout to teTeX.
 %files
 %defattr(-,root,root,-)
 %{_datadir}/texmf/*
+%exclude %{_datadir}/texmf/doc
 %{_datadir}/texmf-dist/*
+%exclude %{_datadir}/texmf-dist/doc
 
 #-----------------------------------------------------------------------
 %package	doc
