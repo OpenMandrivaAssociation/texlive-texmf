@@ -11,26 +11,36 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Requires:	perl-Algorithm-Diff
 
-Provides:	texlive-texmf-afm
+Provides:	texlive-texmf-afm = %{version}
 Obsoletes:	texlive-texmf-afm <= 2007
-Provides:	texlive-texmf-cmsuper
+Provides:	texlive-texmf-cmsuper = %{version}
 Obsoletes:	texlive-texmf-cmsuper <= 2007
-Provides:	texlive-texmf-common
+Provides:	texlive-texmf-common = %{version}
 Obsoletes:	texlive-texmf-common <= 2007
-Provides:	texlive-texmf-context
+Provides:	texlive-texmf-context = %{version}
 Obsoletes:	texlive-texmf-context <= 2007
-Provides:	texlive-texmf-dvipdfm
+Provides:	texlive-texmf-dvipdfm = %{version}
 Obsoletes:	texlive-texmf-dvipdfm <= 2007
-Provides:	texlive-texmf-dvips
+Provides:	texlive-texmf-dvips = %{version}
 Obsoletes:	texlive-texmf-dvips <= 2007
-Provides:	texlive-texmf-jadetex
+
+%if %mdkversion <= 201100
+Provides:	texlive-texmf-jadetex = %{version}
 Obsoletes:	texlive-texmf-jadetex <= 2007
-Provides:	texlive-texmf-latex
+%endif
+
+Provides:	texlive-texmf-latex = %{version}
 Obsoletes:	texlive-texmf-latex <= 2007
-Provides:	texlive-texmf-usrlocal
+
+%if %mdkversion <= 201100
+Provides:	texlive-texmf-usrlocal = %{version}
 Obsoletes:	texlive-texmf-usrlocal <= 2007
-Provides:	texlive-texmf-xmltex
+%endif
+
+Provides:	texlive-texmf-xmltex = %{version}
 Obsoletes:	texlive-texmf-xmltex <= 2007
+
+Provides:	texmf-data = %{version}
 
 %description
 texlive-texmf is a texmf distribution based upon TeX Live. All of the files
@@ -48,7 +58,7 @@ Summary:	TeX Live documentation
 Group:		Publishing
 Requires:	texlive-doc = %{version}
 
-%description
+%description	doc
 texlive-texmf is a texmf distribution based upon TeX Live. All of the files
 contained in these packages are from the TeX Live zip files. The intent is to
 provide a packaging similar in style and layout to teTeX.
