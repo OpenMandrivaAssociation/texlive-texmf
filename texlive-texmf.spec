@@ -13,7 +13,9 @@ Source0:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.
 Source1:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz.sha256
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
+
 Requires:	perl-Algorithm-Diff
+Requires:	xdg-utils
 
 Provides:	texlive-texmf-afm = %{version}
 Obsoletes:	texlive-texmf-afm <= 2007
@@ -87,6 +89,12 @@ perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'					 \
 	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'			 \
 	 -e 's%^(TEXMFCNF\s+= ).*%$1%{_datadir}/texmf/web2c%;'					 \
 	texmf/web2c/context.cnf
+
+perl -pi -e 's%^(TEXMFCACHE\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'	\
+	texmf/web2c/texmfcnf.lua
+
+perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
+	texmf/texdoc/texdoc.cnf
 
 #-----------------------------------------------------------------------
 %build
