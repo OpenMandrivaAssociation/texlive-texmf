@@ -271,7 +271,7 @@ popd
 mkdir -p %{buildroot}%{_datadir}/fonts
 pushd %{buildroot}%{_datadir}/fonts
     ln -sf ../texmf/fonts texmf
-    ln -sf ../texmf/fonts texmf-dist
+    ln -sf ../texmf-dist/fonts texmf-dist
 popd
 
 mkdir -p %{buildroot}%{_datadir}/X11/app-defaults
