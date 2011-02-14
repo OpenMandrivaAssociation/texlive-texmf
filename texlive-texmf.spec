@@ -2,7 +2,7 @@
 #%#define __find_requires		%{nil}
 #%#define __find_lang		%{nil}
 
-#%#define __spec_install_pre	export RPM_SOURCE_DIR="%{_sourcedir}";export RPM_BUILD_DIR="%{_builddir}";export RPM_OPT_FLAGS="%{optflags}";export RPM_ARCH="%{_arch}";export RPM_OS="%{_os}";export RPM_DOC_DIR="%%{_docdir}";export RPM_PACKAGE_NAME="%%{name}";export RPM_PACKAGE_VERSION="%%{version}";export RPM_PACKAGE_RELEASE="%%{release}";export RPM_BUILD_ROOT="%{buildroot}";export LC_ALL=C;export LANG=C;cd %_builddir
+%define __spec_install_pre	export RPM_SOURCE_DIR="%{_sourcedir}";export RPM_BUILD_DIR="%{_builddir}";export RPM_OPT_FLAGS="%{optflags}";export RPM_ARCH="%{_arch}";export RPM_OS="%{_os}";export RPM_DOC_DIR="%%{_docdir}";export RPM_PACKAGE_NAME="%%{name}";export RPM_PACKAGE_VERSION="%%{version}";export RPM_PACKAGE_RELEASE="%%{release}";export RPM_BUILD_ROOT="%{buildroot}";export LC_ALL=C;export LANG=C;cd %_builddir
 %define enable_asymptote	0
 %define enable_xindy		0
 
@@ -143,7 +143,7 @@ perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'				\
 	 -e 's%^(TEXMFDIST\s+= ).*%$1%{_datadir}/texmf-dist%;'				\
 	 -e 's%^(TEXMFLOCAL\s+= ).*%$1\{%{_datadir}/texmf-local,%{_datadir}/texmf\}%;'	\
 	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{_localstatedir}/lib/texmf%;'			\
-	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{_datadir}/texmf-config%;'			\
+	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{__sysconfdir}/texmf%;'			\
 	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'		\
 	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'			\
 	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2010/texmf-config%;'		\
