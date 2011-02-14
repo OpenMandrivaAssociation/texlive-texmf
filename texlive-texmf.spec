@@ -167,106 +167,106 @@ cp -far * %{buildroot}%{_datadir}
 
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf a2ping	../share/texmf/scripts/a2ping/a2ping.pl
-    ln -sf afm2afm	../share/texmf-dist/scripts/fontools/afm2afm
-    ln -sf arlatex	../share/texmf-dist/scripts/bundledoc/arlatex
-    ln -sf authorindex	../share/texmf-dist/scripts/authorindex/authorindex
-    ln -sf autoinst	../share/texmf-dist/scripts/fontools/autoinst
-    ln -sf bibexport	../share/texmf-dist/scripts/bibexport/bibexport.sh
-    ln -sf bundledoc	../share/texmf-dist/scripts/bundledoc/bundledoc
-    ln -sf cachepic	../share/texmf-dist/scripts/cachepic/cachepic.tlu
-    ln -sf cmap2enc	../share/texmf-dist/scripts/fontools/cmap2enc
-    ln -sf de-macro	../share/texmf-dist/scripts/de-macro/de-macro
-    ln -sf dviasm	../share/texmf-dist/scripts/dviasm/dviasm.py
-    ln -sf e2pall	../share/texmf/scripts/tetex/e2pall.pl
-    ln -sf ebong	../share/texmf-dist/scripts/bengali/ebong.py
-    ln -sf epspdf	../share/texmf-dist/scripts/epspdf/epspdf
-    ln -sf epspdftk	../share/texmf-dist/scripts/epspdf/epspdftk
-    ln -sf epstopdf	../share/texmf-dist/scripts/epstopdf/epstopdf.pl
-    ln -sf fig4latex	../share/texmf-dist/scripts/fig4latex/fig4latex
-    ln -sf findhyph	../share/texmf-dist/scripts/findhyph/findhyph
-    ln -sf font2afm	../share/texmf-dist/scripts/fontools/font2afm
-    ln -sf fragmaster	../share/texmf-dist/scripts/fragmaster/fragmaster.pl
+    ln -sf ../share/texmf/scripts/a2ping/a2ping.pl a2ping
+    ln -sf ../share/texmf-dist/scripts/fontools/afm2afm afm2afm
+    ln -sf ../share/texmf-dist/scripts/bundledoc/arlatex arlatex
+    ln -sf ../share/texmf-dist/scripts/authorindex/authorindex authorindex
+    ln -sf ../share/texmf-dist/scripts/fontools/autoinst autoinst
+    ln -sf ../share/texmf-dist/scripts/bibexport/bibexport.sh bibexport
+    ln -sf ../share/texmf-dist/scripts/bundledoc/bundledoc bundledoc
+    ln -sf ../share/texmf-dist/scripts/cachepic/cachepic.tlu cachepic
+    ln -sf ../share/texmf-dist/scripts/fontools/cmap2enc cmap2enc
+    ln -sf ../share/texmf-dist/scripts/de-macro/de-macro de-macro
+    ln -sf ../share/texmf-dist/scripts/dviasm/dviasm.py dviasm
+    ln -sf ../share/texmf/scripts/tetex/e2pall.pl e2pall
+    ln -sf ../share/texmf-dist/scripts/bengali/ebong.py ebong
+    ln -sf ../share/texmf-dist/scripts/epspdf/epspdf epspdf
+    ln -sf ../share/texmf-dist/scripts/epspdf/epspdftk epspdftk
+    ln -sf ../share/texmf-dist/scripts/epstopdf/epstopdf.pl epstopdf
+    ln -sf ../share/texmf-dist/scripts/fig4latex/fig4latex fig4latex
+    ln -sf ../share/texmf-dist/scripts/findhyph/findhyph findhyph
+    ln -sf ../share/texmf-dist/scripts/fontools/font2afm font2afm
+    ln -sf ../share/texmf-dist/scripts/fragmaster/fragmaster.pl fragmaster
 %if !%{with_system_tex4ht}
-    ln -sf ht		../share/texmf-dist/scripts/tex4ht/ht.sh
-    ln -sf htcontext	../share/texmf-dist/scripts/tex4ht/htcontext.sh
-    ln -sf htlatex	../share/texmf-dist/scripts/tex4ht/htlatex.sh
-    ln -sf htmex	../share/texmf-dist/scripts/tex4ht/htmex.sh
-    ln -sf httex	../share/texmf-dist/scripts/tex4ht/httex.sh
-    ln -sf httexi	../share/texmf-dist/scripts/tex4ht/httexi.sh
-    ln -sf htxelatex	../share/texmf-dist/scripts/tex4ht/htxelatex.sh
-    ln -sf htxetex	../share/texmf-dist/scripts/tex4ht/htxetex.sh
+    ln -sf ../share/texmf-dist/scripts/tex4ht/ht.sh ht
+    ln -sf ../share/texmf-dist/scripts/tex4ht/htcontext.sh htcontext
+    ln -sf ../share/texmf-dist/scripts/tex4ht/htlatex.sh htlatex
+    ln -sf ../share/texmf-dist/scripts/tex4ht/htmex.sh htmex
+    ln -sf ../share/texmf-dist/scripts/tex4ht/httex.sh httex
+    ln -sf ../share/texmf-dist/scripts/tex4ht/httexi.sh httexi
+    ln -sf ../share/texmf-dist/scripts/tex4ht/htxelatex.sh htxelatex
+    ln -sf ../share/texmf-dist/scripts/tex4ht/htxetex.sh htxetex
 %endif
-    ln -sf latex2man	../share/texmf-dist/scripts/latex2man/latex2man
-    ln -sf latexdiff	../share/texmf-dist/scripts/latexdiff/latexdiff.pl
-    ln -sf latexdiff-vc	../share/texmf-dist/scripts/latexdiff/latexdiff-vc.pl
-    ln -sf latexmk	../share/texmf-dist/scripts/latexmk/latexmk.pl
-    ln -sf latexrevise	../share/texmf-dist/scripts/latexdiff/latexrevise.pl
-    ln -sf listings-ext.sh	../share/texmf-dist/scripts/listings-ext/listings-ext.sh
-    ln -sf makeglossaries	../share/texmf-dist/scripts/glossaries/makeglossaries
-    ln -sf mathspic	../share/texmf-dist/scripts/mathspic/mathspic.pl
+    ln -sf ../share/texmf-dist/scripts/latex2man/latex2man latex2man
+    ln -sf ../share/texmf-dist/scripts/latexdiff/latexdiff.pl latexdiff
+    ln -sf ../share/texmf-dist/scripts/latexdiff/latexdiff-vc.pl latexdiff-vc
+    ln -sf ../share/texmf-dist/scripts/latexmk/latexmk.pl latexmk
+    ln -sf ../share/texmf-dist/scripts/latexdiff/latexrevise.pl latexrevise
+    ln -sf ../share/texmf-dist/scripts/listings-ext/listings-ext.sh listings-ext.sh
+    ln -sf ../share/texmf-dist/scripts/glossaries/makeglossaries makeglossaries
+    ln -sf ../share/texmf-dist/scripts/mathspic/mathspic.pl mathspic
 %if !%{with_system_tex4ht}
-    ln -sf mk4ht	../share/texmf-dist/scripts/tex4ht/mk4ht.pl
+    ln -sf ../share/texmf-dist/scripts/tex4ht/mk4ht.pl mk4ht
 %endif
-    ln -sf mkgrkindex	../share/texmf-dist/scripts/mkgrkindex/mkgrkindex
-    ln -sf mkjobtexmf	../share/texmf-dist/scripts/mkjobtexmf/mkjobtexmf.pl
-    ln -sf mkluatexfontdb	../share/texmf-dist/scripts/luaotfload/mkluatexfontdb.lua
-    ln -sf mkt1font	../share/texmf-dist/scripts/accfonts/mkt1font
-    ln -sf mptopdf	../share/texmf-dist/scripts/context/perl/mptopdf.pl
-    ln -sf ot2kpx	../share/texmf-dist/scripts/fontools/ot2kpx
-    ln -sf pdf180	../share/texmf-dist/scripts/pdfjam/pdf180
-    ln -sf pdf270	../share/texmf-dist/scripts/pdfjam/pdf270
-    ln -sf pdf90	../share/texmf-dist/scripts/pdfjam/pdf90
-    ln -sf pdfannotextractor	../share/texmf-dist/scripts/pax/pdfannotextractor.pl
-    ln -sf pdfatfi	../share/texmf-dist/scripts/oberdiek/pdfatfi.pl
-    ln -sf pdfbook	../share/texmf-dist/scripts/pdfjam/pdfbook
-    ln -sf pdfcrop	../share/texmf-dist/scripts/pdfcrop/pdfcrop.pl
-    ln -sf pdfflip	../share/texmf-dist/scripts/pdfjam/pdfflip
-    ln -sf pdfjam	../share/texmf-dist/scripts/pdfjam/pdfjam
-    ln -sf pdfjam-pocketmod	../share/texmf-dist/scripts/pdfjam/pdfjam-pocketmod
-    ln -sf pdfjam-slides3up	../share/texmf-dist/scripts/pdfjam/pdfjam-slides3up
-    ln -sf pdfjam-slides6up	../share/texmf-dist/scripts/pdfjam/pdfjam-slides6up
-    ln -sf pdfjoin	../share/texmf-dist/scripts/pdfjam/pdfjoin
-    ln -sf pdfnup	../share/texmf-dist/scripts/pdfjam/pdfnup
-    ln -sf pdfpun	../share/texmf-dist/scripts/pdfjam/pdfpun
-    ln -sf pdfthumb	../share/texmf-dist/scripts/ppower4/pdfthumb.tlu
-    ln -sf perltex	../share/texmf-dist/scripts/perltex/perltex.pl
-    ln -sf pfm2kpx	../share/texmf-dist/scripts/fontools/pfm2kpx
-    ln -sf pkfix	../share/texmf-dist/scripts/pkfix/pkfix.pl
-    ln -sf pkfix-helper	../share/texmf-dist/scripts/pkfix-helper/pkfix-helper
-    ln -sf ppower4	../share/texmf-dist/scripts/ppower4/ppower4.tlu
-    ln -sf ps4pdf	../share/texmf-dist/scripts/pst-pdf/ps4pdf
-    ln -sf pst2pdf	../share/texmf-dist/scripts/pst2pdf/pst2pdf
-    ln -sf purifyeps	../share/texmf-dist/scripts/purifyeps/purifyeps
-    ln -sf repstopdf	epstopdf
-    ln -sf rpdfcrop	pdfcrop
-    ln -sf rungs	../share/texmf/scripts/texlive/rungs.tlu
-    ln -sf showglyphs	../share/texmf-dist/scripts/fontools/showglyphs
-    ln -sf splitindex	../share/texmf-dist/scripts/splitindex/perl/splitindex.pl
-    ln -sf simpdftex	../share/texmf/scripts/simpdftex/simpdftex
-    ln -sf svn-multi	../share/texmf-dist/scripts/svn-multi/svn-multi.pl
-    ln -sf texcount	../share/texmf-dist/scripts/texcount/texcount.pl
-    ln -sf texdiff	../share/texmf-dist/scripts/texdiff/texdiff
-    ln -sf texdirflatten	../share/texmf-dist/scripts/texdirflatten/texdirflatten
-    ln -sf texdoc	../share/texmf/scripts/texdoc/texdoc.tlu
-    ln -sf texloganalyser	../share/texmf-dist/scripts/texloganalyser/texloganalyser
-    ln -sf thumbpdf	../share/texmf-dist/scripts/thumbpdf/thumbpdf.pl
-    ln -sf ulqda	../share/texmf-dist/scripts/ulqda/ulqda.pl
-    ln -sf vpe	../share/texmf-dist/scripts/vpe/vpe.pl
-    ln -sf vpl2ovp	../share/texmf-dist/scripts/accfonts/vpl2ovp
-    ln -sf vpl2vpl	../share/texmf-dist/scripts/accfonts/vpl2vpl
+    ln -sf ../share/texmf-dist/scripts/mkgrkindex/mkgrkindex mkgrkindex
+    ln -sf ../share/texmf-dist/scripts/mkjobtexmf/mkjobtexmf.pl mkjobtexmf
+    ln -sf ../share/texmf-dist/scripts/luaotfload/mkluatexfontdb.lua mkluatexfontdb
+    ln -sf ../share/texmf-dist/scripts/accfonts/mkt1font mkt1font
+    ln -sf ../share/texmf-dist/scripts/context/perl/mptopdf.pl mptopdf
+    ln -sf ../share/texmf-dist/scripts/fontools/ot2kpx ot2kpx
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdf180 pdf180
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdf270 pdf270
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdf90 pdf90
+    ln -sf ../share/texmf-dist/scripts/pax/pdfannotextractor.pl pdfannotextractor
+    ln -sf ../share/texmf-dist/scripts/oberdiek/pdfatfi.pl pdfatfi
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfbook pdfbook
+    ln -sf ../share/texmf-dist/scripts/pdfcrop/pdfcrop.pl pdfcrop
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfflip pdfflip
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam pdfjam
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam-pocketmod pdfjam-pocketmod
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam-slides3up pdfjam-slides3up
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam-slides6up pdfjam-slides6up
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjoin pdfjoin
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfnup pdfnup
+    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfpun pdfpun
+    ln -sf ../share/texmf-dist/scripts/ppower4/pdfthumb.tlu pdfthumb
+    ln -sf ../share/texmf-dist/scripts/perltex/perltex.pl perltex
+    ln -sf ../share/texmf-dist/scripts/fontools/pfm2kpx pfm2kpx
+    ln -sf ../share/texmf-dist/scripts/pkfix/pkfix.pl pkfix
+    ln -sf ../share/texmf-dist/scripts/pkfix-helper/pkfix-helper pkfix-helper
+    ln -sf ../share/texmf-dist/scripts/ppower4/ppower4.tlu ppower4
+    ln -sf ../share/texmf-dist/scripts/pst-pdf/ps4pdf ps4pdf
+    ln -sf ../share/texmf-dist/scripts/pst2pdf/pst2pdf pst2pdf
+    ln -sf ../share/texmf-dist/scripts/purifyeps/purifyeps purifyeps
+    ln -sf epstopdf repstopdf
+    ln -sf pdfcrop rpdfcrop
+    ln -sf ../share/texmf/scripts/texlive/rungs.tlu rungs
+    ln -sf ../share/texmf-dist/scripts/fontools/showglyphs showglyphs
+    ln -sf ../share/texmf-dist/scripts/splitindex/perl/splitindex.pl splitindex
+    ln -sf ../share/texmf/scripts/simpdftex/simpdftex simpdftex
+    ln -sf ../share/texmf-dist/scripts/svn-multi/svn-multi.pl svn-multi
+    ln -sf ../share/texmf-dist/scripts/texcount/texcount.pl texcount
+    ln -sf ../share/texmf-dist/scripts/texdiff/texdiff texdiff
+    ln -sf ../share/texmf-dist/scripts/texdirflatten/texdirflatten texdirflatten
+    ln -sf ../share/texmf/scripts/texdoc/texdoc.tlu texdoc
+    ln -sf ../share/texmf-dist/scripts/texloganalyser/texloganalyser texloganalyser
+    ln -sf ../share/texmf-dist/scripts/thumbpdf/thumbpdf.pl thumbpdf
+    ln -sf ../share/texmf-dist/scripts/ulqda/ulqda.pl ulqda
+    ln -sf ../share/texmf-dist/scripts/vpe/vpe.pl vpe
+    ln -sf ../share/texmf-dist/scripts/accfonts/vpl2ovp vpl2ovp
+    ln -sf ../share/texmf-dist/scripts/accfonts/vpl2vpl vpl2vpl
 popd
 
 mkdir -p %{buildroot}%{_datadir}/fonts
 pushd %{buildroot}%{_datadir}/fonts
-    ln -sf texmf	../texmf/fonts
-    ln -sf texmf-dist	../texmf-dist/fonts
+    ln -sf ../texmf/fonts texmf
+    ln -sf ../texmf/fonts texmf-dist
 popd
 
 mkdir -p %{buildroot}%{_datadir}/X11/app-defaults
 pushd %{buildroot}%{_datadir}/X11/app-defaults
-    ln -sf XDvi		../texmf/xdvi/XDvi
-fi
+    ln -sf ../../texmf/xdvi/XDvi XDvi
+popd
 
 pushd %{buildroot}%{_datadir}/texmf
 %if !%{enable_asymptote}
