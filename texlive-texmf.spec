@@ -1,4 +1,8 @@
-%define	__spec_install_pre	export RPM_SOURCE_DIR="%{_sourcedir}";export RPM_BUILD_DIR="%{_builddir}";export RPM_OPT_FLAGS="%{optflags}";export RPM_ARCH="%{_arch}";export RPM_OS="%{_os}";export RPM_DOC_DIR="%%{_docdir}";export RPM_PACKAGE_NAME="%%{name}";export RPM_PACKAGE_VERSION="%%{version}";export RPM_PACKAGE_RELEASE="%%{release}";export RPM_BUILD_ROOT="%{buildroot}";export LC_ALL=C;export LANG=C;cd %_builddir
+#%#define __find_provides		%{nil}
+#%#define __find_requires		%{nil}
+#%#define __find_lang		%{nil}
+
+#%#define __spec_install_pre	export RPM_SOURCE_DIR="%{_sourcedir}";export RPM_BUILD_DIR="%{_builddir}";export RPM_OPT_FLAGS="%{optflags}";export RPM_ARCH="%{_arch}";export RPM_OS="%{_os}";export RPM_DOC_DIR="%%{_docdir}";export RPM_PACKAGE_NAME="%%{name}";export RPM_PACKAGE_VERSION="%%{version}";export RPM_PACKAGE_RELEASE="%%{release}";export RPM_BUILD_ROOT="%{buildroot}";export LC_ALL=C;export LANG=C;cd %_builddir
 %define enable_asymptote	0
 %define enable_xindy		0
 
@@ -8,6 +12,7 @@
 %define with_system_psutils	1
 %define with_system_t1lib	1
 %define with_system_tex4ht	0
+%define with_system_teckit	0
 
 Name:		texlive-texmf
 Version:	20100722
@@ -25,36 +30,31 @@ BuildArch:	noarch
 Requires:	perl-Algorithm-Diff
 Requires:	xdg-utils
 
+%if %mdkversion <= 201100
 Provides:	texlive-texmf-afm = %{version}
-Obsoletes:	texlive-texmf-afm <= 2007
 Provides:	texlive-texmf-cmsuper = %{version}
-Obsoletes:	texlive-texmf-cmsuper <= 2007
 Provides:	texlive-texmf-common = %{version}
-Obsoletes:	texlive-texmf-common <= 2007
 Provides:	texlive-texmf-context = %{version}
-Obsoletes:	texlive-texmf-context <= 2007
 Provides:	texlive-texmf-dvipdfm = %{version}
-Obsoletes:	texlive-texmf-dvipdfm <= 2007
 Provides:	texlive-texmf-dvips = %{version}
-Obsoletes:	texlive-texmf-dvips <= 2007
-
-%if %mdkversion <= 201100
 Provides:	texlive-texmf-jadetex = %{version}
-Obsoletes:	texlive-texmf-jadetex <= 2007
-%endif
-
 Provides:	texlive-texmf-latex = %{version}
-Obsoletes:	texlive-texmf-latex <= 2007
-
-%if %mdkversion <= 201100
 Provides:	texlive-texmf-usrlocal = %{version}
-Obsoletes:	texlive-texmf-usrlocal <= 2007
+Provides:	texlive-texmf-xmltex = %{version}
+Provides:	texmf-data = %{version}
 %endif
 
-Provides:	texlive-texmf-xmltex = %{version}
+Obsoletes:	texlive-texmf-afm <= 2007
+Obsoletes:	texlive-texmf-cmsuper <= 2007
+Obsoletes:	texlive-texmf-common <= 2007
+Obsoletes:	texlive-texmf-context <= 2007
+Obsoletes:	texlive-texmf-dvipdfm <= 2007
+Obsoletes:	texlive-texmf-dvips <= 2007
+Obsoletes:	texlive-texmf-jadetex <= 2007
+Obsoletes:	texlive-texmf-latex <= 2007
+Obsoletes:	texlive-texmf-usrlocal <= 2007
 Obsoletes:	texlive-texmf-xmltex <= 2007
-
-Provides:	texmf-data = %{version}
+Obsoletes:	texmf-data <= 2007
 
 #-----------------------------------------------------------------------
 Patch0:		texlive-20100722-texmf-default.patch
@@ -71,8 +71,15 @@ free software, including support for many languages around the world.
 %{_bindir}/*
 %{_datadir}/X11/app-defaults/XDvi
 %{_datadir}/texmf/chktex
+%{_datadir}/texmf/dvipdfmx
+%{_datadir}/texmf/dvips
+%{_datadir}/texmf/hbf2gf
 %{_datadir}/texmf/scripts
+%{_datadir}/texmf/tex
 %{_datadir}/texmf/texconfig
+%{_datadir}/texmf/texdoc
+%{_datadir}/texmf/texdoctk
+%{_datadir}/texmf/ttf2pk
 %{_datadir}/texmf/web2c
 %{_datadir}/texmf/xdvi
 %{_datadir}/texmf-dist/bibtex
@@ -110,6 +117,10 @@ free software, including support for many languages around the world.
 %package	-n texlive-fonts
 Summary:	Tex Live fonts
 Group:		Publishing
+%if %mdkversion <= 201100
+Provides:	texlive-texmf-fonts = %{version}-%{release}
+%endif
+Obsoletes:	texlive-texmf-fonts <= 2007
 
 %description	-n texlive-fonts
 TeX Live is an easy way to get up and running with the TeX document
