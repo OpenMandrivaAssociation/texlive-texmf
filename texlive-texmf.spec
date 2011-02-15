@@ -3,8 +3,8 @@
 #%#define __find_lang		%{nil}
 
 %define __spec_install_pre	export RPM_SOURCE_DIR="%{_sourcedir}";export RPM_BUILD_DIR="%{_builddir}";export RPM_OPT_FLAGS="%{optflags}";export RPM_ARCH="%{_arch}";export RPM_OS="%{_os}";export RPM_DOC_DIR="%%{_docdir}";export RPM_PACKAGE_NAME="%%{name}";export RPM_PACKAGE_VERSION="%%{version}";export RPM_PACKAGE_RELEASE="%%{release}";export RPM_BUILD_ROOT="%{buildroot}";export LC_ALL=C;export LANG=C;cd %_builddir
-%define enable_asymptote	0
-%define enable_xindy		0
+%define enable_asymptote	1
+%define enable_xindy		1
 
 %define with_system_dialog	1
 %define with_system_lcdf	0
@@ -16,7 +16,7 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	Apache2 and Artistic and BSD and FDL and Freeware and GFL and GFSL and GPL and GPLv2 and GPLv3 and LGPL and LGPLv2.1 and LPPL and LPPLv1 and LPPLv1.2 and LPPLv1.3 and OFL and Public Domain
@@ -71,6 +71,10 @@ free software, including support for many languages around the world.
 %{_bindir}/*
 %{_datadir}/X11/app-defaults/XDvi
 %{_datadir}/texmf/chktex
+%dir %{_datadir}/texmf/doc
+%if %{enable_asymptote}
+%doc %{_datadir}/texmf/doc/asymptote
+%endif
 %{_datadir}/texmf/dvipdfmx
 %{_datadir}/texmf/dvips
 %{_datadir}/texmf/hbf2gf
@@ -96,6 +100,9 @@ free software, including support for many languages around the world.
 %{_datadir}/texmf-dist/tex
 %{_datadir}/texmf-dist/tex4ht
 %{_datadir}/texmf-dist/vtex
+%if %{enable_xindy}
+%doc %{_datadir}/texmf/doc/xindy
+%endif
 
 #-----------------------------------------------------------------------
 %package	-n texlive-doc
@@ -110,8 +117,28 @@ free software, including support for many languages around the world.
 
 %files		-n texlive-doc
 %defattr(-,root,root,-)
-%{_datadir}/texmf/doc
-%{_datadir}/texmf-dist/doc
+%{_datadir}/texmf/doc/bg5conv
+%{_datadir}/texmf/doc/bibtex8
+%{_datadir}/texmf/doc/cef5conv
+%{_datadir}/texmf/doc/cefconv
+%{_datadir}/texmf/doc/cefsconv
+%{_datadir}/texmf/doc/chktex
+%{_datadir}/texmf/doc/dvipdfm
+%{_datadir}/texmf/doc/dvipng
+%{_datadir}/texmf/doc/dvips
+%{_datadir}/texmf/doc/extconv
+%{_datadir}/texmf/doc/generic
+%{_datadir}/texmf/doc/hbf2gf
+%{_datadir}/texmf/doc/kpathsea
+%{_datadir}/texmf/doc/sjisconv
+%{_datadir}/texmf/doc/tetex
+%{_datadir}/texmf/doc/texdoc
+%{_datadir}/texmf/doc/texlive
+%{_datadir}/texmf/doc/texworks
+%{_datadir}/texmf/doc/tpic2pdftex
+%{_datadir}/texmf/doc/ttf2pk
+%{_datadir}/texmf/doc/vlna
+%{_datadir}/texmf/doc/web2c
 
 #-----------------------------------------------------------------------
 %package	-n texlive-fonts
@@ -139,19 +166,19 @@ free software, including support for many languages around the world.
 %prep
 %setup -q -n texlive-20100722-texmf
 
-perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'				\
-	 -e 's%^(TEXMFDIST\s+= ).*%$1%{_datadir}/texmf-dist%;'				\
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1\{%{_datadir}/texmf-local,%{_datadir}/texmf\}%;'	\
-	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{_localstatedir}/lib/texmf%;'			\
-	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{_sysconfdir}/texmf%;'			\
-	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'		\
-	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'			\
-	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2010/texmf-config%;'		\
-	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'				\
+perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'			\
+	 -e 's%^(TEXMFDIST\s+= ).*%$1%{_datadir}/texmf-dist%;'			\
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{_datadir}/texmf%;'			\
+	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{_localstatedir}/lib/texmf%;'		\
+	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{_sysconfdir}/texmf%;'		\
+	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'	\
+	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'		\
+	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2010/texmf-config%;'	\
+	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'			\
 	texmf/web2c/texmf.cnf
 
 perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'					 \
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1\{%{_datadir}/texmf-local,%{_datadir}/texmf\}%;'		 \
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{_datadir}/texmf%;'					 \
 	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{_datadir}/texmf/fonts,%{_datadir}/texmf-dist/fonts\}%;'\
 	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{_datadir}/texmf-extra,%{_datadir}/texmf\}%;'		 \
 	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{_datadir}/texmf-project,%{_datadir}/texmf\}%;'	 \
@@ -170,11 +197,11 @@ perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
 
 #-----------------------------------------------------------------------
 %build
-mkdir -p %{buildroot}%{_datadir}
-cp -far * %{buildroot}%{_datadir}
 
 #-----------------------------------------------------------------------
 %install
+mkdir -p %{buildroot}%{_datadir}
+cp -far * %{buildroot}%{_datadir}
 
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
@@ -289,6 +316,7 @@ pushd %{buildroot}%{_datadir}/texmf
     rm -fr dvipdfm
     perl -pi -e 's%/usr/local%/usr%;' dvipdfmx/dvipdfmx.cfg
     rm -f ls-R README
+    rm -fr doc/gzip
 popd
 
 pushd %{buildroot}%{_datadir}/texmf-dist
