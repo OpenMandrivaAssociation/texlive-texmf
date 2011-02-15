@@ -73,6 +73,7 @@ free software, including support for many languages around the world.
 %{_datadir}/texmf/chktex
 %dir %{_datadir}/texmf/doc
 %if %{enable_asymptote}
+%{_datadir}/texmf/asymptote
 %doc %{_datadir}/texmf/doc/asymptote
 %endif
 %{_datadir}/texmf/dvipdfmx
@@ -86,6 +87,10 @@ free software, including support for many languages around the world.
 %{_datadir}/texmf/ttf2pk
 %{_datadir}/texmf/web2c
 %{_datadir}/texmf/xdvi
+%if %{enable_xindy}
+%{_datadir}/texmf/xindy
+%doc %{_datadir}/texmf/doc/xindy
+%endif
 %{_datadir}/texmf-dist/bibtex
 %{_datadir}/texmf-dist/context
 %{_datadir}/texmf-dist/dvips
@@ -100,9 +105,6 @@ free software, including support for many languages around the world.
 %{_datadir}/texmf-dist/tex
 %{_datadir}/texmf-dist/tex4ht
 %{_datadir}/texmf-dist/vtex
-%if %{enable_xindy}
-%doc %{_datadir}/texmf/doc/xindy
-%endif
 
 #-----------------------------------------------------------------------
 %package	-n texlive-doc
@@ -117,28 +119,14 @@ free software, including support for many languages around the world.
 
 %files		-n texlive-doc
 %defattr(-,root,root,-)
-%{_datadir}/texmf/doc/bg5conv
-%{_datadir}/texmf/doc/bibtex8
-%{_datadir}/texmf/doc/cef5conv
-%{_datadir}/texmf/doc/cefconv
-%{_datadir}/texmf/doc/cefsconv
-%{_datadir}/texmf/doc/chktex
-%{_datadir}/texmf/doc/dvipdfm
-%{_datadir}/texmf/doc/dvipng
-%{_datadir}/texmf/doc/dvips
-%{_datadir}/texmf/doc/extconv
-%{_datadir}/texmf/doc/generic
-%{_datadir}/texmf/doc/hbf2gf
-%{_datadir}/texmf/doc/kpathsea
-%{_datadir}/texmf/doc/sjisconv
-%{_datadir}/texmf/doc/tetex
-%{_datadir}/texmf/doc/texdoc
-%{_datadir}/texmf/doc/texlive
-%{_datadir}/texmf/doc/texworks
-%{_datadir}/texmf/doc/tpic2pdftex
-%{_datadir}/texmf/doc/ttf2pk
-%{_datadir}/texmf/doc/vlna
-%{_datadir}/texmf/doc/web2c
+%{_datadir}/texmf/doc/*
+%if %{enable_asymptote}
+%exclude %{_datadir}/texmf/doc/asymptote
+%endif
+%if %{enable_xindy}
+%exclude %{_datadir}/texmf/doc/xindy
+%endif
+%{_datadir}/texmf-dist/doc
 
 #-----------------------------------------------------------------------
 %package	-n texlive-fonts
