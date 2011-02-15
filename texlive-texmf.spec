@@ -31,8 +31,6 @@ Requires:	perl-Algorithm-Diff
 Requires:	xdg-utils
 
 %if %mdkversion <= 201100
-Provides:	texlive-texmf-afm = %{version}
-Provides:	texlive-texmf-cmsuper = %{version}
 Provides:	texlive-texmf-common = %{version}
 Provides:	texlive-texmf-context = %{version}
 Provides:	texlive-texmf-dvipdfm = %{version}
@@ -44,8 +42,6 @@ Provides:	texlive-texmf-xmltex = %{version}
 Provides:	texmf-data = %{version}
 %endif
 
-Obsoletes:	texlive-texmf-afm <= 2007
-Obsoletes:	texlive-texmf-cmsuper <= 2007
 Obsoletes:	texlive-texmf-common <= 2007
 Obsoletes:	texlive-texmf-context <= 2007
 Obsoletes:	texlive-texmf-dvipdfm <= 2007
@@ -133,9 +129,15 @@ free software, including support for many languages around the world.
 Summary:	Tex Live fonts
 Group:		Publishing
 %if %mdkversion <= 201100
+Provides:	textex-cmsuper = %{version}
+Provides:	texlive-texmf-afm = %{version}
+Provides:	texlive-texmf-cmsuper = %{version}
 Provides:	texlive-texmf-fonts = %{version}-%{release}
 %endif
+Obsoletes:	textex-cmsuper <= 0.3.3
 Obsoletes:	texlive-texmf-fonts <= 2007
+Obsoletes:	texlive-texmf-afm <= 2007
+Obsoletes:	texlive-texmf-cmsuper <= 2007
 
 %description	-n texlive-fonts
 TeX Live is an easy way to get up and running with the TeX document
