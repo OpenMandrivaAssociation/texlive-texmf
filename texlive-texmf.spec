@@ -1,8 +1,3 @@
-#%#define __find_provides		%{nil}
-#%#define __find_requires		%{nil}
-#%#define __find_lang		%{nil}
-
-%define __spec_install_pre	export RPM_SOURCE_DIR="%{_sourcedir}";export RPM_BUILD_DIR="%{_builddir}";export RPM_OPT_FLAGS="%{optflags}";export RPM_ARCH="%{_arch}";export RPM_OS="%{_os}";export RPM_DOC_DIR="%%{_docdir}";export RPM_PACKAGE_NAME="%%{name}";export RPM_PACKAGE_VERSION="%%{version}";export RPM_PACKAGE_RELEASE="%%{release}";export RPM_BUILD_ROOT="%{buildroot}";export LC_ALL=C;export LANG=C;cd %_builddir
 %define enable_asymptote	1
 %define enable_xindy		1
 
@@ -16,7 +11,7 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 3
+Release:	%mkrel 4
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	Apache2 and Artistic and BSD and FDL and Freeware and GFL and GFSL and GPL and GPLv2 and GPLv3 and LGPL and LGPLv2.1 and LPPL and LPPLv1 and LPPLv1.2 and LPPLv1.3 and OFL and Public Domain
@@ -31,16 +26,26 @@ Requires:	perl-Algorithm-Diff
 Requires:	xdg-utils
 
 %if %mdkversion <= 201100
+Provides:	textex-cmsuper = %{version}
+Provides:	texlive-fonts = %{version}
+Provides:	texlive-texmf-afm = %{version}
+Provides:	texlive-texmf-cmsuper = %{version}
 Provides:	texlive-texmf-common = %{version}
 Provides:	texlive-texmf-context = %{version}
 Provides:	texlive-texmf-dvipdfm = %{version}
 Provides:	texlive-texmf-dvips = %{version}
+Provides:	texlive-texmf-fonts = %{version}
 Provides:	texlive-texmf-jadetex = %{version}
 Provides:	texlive-texmf-latex = %{version}
 Provides:	texlive-texmf-usrlocal = %{version}
 Provides:	texlive-texmf-xmltex = %{version}
 Provides:	texmf-data = %{version}
 %endif
+Obsoletes:	textex-cmsuper <= 0.3.3
+Obsoletes:	texlive-fonts <= 2007
+Obsoletes:	texlive-texmf-afm <= 2007
+Obsoletes:	texlive-texmf-fonts <= 2007
+Obsoletes:	texlive-texmf-cmsuper <= 2007
 Obsoletes:	texlive-texmf-common <= 2007
 Obsoletes:	texlive-texmf-context <= 2007
 Obsoletes:	texlive-texmf-dvipdfm <= 2007
@@ -64,7 +69,10 @@ free software, including support for many languages around the world.
 %files
 %defattr(-,root,root,-)
 %{_bindir}/*
+%{_datadir}/fonts/texmf
+%{_datadir}/fonts/texmf-dist
 %{_datadir}/X11/app-defaults/XDvi
+%dir %{_datadir}/texmf
 %{_datadir}/texmf/chktex
 %dir %{_datadir}/texmf/doc
 %if %{enable_asymptote}
@@ -73,6 +81,7 @@ free software, including support for many languages around the world.
 %endif
 %{_datadir}/texmf/dvipdfmx
 %{_datadir}/texmf/dvips
+%{_datadir}/texmf/fonts
 %{_datadir}/texmf/hbf2gf
 %{_datadir}/texmf/scripts
 %{_datadir}/texmf/tex
@@ -86,9 +95,11 @@ free software, including support for many languages around the world.
 %{_datadir}/texmf/xindy
 %doc %{_datadir}/texmf/doc/xindy
 %endif
+%dir %{_datadir}/texmf-dist
 %{_datadir}/texmf-dist/bibtex
 %{_datadir}/texmf-dist/context
 %{_datadir}/texmf-dist/dvips
+%{_datadir}/texmf-dist/fonts
 %{_datadir}/texmf-dist/makeindex
 %{_datadir}/texmf-dist/metafont
 %{_datadir}/texmf-dist/metapost
@@ -126,34 +137,6 @@ free software, including support for many languages around the world.
 %exclude %{_datadir}/texmf/doc/xindy
 %endif
 %{_datadir}/texmf-dist/doc
-
-#-----------------------------------------------------------------------
-%package	-n texlive-fonts
-Summary:	Tex Live fonts
-Group:		Publishing
-%if %mdkversion <= 201100
-Provides:	textex-cmsuper = %{version}
-Provides:	texlive-texmf-afm = %{version}
-Provides:	texlive-texmf-cmsuper = %{version}
-Provides:	texlive-texmf-fonts = %{version}-%{release}
-%endif
-Obsoletes:	textex-cmsuper <= 0.3.3
-Obsoletes:	texlive-texmf-fonts <= 2007
-Obsoletes:	texlive-texmf-afm <= 2007
-Obsoletes:	texlive-texmf-cmsuper <= 2007
-
-%description	-n texlive-fonts
-TeX Live is an easy way to get up and running with the TeX document
-production system. It provides a comprehensive TeX system. It includes
-all the major TeX-related programs, macro packages, and fonts that are
-free software, including support for many languages around the world.
-
-%files		-n texlive-fonts
-%defattr(-,root,root,-)
-%{_datadir}/fonts/texmf
-%{_datadir}/fonts/texmf-dist
-%{_datadir}/texmf/fonts
-%{_datadir}/texmf-dist/fonts
 
 #-----------------------------------------------------------------------
 %prep
