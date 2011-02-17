@@ -41,7 +41,6 @@ Provides:	texlive-texmf-usrlocal = %{version}
 Provides:	texlive-texmf-xmltex = %{version}
 Provides:	texmf-data = %{version}
 %endif
-
 Obsoletes:	texlive-texmf-common <= 2007
 Obsoletes:	texlive-texmf-context <= 2007
 Obsoletes:	texlive-texmf-dvipdfm <= 2007
@@ -106,6 +105,10 @@ free software, including support for many languages around the world.
 %package	-n texlive-doc
 Summary:	Tex Live documentation
 Group:		Publishing
+%if %mdkversion <= 201100
+Provides:	texlive-texmf-doc = %{version}
+%endif
+Obsoletes:	texlive-texmf-doc <= 2007
 
 %description	-n texlive-doc
 TeX Live is an easy way to get up and running with the TeX document
