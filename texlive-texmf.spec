@@ -547,9 +547,7 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/source/public/kixfont
 %exclude %{texmfdistdir}/fonts/tfm/public/kixfont
 # knuthotherfonts
-%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts/committee
-%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts/halftone
-%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts/mfbook
+%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts
 # kpfonts
 %exclude %{texmfdistdir}/fonts/afm/public/kpfonts
 %exclude %{texmfdistdir}/fonts/enc/dvips/kpfonts
@@ -610,23 +608,12 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/tex/generic/mathabx
 # mathdesign
 %exclude %{texmfdistdir}/dvips/mathdesign
-%exclude %{texmfdistdir}/fonts/afm/mathdesign/mdbch
-%exclude %{texmfdistdir}/fonts/afm/mathdesign/mdput
-%exclude %{texmfdistdir}/fonts/afm/mathdesign/mdugm
+%exclude %{texmfdistdir}/fonts/afm/mathdesign
 %exclude %{texmfdistdir}/fonts/map/dvips/mathdesign
-%exclude %{texmfdistdir}/fonts/tfm/mathdesign/mdbch
-%exclude %{texmfdistdir}/fonts/tfm/mathdesign/mdput
-%exclude %{texmfdistdir}/fonts/tfm/mathdesign/mdugm
-%exclude %{texmfdistdir}/fonts/type1/mathdesign/mdbch
-%exclude %{texmfdistdir}/fonts/type1/mathdesign/mdput
-%exclude %{texmfdistdir}/fonts/type1/mathdesign/mdugm
-%exclude %{texmfdistdir}/fonts/vf/mathdesign/mdbch
-%exclude %{texmfdistdir}/fonts/vf/mathdesign/mdput
-%exclude %{texmfdistdir}/fonts/vf/mathdesign/mdugm
+%exclude %{texmfdistdir}/fonts/tfm/mathdesign
+%exclude %{texmfdistdir}/fonts/type1/mathdesign
+%exclude %{texmfdistdir}/fonts/vf/mathdesign
 %exclude %{texmfdistdir}/tex/latex/mathdesign
-%exclude %{texmfdistdir}/tex/latex/mathdesign/mdbch
-%exclude %{texmfdistdir}/tex/latex/mathdesign/mdput
-%exclude %{texmfdistdir}/tex/latex/mathdesign/mdugm
 # mnsymbol
 %exclude %{texmfdistdir}/fonts/enc/dvips/mnsymbol
 %exclude %{texmfdistdir}/fonts/map/dvips/mnsymbol
@@ -721,7 +708,6 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/map/dvips/semaphor
 %exclude %{texmfdistdir}/fonts/opentype/public/semaphor
 %exclude %{texmfdistdir}/fonts/source/public/semaphor
-%exclude %{texmfdistdir}/fonts/source/public/semaphor/metafont
 %exclude %{texmfdistdir}/fonts/tfm/public/semaphor
 %exclude %{texmfdistdir}/fonts/type1/public/semaphor
 %exclude %{texmfdistdir}/tex/context/third/semaphor
@@ -1305,9 +1291,7 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/source/public/kixfont
 %{texmfdistdir}/fonts/tfm/public/kixfont
 # knuthotherfonts
-%{texmfdistdir}/fonts/source/public/knuthotherfonts/committee
-%{texmfdistdir}/fonts/source/public/knuthotherfonts/halftone
-%{texmfdistdir}/fonts/source/public/knuthotherfonts/mfbook
+%{texmfdistdir}/fonts/source/public/knuthotherfonts
 # kpfonts
 %{texmfdistdir}/fonts/afm/public/kpfonts
 %{texmfdistdir}/fonts/enc/dvips/kpfonts
@@ -1368,23 +1352,12 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/tex/generic/mathabx
 # mathdesign
 %{texmfdistdir}/dvips/mathdesign
-%{texmfdistdir}/fonts/afm/mathdesign/mdbch
-%{texmfdistdir}/fonts/afm/mathdesign/mdput
-%{texmfdistdir}/fonts/afm/mathdesign/mdugm
+%{texmfdistdir}/fonts/afm/mathdesign
 %{texmfdistdir}/fonts/map/dvips/mathdesign
-%{texmfdistdir}/fonts/tfm/mathdesign/mdbch
-%{texmfdistdir}/fonts/tfm/mathdesign/mdput
-%{texmfdistdir}/fonts/tfm/mathdesign/mdugm
-%{texmfdistdir}/fonts/type1/mathdesign/mdbch
-%{texmfdistdir}/fonts/type1/mathdesign/mdput
-%{texmfdistdir}/fonts/type1/mathdesign/mdugm
-%{texmfdistdir}/fonts/vf/mathdesign/mdbch
-%{texmfdistdir}/fonts/vf/mathdesign/mdput
-%{texmfdistdir}/fonts/vf/mathdesign/mdugm
+%{texmfdistdir}/fonts/tfm/mathdesign
+%{texmfdistdir}/fonts/type1/mathdesign
+%{texmfdistdir}/fonts/vf/mathdesign
 %{texmfdistdir}/tex/latex/mathdesign
-%{texmfdistdir}/tex/latex/mathdesign/mdbch
-%{texmfdistdir}/tex/latex/mathdesign/mdput
-%{texmfdistdir}/tex/latex/mathdesign/mdugm
 # mnsymbol
 %{texmfdistdir}/fonts/enc/dvips/mnsymbol
 %{texmfdistdir}/fonts/map/dvips/mnsymbol
@@ -1479,7 +1452,6 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/map/dvips/semaphor
 %{texmfdistdir}/fonts/opentype/public/semaphor
 %{texmfdistdir}/fonts/source/public/semaphor
-%{texmfdistdir}/fonts/source/public/semaphor/metafont
 %{texmfdistdir}/fonts/tfm/public/semaphor
 %{texmfdistdir}/fonts/type1/public/semaphor
 %{texmfdistdir}/tex/context/third/semaphor
