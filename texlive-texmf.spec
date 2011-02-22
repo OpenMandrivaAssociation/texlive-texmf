@@ -803,7 +803,6 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/omega
 %{texmfdistdir}/pbibtex
 %{texmfdistdir}/scripts
-%dir %{texmfdistdir}/source
 %{texmfdistdir}/tex
 %{texmfdistdir}/tex4ht
 %{texmfdistdir}/vtex
@@ -1553,7 +1552,7 @@ free software, including support for many languages around the world.
 
 %files		-n texlive-source
 %defattr(-,root,root,-)
-%{texmfdir}/source/*
+%{texmfdistdir}/source
 
 #-----------------------------------------------------------------------
 %prep
