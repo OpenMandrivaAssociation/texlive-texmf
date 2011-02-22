@@ -11,7 +11,7 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 4
+Release:	%mkrel 5
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	Apache2 and Artistic and BSD and FDL and Freeware and GFL and GFSL and GPL and GPLv2 and GPLv3 and LGPL and LGPLv2.1 and LPPL and LPPLv1 and LPPLv1.2 and LPPLv1.3 and OFL and Public Domain
@@ -100,6 +100,855 @@ free software, including support for many languages around the world.
 %{_datadir}/texmf-dist/context
 %{_datadir}/texmf-dist/dvips
 %{_datadir}/texmf-dist/fonts
+
+# collection-fontsextra
+# Asana-Math
+%exclude %{texmfdistdir}/fonts/opentype/public/Asana-Math
+%exclude %{texmfdistdir}/fonts/truetype/public/Asana-Math
+# adforn
+%exclude %{texmfdistdir}/fonts/afm/arkandis/adforn
+%exclude %{texmfdistdir}/fonts/enc/dvips/adforn
+%exclude %{texmfdistdir}/fonts/map/dvips/adforn
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/adforn
+%exclude %{texmfdistdir}/fonts/type1/arkandis/adforn
+%exclude %{texmfdistdir}/tex/latex/adforn
+# adfsymbols
+%exclude %{texmfdistdir}/fonts/afm/arkandis/adfsymbols
+%exclude %{texmfdistdir}/fonts/enc/dvips/adfsymbols
+%exclude %{texmfdistdir}/fonts/map/dvips/adfsymbols
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/adfsymbols
+%exclude %{texmfdistdir}/fonts/type1/arkandis/adfsymbols
+%exclude %{texmfdistdir}/tex/latex/adfsymbols
+# allrunes
+%exclude %{texmfdistdir}/fonts/map/dvips/allrunes
+%exclude %{texmfdistdir}/fonts/source/public/allrunes
+%exclude %{texmfdistdir}/fonts/tfm/public/allrunes
+%exclude %{texmfdistdir}/fonts/type1/public/allrunes
+%exclude %{texmfdistdir}/tex/latex/allrunes
+# antiqua
+%exclude %{texmfdistdir}/dvips/antiqua
+%exclude %{texmfdistdir}/fonts/afm/urw/antiqua
+%exclude %{texmfdistdir}/fonts/map/dvips/antiqua
+%exclude %{texmfdistdir}/fonts/tfm/urw/antiqua
+%exclude %{texmfdistdir}/fonts/type1/urw/antiqua
+%exclude %{texmfdistdir}/fonts/vf/urw/antiqua
+%exclude %{texmfdistdir}/tex/latex/antiqua
+# antt
+%exclude %{texmfdistdir}/fonts/afm/public/antt
+%exclude %{texmfdistdir}/fonts/enc/dvips/antt
+%exclude %{texmfdistdir}/fonts/map/dvips/antt
+%exclude %{texmfdistdir}/fonts/opentype/public/antt
+%exclude %{texmfdistdir}/fonts/tfm/public/antt
+%exclude %{texmfdistdir}/fonts/type1/public/antt
+%exclude %{texmfdistdir}/tex/latex/antt
+%exclude %{texmfdistdir}/tex/plain/antt
+# ar
+%exclude %{texmfdistdir}/fonts/source/public/ar
+%exclude %{texmfdistdir}/fonts/tfm/public/ar
+%exclude %{texmfdistdir}/tex/latex/ar
+# archaic
+%exclude %{texmfdistdir}/fonts/afm/public/archaic
+%exclude %{texmfdistdir}/fonts/map/dvips/archaic
+%exclude %{texmfdistdir}/fonts/source/public/archaic
+%exclude %{texmfdistdir}/fonts/tfm/public/archaic
+%exclude %{texmfdistdir}/fonts/type1/public/archaic
+%exclude %{texmfdistdir}/tex/latex/archaic
+# arev
+%exclude %{texmfdistdir}/fonts/afm/public/arev
+%exclude %{texmfdistdir}/fonts/enc/dvips/arev
+%exclude %{texmfdistdir}/fonts/map/dvips/arev
+%exclude %{texmfdistdir}/fonts/tfm/public/arev
+%exclude %{texmfdistdir}/fonts/type1/public/arev
+%exclude %{texmfdistdir}/fonts/vf/public/arev
+%exclude %{texmfdistdir}/tex/latex/arev
+# ascii
+%exclude %{texmfdistdir}/fonts/map/dvips/ascii
+%exclude %{texmfdistdir}/fonts/tfm/public/ascii
+%exclude %{texmfdistdir}/fonts/type1/public/ascii
+%exclude %{texmfdistdir}/tex/latex/ascii
+# astro
+%exclude %{texmfdistdir}/fonts/source/public/astro
+%exclude %{texmfdistdir}/fonts/tfm/public/astro
+# augie
+%exclude %{texmfdistdir}/fonts/afm/public/augie
+%exclude %{texmfdistdir}/fonts/map/dvips/augie
+%exclude %{texmfdistdir}/fonts/tfm/public/augie
+%exclude %{texmfdistdir}/fonts/type1/public/augie
+%exclude %{texmfdistdir}/fonts/vf/public/augie
+%exclude %{texmfdistdir}/tex/latex/augie
+# auncial-new
+%exclude %{texmfdistdir}/fonts/afm/public/auncial-new
+%exclude %{texmfdistdir}/fonts/map/dvips/auncial-new
+%exclude %{texmfdistdir}/fonts/tfm/public/auncial-new
+%exclude %{texmfdistdir}/fonts/type1/public/auncial-new
+%exclude %{texmfdistdir}/tex/latex/auncial-new
+# aurical
+%exclude %{texmfdistdir}/fonts/afm/public/aurical
+%exclude %{texmfdistdir}/fonts/map/dvips/aurical
+%exclude %{texmfdistdir}/fonts/source/public/aurical
+%exclude %{texmfdistdir}/fonts/tfm/public/aurical
+%exclude %{texmfdistdir}/fonts/type1/public/aurical
+%exclude %{texmfdistdir}/tex/latex/aurical
+# b1encoding
+%exclude %{texmfdistdir}/fonts/enc/dvips/b1encoding
+%exclude %{texmfdistdir}/tex/latex/b1encoding
+# barcodes
+%exclude %{texmfdistdir}/fonts/source/public/barcodes
+%exclude %{texmfdistdir}/fonts/tfm/public/barcodes
+%exclude %{texmfdistdir}/tex/latex/barcodes
+# baskervald
+%exclude %{texmfdistdir}/fonts/afm/arkandis/baskervald
+%exclude %{texmfdistdir}/fonts/enc/dvips/baskervald
+%exclude %{texmfdistdir}/fonts/map/dvips/baskervald
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/baskervald
+%exclude %{texmfdistdir}/fonts/type1/arkandis/baskervald
+%exclude %{texmfdistdir}/fonts/vf/arkandis/baskervald
+%exclude %{texmfdistdir}/tex/latex/baskervald
+# bbding
+%exclude %{texmfdistdir}/fonts/source/public/bbding
+%exclude %{texmfdistdir}/fonts/tfm/public/bbding
+%exclude %{texmfdistdir}/tex/latex/bbding
+# bbm
+%exclude %{texmfdistdir}/fonts/source/public/bbm
+%exclude %{texmfdistdir}/fonts/tfm/public/bbm
+# bbm-macros
+%exclude %{texmfdistdir}/tex/latex/bbm-macros
+# bbold
+%exclude %{texmfdistdir}/fonts/source/public/bbold
+%exclude %{texmfdistdir}/fonts/tfm/public/bbold
+%exclude %{texmfdistdir}/tex/latex/bbold
+# bbold-type1
+%exclude %{texmfdistdir}/fonts/afm/public/bbold-type1
+%exclude %{texmfdistdir}/fonts/map/dvips/bbold-type1
+%exclude %{texmfdistdir}/fonts/type1/public/bbold-type1
+# belleek
+%exclude %{texmfdistdir}/fonts/map/dvips/belleek
+%exclude %{texmfdistdir}/fonts/truetype/public/belleek
+%exclude %{texmfdistdir}/fonts/type1/public/belleek
+# bera
+%exclude %{texmfdistdir}/fonts/afm/public/bera
+%exclude %{texmfdistdir}/fonts/map/dvips/bera
+%exclude %{texmfdistdir}/fonts/tfm/public/bera
+%exclude %{texmfdistdir}/fonts/type1/public/bera
+%exclude %{texmfdistdir}/fonts/vf/public/bera
+%exclude %{texmfdistdir}/tex/latex/bera
+# berenisadf
+%exclude %{texmfdistdir}/fonts/afm/arkandis/berenisadf
+%exclude %{texmfdistdir}/fonts/enc/dvips/berenisadf
+%exclude %{texmfdistdir}/fonts/map/dvips/berenisadf
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/berenisadf
+%exclude %{texmfdistdir}/fonts/type1/arkandis/berenisadf
+%exclude %{texmfdistdir}/tex/latex/berenisadf
+# blacklettert1
+%exclude %{texmfdistdir}/fonts/tfm/public/blacklettert1
+%exclude %{texmfdistdir}/fonts/vf/public/blacklettert1
+%exclude %{texmfdistdir}/tex/latex/blacklettert1
+# boisik
+%exclude %{texmfdistdir}/fonts/source/public/boisik
+%exclude %{texmfdistdir}/fonts/tfm/public/boisik
+%exclude %{texmfdistdir}/tex/latex/boisik
+# bookhands
+%exclude %{texmfdistdir}/fonts/source/public/bookhands
+%exclude %{texmfdistdir}/tex/latex/bookhands
+# braille
+%exclude %{texmfdistdir}/tex/latex/braille
+# brushscr
+%exclude %{texmfdistdir}/dvips/brushscr
+%exclude %{texmfdistdir}/fonts/afm/public/brushscr
+%exclude %{texmfdistdir}/fonts/map/dvips/brushscr
+%exclude %{texmfdistdir}/fonts/tfm/public/brushscr
+%exclude %{texmfdistdir}/fonts/type1/public/brushscr
+%exclude %{texmfdistdir}/fonts/vf/public/brushscr
+%exclude %{texmfdistdir}/tex/latex/brushscr
+# calligra
+%exclude %{texmfdistdir}/fonts/source/public/calligra
+%exclude %{texmfdistdir}/fonts/tfm/public/calligra
+# carolmin-ps
+%exclude %{texmfdistdir}/fonts/afm/public/carolmin-ps
+%exclude %{texmfdistdir}/fonts/map/dvips/carolmin-ps
+%exclude %{texmfdistdir}/fonts/type1/public/carolmin-ps
+# ccicons
+%exclude %{texmfdistdir}/fonts/enc/dvips/ccicons
+%exclude %{texmfdistdir}/fonts/map/dvips/ccicons
+%exclude %{texmfdistdir}/fonts/tfm/public/ccicons
+%exclude %{texmfdistdir}/fonts/type1/public/ccicons
+%exclude %{texmfdistdir}/tex/latex/ccicons
+# cfr-lm
+%exclude %{texmfdistdir}/fonts/enc/dvips/cfr-lm
+%exclude %{texmfdistdir}/fonts/map/dvips/cfr-lm
+%exclude %{texmfdistdir}/fonts/tfm/public/cfr-lm
+%exclude %{texmfdistdir}/fonts/vf/public/cfr-lm
+%exclude %{texmfdistdir}/tex/latex/cfr-lm
+# cherokee
+%exclude %{texmfdistdir}/fonts/source/public/cherokee
+%exclude %{texmfdistdir}/fonts/tfm/public/cherokee
+%exclude %{texmfdistdir}/tex/latex/cherokee
+# cm-lgc
+%exclude %{texmfdistdir}/fonts/afm/public/cm-lgc
+%exclude %{texmfdistdir}/fonts/enc/dvips/cm-lgc
+%exclude %{texmfdistdir}/fonts/map/dvips/cm-lgc
+%exclude %{texmfdistdir}/fonts/ofm/public/cm-lgc
+%exclude %{texmfdistdir}/fonts/ovf/public/cm-lgc
+%exclude %{texmfdistdir}/fonts/tfm/public/cm-lgc
+%exclude %{texmfdistdir}/fonts/type1/public/cm-lgc
+%exclude %{texmfdistdir}/fonts/vf/public/cm-lgc
+%exclude %{texmfdistdir}/tex/latex/cm-lgc
+# cm-unicode
+%exclude %{texmfdistdir}/fonts/afm/public/cm-unicode
+%exclude %{texmfdistdir}/fonts/enc/dvips/cm-unicode
+%exclude %{texmfdistdir}/fonts/map/dvips/cm-unicode
+%exclude %{texmfdistdir}/fonts/opentype/public/cm-unicode
+%exclude %{texmfdistdir}/fonts/type1/public/cm-unicode
+# cmbright
+%exclude %{texmfdistdir}/fonts/source/public/cmbright
+%exclude %{texmfdistdir}/fonts/tfm/public/cmbright
+%exclude %{texmfdistdir}/tex/latex/cmbright
+# cmll
+%exclude %{texmfdistdir}/fonts/map/dvips/cmll
+%exclude %{texmfdistdir}/fonts/source/public/cmll
+%exclude %{texmfdistdir}/fonts/tfm/public/cmll
+%exclude %{texmfdistdir}/fonts/type1/public/cmll
+%exclude %{texmfdistdir}/tex/latex/cmll
+# cmpica
+%exclude %{texmfdistdir}/fonts/source/public/cmpica
+%exclude %{texmfdistdir}/fonts/tfm/public/cmpica
+# cmtiup
+%exclude %{texmfdistdir}/fonts/source/public/cmtiup
+%exclude %{texmfdistdir}/fonts/tfm/public/cmtiup
+%exclude %{texmfdistdir}/fonts/vf/public/cmtiup
+%exclude %{texmfdistdir}/tex/latex/cmtiup
+# comfortaa
+%exclude %{texmfdistdir}/fonts/afm/public/comfortaa
+%exclude %{texmfdistdir}/fonts/enc/dvips/comfortaa
+%exclude %{texmfdistdir}/fonts/map/dvips/comfortaa
+%exclude %{texmfdistdir}/fonts/tfm/public/comfortaa
+%exclude %{texmfdistdir}/fonts/truetype/public/comfortaa
+%exclude %{texmfdistdir}/fonts/type1/public/comfortaa
+%exclude %{texmfdistdir}/fonts/vf/public/comfortaa
+%exclude %{texmfdistdir}/tex/latex/comfortaa
+# concmath-fonts
+%exclude %{texmfdistdir}/fonts/source/public/concmath-fonts
+%exclude %{texmfdistdir}/fonts/tfm/public/concmath-fonts
+# courier-scaled
+%exclude %{texmfdistdir}/tex/latex/courier-scaled
+# cryst
+%exclude %{texmfdistdir}/fonts/afm/public/cryst
+%exclude %{texmfdistdir}/fonts/source/public/cryst
+%exclude %{texmfdistdir}/fonts/tfm/public/cryst
+%exclude %{texmfdistdir}/fonts/type1/public/cryst
+# cyklop
+%exclude %{texmfdistdir}/fonts/afm/public/cyklop
+%exclude %{texmfdistdir}/fonts/enc/dvips/cyklop
+%exclude %{texmfdistdir}/fonts/map/dvips/cyklop
+%exclude %{texmfdistdir}/fonts/opentype/public/cyklop
+%exclude %{texmfdistdir}/fonts/tfm/public/cyklop
+%exclude %{texmfdistdir}/fonts/type1/public/cyklop
+%exclude %{texmfdistdir}/tex/latex/cyklop
+# dancers
+%exclude %{texmfdistdir}/fonts/source/public/dancers
+%exclude %{texmfdistdir}/fonts/tfm/public/dancers
+# dice
+%exclude %{texmfdistdir}/fonts/source/public/dice
+%exclude %{texmfdistdir}/fonts/tfm/public/dice
+# dictsym
+%exclude %{texmfdistdir}/fonts/afm/public/dictsym
+%exclude %{texmfdistdir}/fonts/map/dvips/dictsym
+%exclude %{texmfdistdir}/fonts/tfm/public/dictsym
+%exclude %{texmfdistdir}/fonts/type1/public/dictsym
+%exclude %{texmfdistdir}/tex/latex/dictsym
+# dingbat
+%exclude %{texmfdistdir}/fonts/source/public/dingbat
+%exclude %{texmfdistdir}/fonts/tfm/public/dingbat
+%exclude %{texmfdistdir}/tex/latex/dingbat
+# doublestroke
+%exclude %{texmfdistdir}/fonts/map/dvips/doublestroke
+%exclude %{texmfdistdir}/fonts/source/public/doublestroke
+%exclude %{texmfdistdir}/fonts/tfm/public/doublestroke
+%exclude %{texmfdistdir}/fonts/type1/public/doublestroke
+%exclude %{texmfdistdir}/tex/latex/doublestroke
+# dozenal
+%exclude %{texmfdistdir}/fonts/map/dvips/dozenal
+%exclude %{texmfdistdir}/fonts/source/public/dozenal
+%exclude %{texmfdistdir}/fonts/tfm/public/dozenal
+%exclude %{texmfdistdir}/fonts/type1/public/dozenal
+%exclude %{texmfdistdir}/fonts/vf/public/dozenal
+%exclude %{texmfdistdir}/tex/latex/dozenal
+# droid
+%exclude %{texmfdistdir}/fonts/afm/public/droid
+%exclude %{texmfdistdir}/fonts/enc/dvips/droid
+%exclude %{texmfdistdir}/fonts/map/dvips/droid
+%exclude %{texmfdistdir}/fonts/tfm/public/droid
+%exclude %{texmfdistdir}/fonts/truetype/public/droid
+%exclude %{texmfdistdir}/fonts/type1/public/droid
+%exclude %{texmfdistdir}/fonts/vf/public/droid
+%exclude %{texmfdistdir}/tex/latex/droid
+# duerer
+%exclude %{texmfdistdir}/fonts/source/public/duerer
+%exclude %{texmfdistdir}/fonts/tfm/public/duerer
+# duerer-latex
+%exclude %{texmfdistdir}/tex/latex/duerer-latex
+# ean
+%exclude %{texmfdistdir}/tex/generic/ean
+# ecc
+%exclude %{texmfdistdir}/fonts/source/public/ecc
+%exclude %{texmfdistdir}/fonts/tfm/public/ecc
+# eco
+%exclude %{texmfdistdir}/fonts/tfm/public/eco
+%exclude %{texmfdistdir}/fonts/vf/public/eco
+%exclude %{texmfdistdir}/tex/latex/eco
+# eiad
+%exclude %{texmfdistdir}/fonts/source/public/eiad
+%exclude %{texmfdistdir}/fonts/tfm/public/eiad
+%exclude %{texmfdistdir}/tex/latex/eiad
+# eiad-ltx
+%exclude %{texmfdistdir}/fonts/source/public/eiad-ltx
+%exclude %{texmfdistdir}/tex/latex/eiad-ltx
+# electrum
+%exclude %{texmfdistdir}/fonts/afm/arkandis/electrum
+%exclude %{texmfdistdir}/fonts/enc/dvips/electrum
+%exclude %{texmfdistdir}/fonts/map/dvips/electrum
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/electrum
+%exclude %{texmfdistdir}/fonts/type1/arkandis/electrum
+%exclude %{texmfdistdir}/fonts/vf/arkandis/electrum
+%exclude %{texmfdistdir}/tex/latex/electrum
+# elvish
+%exclude %{texmfdistdir}/fonts/source/public/elvish
+%exclude %{texmfdistdir}/fonts/tfm/public/elvish
+# epigrafica
+%exclude %{texmfdistdir}/fonts/afm/public/epigrafica
+%exclude %{texmfdistdir}/fonts/enc/dvips/epigrafica
+%exclude %{texmfdistdir}/fonts/map/dvips/epigrafica
+%exclude %{texmfdistdir}/fonts/tfm/public/epigrafica
+%exclude %{texmfdistdir}/fonts/type1/public/epigrafica
+%exclude %{texmfdistdir}/fonts/vf/public/epigrafica
+%exclude %{texmfdistdir}/tex/latex/epigrafica
+# epsdice
+%exclude %{texmfdistdir}/tex/latex/epsdice
+# esvect
+%exclude %{texmfdistdir}/fonts/map/dvips/esvect
+%exclude %{texmfdistdir}/fonts/source/public/esvect
+%exclude %{texmfdistdir}/fonts/tfm/public/esvect
+%exclude %{texmfdistdir}/fonts/type1/public/esvect
+%exclude %{texmfdistdir}/tex/latex/esvect
+# eulervm
+%exclude %{texmfdistdir}/fonts/tfm/public/eulervm
+%exclude %{texmfdistdir}/fonts/vf/public/eulervm
+%exclude %{texmfdistdir}/tex/latex/eulervm
+# euxm
+%exclude %{texmfdistdir}/fonts/source/public/euxm
+%exclude %{texmfdistdir}/fonts/tfm/public/euxm
+# feyn
+%exclude %{texmfdistdir}/fonts/source/public/feyn
+%exclude %{texmfdistdir}/fonts/tfm/public/feyn
+%exclude %{texmfdistdir}/tex/latex/feyn
+# fge
+%exclude %{texmfdistdir}/fonts/map/dvips/fge
+%exclude %{texmfdistdir}/fonts/source/public/fge
+%exclude %{texmfdistdir}/fonts/tfm/public/fge
+%exclude %{texmfdistdir}/fonts/type1/public/fge
+%exclude %{texmfdistdir}/tex/latex/fge
+# foekfont
+%exclude %{texmfdistdir}/fonts/map/dvips/foekfont
+%exclude %{texmfdistdir}/fonts/tfm/public/foekfont
+%exclude %{texmfdistdir}/fonts/type1/public/foekfont
+%exclude %{texmfdistdir}/tex/latex/foekfont
+# fonetika
+%exclude %{texmfdistdir}/fonts/afm/public/fonetika
+%exclude %{texmfdistdir}/fonts/map/dvips/fonetika
+%exclude %{texmfdistdir}/fonts/tfm/public/fonetika
+%exclude %{texmfdistdir}/fonts/truetype/public/fonetika
+%exclude %{texmfdistdir}/fonts/type1/public/fonetika
+%exclude %{texmfdistdir}/tex/latex/fonetika
+# fourier
+%exclude %{texmfdistdir}/fonts/afm/public/fourier
+%exclude %{texmfdistdir}/fonts/map/dvips/fourier
+%exclude %{texmfdistdir}/fonts/tfm/public/fourier
+%exclude %{texmfdistdir}/fonts/type1/public/fourier
+%exclude %{texmfdistdir}/fonts/vf/public/fourier
+%exclude %{texmfdistdir}/tex/latex/fourier
+# fouriernc
+%exclude %{texmfdistdir}/fonts/afm/public/fouriernc
+%exclude %{texmfdistdir}/fonts/tfm/public/fouriernc
+%exclude %{texmfdistdir}/fonts/vf/public/fouriernc
+%exclude %{texmfdistdir}/tex/latex/fouriernc
+# frcursive
+%exclude %{texmfdistdir}/fonts/source/public/frcursive
+%exclude %{texmfdistdir}/fonts/tfm/public/frcursive
+%exclude %{texmfdistdir}/metapost/frcursive
+%exclude %{texmfdistdir}/tex/latex/frcursive
+# genealogy
+%exclude %{texmfdistdir}/fonts/source/public/genealogy
+%exclude %{texmfdistdir}/fonts/tfm/public/genealogy
+# gentium
+%exclude %{texmfdistdir}/fonts/afm/public/gentium
+%exclude %{texmfdistdir}/fonts/enc/dvips/gentium
+%exclude %{texmfdistdir}/fonts/map/pdftex/gentium
+%exclude %{texmfdistdir}/fonts/tfm/public/gentium
+%exclude %{texmfdistdir}/fonts/truetype/public/gentium
+%exclude %{texmfdistdir}/tex/context/third/gentium
+# gfsartemisia
+%exclude %{texmfdistdir}/fonts/afm/public/gfsartemisia
+%exclude %{texmfdistdir}/fonts/enc/dvips/gfsartemisia
+%exclude %{texmfdistdir}/fonts/map/dvips/gfsartemisia
+%exclude %{texmfdistdir}/fonts/opentype/public/gfsartemisia
+%exclude %{texmfdistdir}/fonts/tfm/public/gfsartemisia
+%exclude %{texmfdistdir}/fonts/type1/public/gfsartemisia
+%exclude %{texmfdistdir}/fonts/vf/public/gfsartemisia
+%exclude %{texmfdistdir}/tex/latex/gfsartemisia
+# gfsbodoni
+%exclude %{texmfdistdir}/fonts/afm/public/gfsbodoni
+%exclude %{texmfdistdir}/fonts/enc/dvips/gfsbodoni
+%exclude %{texmfdistdir}/fonts/map/dvips/gfsbodoni
+%exclude %{texmfdistdir}/fonts/opentype/public/gfsbodoni
+%exclude %{texmfdistdir}/fonts/tfm/public/gfsbodoni
+%exclude %{texmfdistdir}/fonts/type1/public/gfsbodoni
+%exclude %{texmfdistdir}/fonts/vf/public/gfsbodoni
+%exclude %{texmfdistdir}/tex/latex/gfsbodoni
+# gfscomplutum
+%exclude %{texmfdistdir}/fonts/afm/public/gfscomplutum
+%exclude %{texmfdistdir}/fonts/enc/dvips/gfscomplutum
+%exclude %{texmfdistdir}/fonts/map/dvips/gfscomplutum
+%exclude %{texmfdistdir}/fonts/opentype/public/gfscomplutum
+%exclude %{texmfdistdir}/fonts/tfm/public/gfscomplutum
+%exclude %{texmfdistdir}/fonts/type1/public/gfscomplutum
+%exclude %{texmfdistdir}/fonts/vf/public/gfscomplutum
+%exclude %{texmfdistdir}/tex/latex/gfscomplutum
+# gfsdidot
+%exclude %{texmfdistdir}/fonts/afm/public/gfsdidot
+%exclude %{texmfdistdir}/fonts/enc/dvips/gfsdidot
+%exclude %{texmfdistdir}/fonts/map/dvips/gfsdidot
+%exclude %{texmfdistdir}/fonts/opentype/public/gfsdidot
+%exclude %{texmfdistdir}/fonts/tfm/public/gfsdidot
+%exclude %{texmfdistdir}/fonts/type1/public/gfsdidot
+%exclude %{texmfdistdir}/fonts/vf/public/gfsdidot
+%exclude %{texmfdistdir}/tex/latex/gfsdidot
+# gfsneohellenic
+%exclude %{texmfdistdir}/fonts/afm/public/gfsneohellenic
+%exclude %{texmfdistdir}/fonts/enc/dvips/gfsneohellenic
+%exclude %{texmfdistdir}/fonts/map/dvips/gfsneohellenic
+%exclude %{texmfdistdir}/fonts/opentype/public/gfsneohellenic
+%exclude %{texmfdistdir}/fonts/tfm/public/gfsneohellenic
+%exclude %{texmfdistdir}/fonts/type1/public/gfsneohellenic
+%exclude %{texmfdistdir}/fonts/vf/public/gfsneohellenic
+%exclude %{texmfdistdir}/tex/latex/gfsneohellenic
+# gfssolomos
+%exclude %{texmfdistdir}/fonts/afm/public/gfssolomos
+%exclude %{texmfdistdir}/fonts/enc/dvips/gfssolomos
+%exclude %{texmfdistdir}/fonts/map/dvips/gfssolomos
+%exclude %{texmfdistdir}/fonts/opentype/public/gfssolomos
+%exclude %{texmfdistdir}/fonts/tfm/public/gfssolomos
+%exclude %{texmfdistdir}/fonts/type1/public/gfssolomos
+%exclude %{texmfdistdir}/fonts/vf/public/gfssolomos
+%exclude %{texmfdistdir}/tex/latex/gfssolomos
+# gillcm
+%exclude %{texmfdistdir}/fonts/map/dvips/gillcm
+%exclude %{texmfdistdir}/fonts/tfm/public/gillcm
+%exclude %{texmfdistdir}/fonts/vf/public/gillcm
+%exclude %{texmfdistdir}/tex/latex/gillcm
+# gnu-freefont
+%exclude %{texmfdistdir}/fonts/opentype/public/gnu-freefont
+%exclude %{texmfdistdir}/fonts/truetype/public/gnu-freefont
+# gothic
+%exclude %{texmfdistdir}/dvips/gothic
+%exclude %{texmfdistdir}/fonts/afm/public/gothic
+%exclude %{texmfdistdir}/fonts/map/dvips/gothic
+%exclude %{texmfdistdir}/fonts/source/public/gothic
+%exclude %{texmfdistdir}/fonts/tfm/public/gothic
+%exclude %{texmfdistdir}/fonts/type1/public/gothic
+%exclude %{texmfdistdir}/fonts/vf/public/gothic
+# greenpoint
+%exclude %{texmfdistdir}/fonts/source/public/greenpoint
+%exclude %{texmfdistdir}/fonts/tfm/public/greenpoint
+# groff
+%exclude %{texmfdistdir}/fonts/afm/groff
+%exclude %{texmfdistdir}/fonts/enc/dvips/groff
+%exclude %{texmfdistdir}/fonts/map/dvips/groff
+%exclude %{texmfdistdir}/fonts/tfm/groff
+%exclude %{texmfdistdir}/fonts/type1/groff
+# hands
+%exclude %{texmfdistdir}/fonts/source/public/hands
+%exclude %{texmfdistdir}/fonts/tfm/public/hands
+# hfbright
+%exclude %{texmfdistdir}/dvips/hfbright
+%exclude %{texmfdistdir}/fonts/afm/public/hfbright
+%exclude %{texmfdistdir}/fonts/enc/dvips/hfbright
+%exclude %{texmfdistdir}/fonts/map/dvips/hfbright
+%exclude %{texmfdistdir}/fonts/type1/public/hfbright
+# hfoldsty
+%exclude %{texmfdistdir}/fonts/tfm/public/hfoldsty
+%exclude %{texmfdistdir}/fonts/vf/public/hfoldsty
+%exclude %{texmfdistdir}/tex/latex/hfoldsty
+# ifsym
+%exclude %{texmfdistdir}/fonts/source/public/ifsym
+%exclude %{texmfdistdir}/fonts/tfm/public/ifsym
+%exclude %{texmfdistdir}/tex/latex/ifsym
+# inconsolata
+%exclude %{texmfdistdir}/fonts/enc/dvips/inconsolata
+%exclude %{texmfdistdir}/fonts/map/dvips/inconsolata
+%exclude %{texmfdistdir}/fonts/opentype/public/inconsolata
+%exclude %{texmfdistdir}/fonts/tfm/public/inconsolata
+%exclude %{texmfdistdir}/fonts/type1/public/inconsolata
+%exclude %{texmfdistdir}/tex/latex/inconsolata
+# initials
+%exclude %{texmfdistdir}/dvips/initials
+%exclude %{texmfdistdir}/fonts/afm/public/initials
+%exclude %{texmfdistdir}/fonts/map/dvips/initials
+%exclude %{texmfdistdir}/fonts/tfm/public/initials
+%exclude %{texmfdistdir}/fonts/type1/public/initials
+%exclude %{texmfdistdir}/tex/latex/initials
+# iwona
+%exclude %{texmfdistdir}/fonts/afm/nowacki/iwona
+%exclude %{texmfdistdir}/fonts/enc/dvips/iwona
+%exclude %{texmfdistdir}/fonts/map/dvips/iwona
+%exclude %{texmfdistdir}/fonts/opentype/nowacki/iwona
+%exclude %{texmfdistdir}/fonts/tfm/nowacki/iwona
+%exclude %{texmfdistdir}/fonts/type1/nowacki/iwona
+%exclude %{texmfdistdir}/tex/latex/iwona
+%exclude %{texmfdistdir}/tex/plain/iwona
+# jablantile
+%exclude %{texmfdistdir}/fonts/source/public/jablantile
+# jamtimes
+%exclude %{texmfdistdir}/fonts/map/dvips/jamtimes
+%exclude %{texmfdistdir}/fonts/tfm/public/jamtimes
+%exclude %{texmfdistdir}/fonts/vf/public/jamtimes
+%exclude %{texmfdistdir}/tex/latex/jamtimes
+# junicode
+%exclude %{texmfdistdir}/fonts/truetype/public/junicode
+# kixfont
+%exclude %{texmfdistdir}/fonts/source/public/kixfont
+%exclude %{texmfdistdir}/fonts/tfm/public/kixfont
+# knuthotherfonts
+%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts/committee
+%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts/halftone
+%exclude %{texmfdistdir}/fonts/source/public/knuthotherfonts/mfbook
+# kpfonts
+%exclude %{texmfdistdir}/fonts/afm/public/kpfonts
+%exclude %{texmfdistdir}/fonts/enc/dvips/kpfonts
+%exclude %{texmfdistdir}/fonts/enc/pdftex/kpfonts
+%exclude %{texmfdistdir}/fonts/map/dvips/kpfonts
+%exclude %{texmfdistdir}/fonts/source/public/kpfonts
+%exclude %{texmfdistdir}/fonts/tfm/public/kpfonts
+%exclude %{texmfdistdir}/fonts/type1/public/kpfonts
+%exclude %{texmfdistdir}/fonts/vf/public/kpfonts
+%exclude %{texmfdistdir}/tex/latex/kpfonts
+# kurier
+%exclude %{texmfdistdir}/fonts/afm/nowacki/kurier
+%exclude %{texmfdistdir}/fonts/enc/dvips/kurier
+%exclude %{texmfdistdir}/fonts/map/dvips/kurier
+%exclude %{texmfdistdir}/fonts/opentype/nowacki/kurier
+%exclude %{texmfdistdir}/fonts/tfm/nowacki/kurier
+%exclude %{texmfdistdir}/fonts/type1/nowacki/kurier
+%exclude %{texmfdistdir}/tex/latex/kurier
+%exclude %{texmfdistdir}/tex/plain/kurier
+# lato
+%exclude %{texmfdistdir}/fonts/afm/public/lato
+%exclude %{texmfdistdir}/fonts/enc/dvips/lato
+%exclude %{texmfdistdir}/fonts/map/dvips/lato
+%exclude %{texmfdistdir}/fonts/tfm/public/lato
+%exclude %{texmfdistdir}/fonts/truetype/public/lato
+%exclude %{texmfdistdir}/fonts/type1/public/lato
+%exclude %{texmfdistdir}/fonts/vf/public/lato
+%exclude %{texmfdistdir}/tex/latex/lato
+# lfb
+%exclude %{texmfdistdir}/fonts/source/public/lfb
+%exclude %{texmfdistdir}/fonts/tfm/public/lfb
+# libertine
+%exclude %{texmfdistdir}/dvips/libertine
+%exclude %{texmfdistdir}/fonts/afm/public/libertine
+%exclude %{texmfdistdir}/fonts/enc/dvips/libertine
+%exclude %{texmfdistdir}/fonts/map/dvips/libertine
+%exclude %{texmfdistdir}/fonts/opentype/public/libertine
+%exclude %{texmfdistdir}/fonts/tfm/public/libertine
+%exclude %{texmfdistdir}/fonts/type1/public/libertine
+%exclude %{texmfdistdir}/fonts/vf/public/libertine
+%exclude %{texmfdistdir}/tex/latex/libertine
+# libris
+%exclude %{texmfdistdir}/fonts/afm/arkandis/libris
+%exclude %{texmfdistdir}/fonts/enc/dvips/libris
+%exclude %{texmfdistdir}/fonts/map/dvips/libris
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/libris
+%exclude %{texmfdistdir}/fonts/type1/arkandis/libris
+%exclude %{texmfdistdir}/fonts/vf/arkandis/libris
+%exclude %{texmfdistdir}/tex/latex/libris
+# linearA
+%exclude %{texmfdistdir}/fonts/afm/public/linearA
+%exclude %{texmfdistdir}/fonts/map/dvips/linearA
+%exclude %{texmfdistdir}/fonts/tfm/public/linearA
+%exclude %{texmfdistdir}/fonts/type1/public/linearA
+%exclude %{texmfdistdir}/tex/latex/linearA
+# lxfonts
+%exclude %{texmfdistdir}/fonts/map/dvips/lxfonts
+%exclude %{texmfdistdir}/fonts/source/public/lxfonts
+%exclude %{texmfdistdir}/fonts/tfm/public/lxfonts
+%exclude %{texmfdistdir}/fonts/type1/public/lxfonts
+%exclude %{texmfdistdir}/tex/latex/lxfonts
+# ly1
+%exclude %{texmfdistdir}/fonts/enc/dvips/ly1
+%exclude %{texmfdistdir}/fonts/map/dvips/ly1
+%exclude %{texmfdistdir}/fonts/tfm/adobe/ly1
+%exclude %{texmfdistdir}/fonts/vf/adobe/ly1
+%exclude %{texmfdistdir}/tex/latex/ly1
+%exclude %{texmfdistdir}/tex/plain/ly1
+# mathabx
+%exclude %{texmfdistdir}/fonts/source/public/mathabx
+%exclude %{texmfdistdir}/fonts/tfm/public/mathabx
+%exclude %{texmfdistdir}/tex/generic/mathabx
+# mathabx-type1
+%exclude %{texmfdistdir}/fonts/map/dvips/mathabx-type1
+%exclude %{texmfdistdir}/fonts/type1/public/mathabx-type1
+# mathdesign
+%exclude %{texmfdistdir}/dvips/mathdesign
+%exclude %{texmfdistdir}/fonts/afm/mathdesign/mdbch
+%exclude %{texmfdistdir}/fonts/afm/mathdesign/mdput
+%exclude %{texmfdistdir}/fonts/afm/mathdesign/mdugm
+%exclude %{texmfdistdir}/fonts/map/dvips/mathdesign
+%exclude %{texmfdistdir}/fonts/tfm/mathdesign/mdbch
+%exclude %{texmfdistdir}/fonts/tfm/mathdesign/mdput
+%exclude %{texmfdistdir}/fonts/tfm/mathdesign/mdugm
+%exclude %{texmfdistdir}/fonts/type1/mathdesign/mdbch
+%exclude %{texmfdistdir}/fonts/type1/mathdesign/mdput
+%exclude %{texmfdistdir}/fonts/type1/mathdesign/mdugm
+%exclude %{texmfdistdir}/fonts/vf/mathdesign/mdbch
+%exclude %{texmfdistdir}/fonts/vf/mathdesign/mdput
+%exclude %{texmfdistdir}/fonts/vf/mathdesign/mdugm
+%exclude %{texmfdistdir}/tex/latex/mathdesign
+%exclude %{texmfdistdir}/tex/latex/mathdesign/mdbch
+%exclude %{texmfdistdir}/tex/latex/mathdesign/mdput
+%exclude %{texmfdistdir}/tex/latex/mathdesign/mdugm
+# mdputu
+%exclude %{texmfdistdir}/fonts/tfm/public/mdputu
+%exclude %{texmfdistdir}/fonts/vf/public/mdputu
+%exclude %{texmfdistdir}/tex/latex/mdputu
+# mnsymbol
+%exclude %{texmfdistdir}/fonts/enc/dvips/mnsymbol
+%exclude %{texmfdistdir}/fonts/map/dvips/mnsymbol
+%exclude %{texmfdistdir}/fonts/map/vtex/mnsymbol
+%exclude %{texmfdistdir}/fonts/opentype/public/mnsymbol
+%exclude %{texmfdistdir}/fonts/source/public/mnsymbol
+%exclude %{texmfdistdir}/fonts/tfm/public/mnsymbol
+%exclude %{texmfdistdir}/fonts/type1/public/mnsymbol
+%exclude %{texmfdistdir}/tex/latex/mnsymbol
+# nkarta
+%exclude %{texmfdistdir}/fonts/source/public/nkarta
+%exclude %{texmfdistdir}/fonts/tfm/public/nkarta
+%exclude %{texmfdistdir}/metapost/nkarta
+# ocherokee
+%exclude %{texmfdistdir}/fonts/afm/public/ocherokee
+%exclude %{texmfdistdir}/fonts/map/dvips/ocherokee
+%exclude %{texmfdistdir}/fonts/ofm/public/ocherokee
+%exclude %{texmfdistdir}/fonts/ovf/public/ocherokee
+%exclude %{texmfdistdir}/fonts/ovp/public/ocherokee
+%exclude %{texmfdistdir}/fonts/tfm/public/ocherokee
+%exclude %{texmfdistdir}/fonts/type1/public/ocherokee
+%exclude %{texmfdistdir}/omega/ocp/ocherokee
+%exclude %{texmfdistdir}/omega/otp/ocherokee
+# ocr-b
+%exclude %{texmfdistdir}/fonts/source/public/ocr-b
+%exclude %{texmfdistdir}/fonts/tfm/public/ocr-b
+# ocr-b-outline
+%exclude %{texmfdistdir}/fonts/map/dvips/ocr-b-outline
+%exclude %{texmfdistdir}/fonts/opentype/public/ocr-b-outline
+%exclude %{texmfdistdir}/fonts/type1/public/ocr-b-outline
+# ogham
+%exclude %{texmfdistdir}/fonts/source/public/ogham
+%exclude %{texmfdistdir}/fonts/tfm/public/ogham
+# oinuit
+%exclude %{texmfdistdir}/fonts/map/dvips/oinuit
+%exclude %{texmfdistdir}/fonts/ofm/public/oinuit
+%exclude %{texmfdistdir}/fonts/ovf/public/oinuit
+%exclude %{texmfdistdir}/fonts/tfm/public/oinuit
+%exclude %{texmfdistdir}/fonts/type1/public/oinuit
+%exclude %{texmfdistdir}/omega/ocp/oinuit
+%exclude %{texmfdistdir}/tex/lambda/oinuit
+# oldlatin
+%exclude %{texmfdistdir}/fonts/source/public/oldlatin
+%exclude %{texmfdistdir}/fonts/tfm/public/oldlatin
+# oldstandard
+%exclude %{texmfdistdir}/fonts/opentype/public/oldstandard
+# orkhun
+%exclude %{texmfdistdir}/fonts/source/public/orkhun
+%exclude %{texmfdistdir}/fonts/tfm/public/orkhun
+# osmanian
+%exclude %{texmfdistdir}/fonts/source/public/osmanian
+# pacioli
+%exclude %{texmfdistdir}/fonts/source/public/pacioli
+%exclude %{texmfdistdir}/fonts/tfm/public/pacioli
+%exclude %{texmfdistdir}/tex/latex/pacioli
+# phaistos
+%exclude %{texmfdistdir}/fonts/afm/public/phaistos
+%exclude %{texmfdistdir}/fonts/map/dvips/phaistos
+%exclude %{texmfdistdir}/fonts/opentype/public/phaistos
+%exclude %{texmfdistdir}/fonts/tfm/public/phaistos
+%exclude %{texmfdistdir}/fonts/type1/public/phaistos
+%exclude %{texmfdistdir}/tex/latex/phaistos
+# phonetic
+%exclude %{texmfdistdir}/fonts/source/public/phonetic
+%exclude %{texmfdistdir}/fonts/tfm/public/phonetic
+%exclude %{texmfdistdir}/tex/latex/phonetic
+# pigpen
+%exclude %{texmfdistdir}/fonts/map/dvips/pigpen
+%exclude %{texmfdistdir}/fonts/source/public/pigpen
+%exclude %{texmfdistdir}/fonts/tfm/public/pigpen
+%exclude %{texmfdistdir}/fonts/type1/public/pigpen
+%exclude %{texmfdistdir}/tex/latex/pigpen
+# poltawski
+%exclude %{texmfdistdir}/fonts/afm/gust/poltawski
+%exclude %{texmfdistdir}/fonts/enc/dvips/poltawski
+%exclude %{texmfdistdir}/fonts/map/dvips/poltawski
+%exclude %{texmfdistdir}/fonts/opentype/gust/poltawski
+%exclude %{texmfdistdir}/fonts/tfm/gust/poltawski
+%exclude %{texmfdistdir}/fonts/type1/gust/poltawski
+%exclude %{texmfdistdir}/tex/latex/poltawski
+# psafm
+%exclude %{texmfdistdir}/fonts/afm/itc/psafm/stonesan
+# ptsans
+%exclude %{texmfdistdir}/fonts/afm/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/enc/dvips/ptsans
+%exclude %{texmfdistdir}/fonts/map/dvips/ptsans
+%exclude %{texmfdistdir}/fonts/tfm/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/truetype/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/type1/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/vf/paratype/ptsans
+%exclude %{texmfdistdir}/tex/latex/ptsans
+# ptserif
+%exclude %{texmfdistdir}/fonts/afm/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/enc/dvips/ptserif
+%exclude %{texmfdistdir}/fonts/map/dvips/ptserif
+%exclude %{texmfdistdir}/fonts/tfm/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/truetype/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/type1/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/vf/paratype/ptserif
+%exclude %{texmfdistdir}/tex/latex/ptserif
+# punk
+%exclude %{texmfdistdir}/fonts/source/public/punk
+%exclude %{texmfdistdir}/fonts/tfm/public/punk
+# punknova
+%exclude %{texmfdistdir}/fonts/opentype/public/punknova
+# recycle
+%exclude %{texmfdistdir}/fonts/map/dvips/recycle
+%exclude %{texmfdistdir}/fonts/source/public/recycle
+%exclude %{texmfdistdir}/fonts/tfm/public/recycle
+%exclude %{texmfdistdir}/fonts/type1/public/recycle
+%exclude %{texmfdistdir}/tex/latex/recycle
+# romande
+%exclude %{texmfdistdir}/fonts/afm/arkandis/romande
+%exclude %{texmfdistdir}/fonts/enc/dvips/romande
+%exclude %{texmfdistdir}/fonts/map/dvips/romande
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/romande
+%exclude %{texmfdistdir}/fonts/type1/arkandis/romande
+%exclude %{texmfdistdir}/fonts/vf/arkandis/romande
+%exclude %{texmfdistdir}/tex/latex/romande
+# sauter
+%exclude %{texmfdistdir}/fonts/source/public/sauter
+# sauterfonts
+%exclude %{texmfdistdir}/tex/latex/sauterfonts
+# semaphor
+%exclude %{texmfdistdir}/fonts/afm/public/semaphor
+%exclude %{texmfdistdir}/fonts/enc/dvips/semaphor
+%exclude %{texmfdistdir}/fonts/map/dvips/semaphor
+%exclude %{texmfdistdir}/fonts/opentype/public/semaphor
+%exclude %{texmfdistdir}/fonts/source/public/semaphor
+%exclude %{texmfdistdir}/fonts/source/public/semaphor/metafont
+%exclude %{texmfdistdir}/fonts/tfm/public/semaphor
+%exclude %{texmfdistdir}/fonts/type1/public/semaphor
+%exclude %{texmfdistdir}/tex/context/third/semaphor
+%exclude %{texmfdistdir}/tex/latex/semaphor
+%exclude %{texmfdistdir}/tex/plain/semaphor
+# skull
+%exclude %{texmfdistdir}/fonts/source/public/skull
+%exclude %{texmfdistdir}/tex/latex/skull
+# starfont
+%exclude %{texmfdistdir}/fonts/afm/public/starfont
+%exclude %{texmfdistdir}/fonts/map/dvips/starfont
+%exclude %{texmfdistdir}/fonts/tfm/public/starfont
+%exclude %{texmfdistdir}/fonts/type1/public/starfont
+%exclude %{texmfdistdir}/tex/latex/starfont
+# staves
+%exclude %{texmfdistdir}/fonts/map/dvips/staves
+%exclude %{texmfdistdir}/fonts/tfm/public/staves
+%exclude %{texmfdistdir}/fonts/type1/public/staves
+%exclude %{texmfdistdir}/tex/latex/staves
+# stix
+%exclude %{texmfdistdir}/fonts/opentype/public/stix
+# tapir
+%exclude %{texmfdistdir}/fonts/source/public/tapir
+%exclude %{texmfdistdir}/fonts/type1/public/tapir
+# tengwarscript
+%exclude %{texmfdistdir}/fonts/enc/dvips/tengwarscript
+%exclude %{texmfdistdir}/fonts/map/dvips/tengwarscript
+%exclude %{texmfdistdir}/fonts/tfm/public/tengwarscript
+%exclude %{texmfdistdir}/fonts/vf/public/tengwarscript
+%exclude %{texmfdistdir}/tex/latex/tengwarscript
+# tfrupee
+%exclude %{texmfdistdir}/fonts/afm/public/tfrupee
+%exclude %{texmfdistdir}/fonts/map/dvips/tfrupee
+%exclude %{texmfdistdir}/fonts/tfm/public/tfrupee
+%exclude %{texmfdistdir}/fonts/type1/public/tfrupee
+%exclude %{texmfdistdir}/tex/latex/tfrupee
+# tpslifonts
+%exclude %{texmfdistdir}/tex/latex/tpslifonts
+# trajan
+%exclude %{texmfdistdir}/fonts/afm/public/trajan
+%exclude %{texmfdistdir}/fonts/map/dvips/trajan
+%exclude %{texmfdistdir}/fonts/tfm/public/trajan
+%exclude %{texmfdistdir}/fonts/type1/public/trajan
+%exclude %{texmfdistdir}/tex/latex/trajan
+# txfontsb
+%exclude %{texmfdistdir}/fonts/afm/public/txfontsb
+%exclude %{texmfdistdir}/fonts/enc/dvips/txfontsb
+%exclude %{texmfdistdir}/fonts/map/dvips/txfontsb
+%exclude %{texmfdistdir}/fonts/tfm/public/txfontsb
+%exclude %{texmfdistdir}/fonts/type1/public/txfontsb
+%exclude %{texmfdistdir}/fonts/vf/public/txfontsb
+%exclude %{texmfdistdir}/tex/latex/txfontsb
+# umtypewriter
+%exclude %{texmfdistdir}/fonts/opentype/public/umtypewriter
+# universa
+%exclude %{texmfdistdir}/fonts/source/public/universa
+%exclude %{texmfdistdir}/fonts/tfm/public/universa
+%exclude %{texmfdistdir}/tex/latex/universa
+# venturisadf
+%exclude %{texmfdistdir}/fonts/afm/arkandis/venturis
+%exclude %{texmfdistdir}/fonts/afm/arkandis/venturis2
+%exclude %{texmfdistdir}/fonts/afm/arkandis/venturisold
+%exclude %{texmfdistdir}/fonts/afm/arkandis/venturissans
+%exclude %{texmfdistdir}/fonts/afm/arkandis/venturissans2
+%exclude %{texmfdistdir}/fonts/enc/dvips/venturisadf
+%exclude %{texmfdistdir}/fonts/map/dvips/venturis
+%exclude %{texmfdistdir}/fonts/map/dvips/venturis2
+%exclude %{texmfdistdir}/fonts/map/dvips/venturisold
+%exclude %{texmfdistdir}/fonts/map/dvips/venturissans
+%exclude %{texmfdistdir}/fonts/map/dvips/venturissans2
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/venturis
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/venturis2
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/venturisold
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/venturissans
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/venturissans2
+%exclude %{texmfdistdir}/fonts/type1/arkandis/venturis
+%exclude %{texmfdistdir}/fonts/type1/arkandis/venturis2
+%exclude %{texmfdistdir}/fonts/type1/arkandis/venturisold
+%exclude %{texmfdistdir}/fonts/type1/arkandis/venturissans
+%exclude %{texmfdistdir}/fonts/type1/arkandis/venturissans2
+%exclude %{texmfdistdir}/fonts/vf/arkandis/venturis
+%exclude %{texmfdistdir}/fonts/vf/arkandis/venturis2
+%exclude %{texmfdistdir}/fonts/vf/arkandis/venturisold
+%exclude %{texmfdistdir}/fonts/vf/arkandis/venturissans
+%exclude %{texmfdistdir}/fonts/vf/arkandis/venturissans2
+%exclude %{texmfdistdir}/tex/latex/venturis
+%exclude %{texmfdistdir}/tex/latex/venturis2
+%exclude %{texmfdistdir}/tex/latex/venturisadf
+%exclude %{texmfdistdir}/tex/latex/venturisold
+%exclude %{texmfdistdir}/tex/latex/venturissans
+%exclude %{texmfdistdir}/tex/latex/venturissans2
+# wsuipa
+%exclude %{texmfdistdir}/fonts/source/public/wsuipa
+%exclude %{texmfdistdir}/fonts/tfm/public/wsuipa
+%exclude %{texmfdistdir}/tex/latex/wsuipa
+# xits
+%exclude %{texmfdistdir}/fonts/opentype/public/xits
+# yfonts
+%exclude %{texmfdistdir}/tex/latex/yfonts
+
 %{_datadir}/texmf-dist/makeindex
 %{_datadir}/texmf-dist/metafont
 %{_datadir}/texmf-dist/metapost
@@ -137,6 +986,868 @@ free software, including support for many languages around the world.
 %exclude %{_datadir}/texmf/doc/xindy
 %endif
 %{_datadir}/texmf-dist/doc
+
+#-----------------------------------------------------------------------
+%package	-n texlive-fontsextra
+Summary:	TeX Live extra fonts
+Group:		Publishing
+Requires:	texlive-texmf = %{version}-%{release}
+
+%description	-n texlive-fontsextra
+TeX Live is an easy way to get up and running with the TeX document
+production system. It provides a comprehensive TeX system. It includes
+all the major TeX-related programs, macro packages, and fonts that are
+free software, including support for many languages around the world.
+
+%files		-n texlive-fontsextra
+%defattr(-,root,root,-)
+# collection-fontsextra
+# Asana-Math
+%{texmfdistdir}/fonts/opentype/public/Asana-Math
+%{texmfdistdir}/fonts/truetype/public/Asana-Math
+# adforn
+%{texmfdistdir}/fonts/afm/arkandis/adforn
+%{texmfdistdir}/fonts/enc/dvips/adforn
+%{texmfdistdir}/fonts/map/dvips/adforn
+%{texmfdistdir}/fonts/tfm/arkandis/adforn
+%{texmfdistdir}/fonts/type1/arkandis/adforn
+%{texmfdistdir}/tex/latex/adforn
+# adfsymbols
+%{texmfdistdir}/fonts/afm/arkandis/adfsymbols
+%{texmfdistdir}/fonts/enc/dvips/adfsymbols
+%{texmfdistdir}/fonts/map/dvips/adfsymbols
+%{texmfdistdir}/fonts/tfm/arkandis/adfsymbols
+%{texmfdistdir}/fonts/type1/arkandis/adfsymbols
+%{texmfdistdir}/tex/latex/adfsymbols
+# allrunes
+%{texmfdistdir}/fonts/map/dvips/allrunes
+%{texmfdistdir}/fonts/source/public/allrunes
+%{texmfdistdir}/fonts/tfm/public/allrunes
+%{texmfdistdir}/fonts/type1/public/allrunes
+%{texmfdistdir}/tex/latex/allrunes
+# antiqua
+%{texmfdistdir}/dvips/antiqua
+%{texmfdistdir}/fonts/afm/urw/antiqua
+%{texmfdistdir}/fonts/map/dvips/antiqua
+%{texmfdistdir}/fonts/tfm/urw/antiqua
+%{texmfdistdir}/fonts/type1/urw/antiqua
+%{texmfdistdir}/fonts/vf/urw/antiqua
+%{texmfdistdir}/tex/latex/antiqua
+# antt
+%{texmfdistdir}/fonts/afm/public/antt
+%{texmfdistdir}/fonts/enc/dvips/antt
+%{texmfdistdir}/fonts/map/dvips/antt
+%{texmfdistdir}/fonts/opentype/public/antt
+%{texmfdistdir}/fonts/tfm/public/antt
+%{texmfdistdir}/fonts/type1/public/antt
+%{texmfdistdir}/tex/latex/antt
+%{texmfdistdir}/tex/plain/antt
+# ar
+%{texmfdistdir}/fonts/source/public/ar
+%{texmfdistdir}/fonts/tfm/public/ar
+%{texmfdistdir}/tex/latex/ar
+# archaic
+%{texmfdistdir}/fonts/afm/public/archaic
+%{texmfdistdir}/fonts/map/dvips/archaic
+%{texmfdistdir}/fonts/source/public/archaic
+%{texmfdistdir}/fonts/tfm/public/archaic
+%{texmfdistdir}/fonts/type1/public/archaic
+%{texmfdistdir}/tex/latex/archaic
+# arev
+%{texmfdistdir}/fonts/afm/public/arev
+%{texmfdistdir}/fonts/enc/dvips/arev
+%{texmfdistdir}/fonts/map/dvips/arev
+%{texmfdistdir}/fonts/tfm/public/arev
+%{texmfdistdir}/fonts/type1/public/arev
+%{texmfdistdir}/fonts/vf/public/arev
+%{texmfdistdir}/tex/latex/arev
+# ascii
+%{texmfdistdir}/fonts/map/dvips/ascii
+%{texmfdistdir}/fonts/tfm/public/ascii
+%{texmfdistdir}/fonts/type1/public/ascii
+%{texmfdistdir}/tex/latex/ascii
+# astro
+%{texmfdistdir}/fonts/source/public/astro
+%{texmfdistdir}/fonts/tfm/public/astro
+# augie
+%{texmfdistdir}/fonts/afm/public/augie
+%{texmfdistdir}/fonts/map/dvips/augie
+%{texmfdistdir}/fonts/tfm/public/augie
+%{texmfdistdir}/fonts/type1/public/augie
+%{texmfdistdir}/fonts/vf/public/augie
+%{texmfdistdir}/tex/latex/augie
+# auncial-new
+%{texmfdistdir}/fonts/afm/public/auncial-new
+%{texmfdistdir}/fonts/map/dvips/auncial-new
+%{texmfdistdir}/fonts/tfm/public/auncial-new
+%{texmfdistdir}/fonts/type1/public/auncial-new
+%{texmfdistdir}/tex/latex/auncial-new
+# aurical
+%{texmfdistdir}/fonts/afm/public/aurical
+%{texmfdistdir}/fonts/map/dvips/aurical
+%{texmfdistdir}/fonts/source/public/aurical
+%{texmfdistdir}/fonts/tfm/public/aurical
+%{texmfdistdir}/fonts/type1/public/aurical
+%{texmfdistdir}/tex/latex/aurical
+# b1encoding
+%{texmfdistdir}/fonts/enc/dvips/b1encoding
+%{texmfdistdir}/tex/latex/b1encoding
+# barcodes
+%{texmfdistdir}/fonts/source/public/barcodes
+%{texmfdistdir}/fonts/tfm/public/barcodes
+%{texmfdistdir}/tex/latex/barcodes
+# baskervald
+%{texmfdistdir}/fonts/afm/arkandis/baskervald
+%{texmfdistdir}/fonts/enc/dvips/baskervald
+%{texmfdistdir}/fonts/map/dvips/baskervald
+%{texmfdistdir}/fonts/tfm/arkandis/baskervald
+%{texmfdistdir}/fonts/type1/arkandis/baskervald
+%{texmfdistdir}/fonts/vf/arkandis/baskervald
+%{texmfdistdir}/tex/latex/baskervald
+# bbding
+%{texmfdistdir}/fonts/source/public/bbding
+%{texmfdistdir}/fonts/tfm/public/bbding
+%{texmfdistdir}/tex/latex/bbding
+# bbm
+%{texmfdistdir}/fonts/source/public/bbm
+%{texmfdistdir}/fonts/tfm/public/bbm
+# bbm-macros
+%{texmfdistdir}/tex/latex/bbm-macros
+# bbold
+%{texmfdistdir}/fonts/source/public/bbold
+%{texmfdistdir}/fonts/tfm/public/bbold
+%{texmfdistdir}/tex/latex/bbold
+# bbold-type1
+%{texmfdistdir}/fonts/afm/public/bbold-type1
+%{texmfdistdir}/fonts/map/dvips/bbold-type1
+%{texmfdistdir}/fonts/type1/public/bbold-type1
+# belleek
+%{texmfdistdir}/fonts/map/dvips/belleek
+%{texmfdistdir}/fonts/truetype/public/belleek
+%{texmfdistdir}/fonts/type1/public/belleek
+# bera
+%{texmfdistdir}/fonts/afm/public/bera
+%{texmfdistdir}/fonts/map/dvips/bera
+%{texmfdistdir}/fonts/tfm/public/bera
+%{texmfdistdir}/fonts/type1/public/bera
+%{texmfdistdir}/fonts/vf/public/bera
+%{texmfdistdir}/tex/latex/bera
+# berenisadf
+%{texmfdistdir}/fonts/afm/arkandis/berenisadf
+%{texmfdistdir}/fonts/enc/dvips/berenisadf
+%{texmfdistdir}/fonts/map/dvips/berenisadf
+%{texmfdistdir}/fonts/tfm/arkandis/berenisadf
+%{texmfdistdir}/fonts/type1/arkandis/berenisadf
+%{texmfdistdir}/tex/latex/berenisadf
+# blacklettert1
+%{texmfdistdir}/fonts/tfm/public/blacklettert1
+%{texmfdistdir}/fonts/vf/public/blacklettert1
+%{texmfdistdir}/tex/latex/blacklettert1
+# boisik
+%{texmfdistdir}/fonts/source/public/boisik
+%{texmfdistdir}/fonts/tfm/public/boisik
+%{texmfdistdir}/tex/latex/boisik
+# bookhands
+%{texmfdistdir}/fonts/source/public/bookhands
+%{texmfdistdir}/tex/latex/bookhands
+# braille
+%{texmfdistdir}/tex/latex/braille
+# brushscr
+%{texmfdistdir}/dvips/brushscr
+%{texmfdistdir}/fonts/afm/public/brushscr
+%{texmfdistdir}/fonts/map/dvips/brushscr
+%{texmfdistdir}/fonts/tfm/public/brushscr
+%{texmfdistdir}/fonts/type1/public/brushscr
+%{texmfdistdir}/fonts/vf/public/brushscr
+%{texmfdistdir}/tex/latex/brushscr
+# calligra
+%{texmfdistdir}/fonts/source/public/calligra
+%{texmfdistdir}/fonts/tfm/public/calligra
+# carolmin-ps
+%{texmfdistdir}/fonts/afm/public/carolmin-ps
+%{texmfdistdir}/fonts/map/dvips/carolmin-ps
+%{texmfdistdir}/fonts/type1/public/carolmin-ps
+# ccicons
+%{texmfdistdir}/fonts/enc/dvips/ccicons
+%{texmfdistdir}/fonts/map/dvips/ccicons
+%{texmfdistdir}/fonts/tfm/public/ccicons
+%{texmfdistdir}/fonts/type1/public/ccicons
+%{texmfdistdir}/tex/latex/ccicons
+# cfr-lm
+%{texmfdistdir}/fonts/enc/dvips/cfr-lm
+%{texmfdistdir}/fonts/map/dvips/cfr-lm
+%{texmfdistdir}/fonts/tfm/public/cfr-lm
+%{texmfdistdir}/fonts/vf/public/cfr-lm
+%{texmfdistdir}/tex/latex/cfr-lm
+# cherokee
+%{texmfdistdir}/fonts/source/public/cherokee
+%{texmfdistdir}/fonts/tfm/public/cherokee
+%{texmfdistdir}/tex/latex/cherokee
+# cm-lgc
+%{texmfdistdir}/fonts/afm/public/cm-lgc
+%{texmfdistdir}/fonts/enc/dvips/cm-lgc
+%{texmfdistdir}/fonts/map/dvips/cm-lgc
+%{texmfdistdir}/fonts/ofm/public/cm-lgc
+%{texmfdistdir}/fonts/ovf/public/cm-lgc
+%{texmfdistdir}/fonts/tfm/public/cm-lgc
+%{texmfdistdir}/fonts/type1/public/cm-lgc
+%{texmfdistdir}/fonts/vf/public/cm-lgc
+%{texmfdistdir}/tex/latex/cm-lgc
+# cm-unicode
+%{texmfdistdir}/fonts/afm/public/cm-unicode
+%{texmfdistdir}/fonts/enc/dvips/cm-unicode
+%{texmfdistdir}/fonts/map/dvips/cm-unicode
+%{texmfdistdir}/fonts/opentype/public/cm-unicode
+%{texmfdistdir}/fonts/type1/public/cm-unicode
+# cmbright
+%{texmfdistdir}/fonts/source/public/cmbright
+%{texmfdistdir}/fonts/tfm/public/cmbright
+%{texmfdistdir}/tex/latex/cmbright
+# cmll
+%{texmfdistdir}/fonts/map/dvips/cmll
+%{texmfdistdir}/fonts/source/public/cmll
+%{texmfdistdir}/fonts/tfm/public/cmll
+%{texmfdistdir}/fonts/type1/public/cmll
+%{texmfdistdir}/tex/latex/cmll
+# cmpica
+%{texmfdistdir}/fonts/source/public/cmpica
+%{texmfdistdir}/fonts/tfm/public/cmpica
+# cmtiup
+%{texmfdistdir}/fonts/source/public/cmtiup
+%{texmfdistdir}/fonts/tfm/public/cmtiup
+%{texmfdistdir}/fonts/vf/public/cmtiup
+%{texmfdistdir}/tex/latex/cmtiup
+# comfortaa
+%{texmfdistdir}/fonts/afm/public/comfortaa
+%{texmfdistdir}/fonts/enc/dvips/comfortaa
+%{texmfdistdir}/fonts/map/dvips/comfortaa
+%{texmfdistdir}/fonts/tfm/public/comfortaa
+%{texmfdistdir}/fonts/truetype/public/comfortaa
+%{texmfdistdir}/fonts/type1/public/comfortaa
+%{texmfdistdir}/fonts/vf/public/comfortaa
+%{texmfdistdir}/tex/latex/comfortaa
+# concmath-fonts
+%{texmfdistdir}/fonts/source/public/concmath-fonts
+%{texmfdistdir}/fonts/tfm/public/concmath-fonts
+# courier-scaled
+%{texmfdistdir}/tex/latex/courier-scaled
+# cryst
+%{texmfdistdir}/fonts/afm/public/cryst
+%{texmfdistdir}/fonts/source/public/cryst
+%{texmfdistdir}/fonts/tfm/public/cryst
+%{texmfdistdir}/fonts/type1/public/cryst
+# cyklop
+%{texmfdistdir}/fonts/afm/public/cyklop
+%{texmfdistdir}/fonts/enc/dvips/cyklop
+%{texmfdistdir}/fonts/map/dvips/cyklop
+%{texmfdistdir}/fonts/opentype/public/cyklop
+%{texmfdistdir}/fonts/tfm/public/cyklop
+%{texmfdistdir}/fonts/type1/public/cyklop
+%{texmfdistdir}/tex/latex/cyklop
+# dancers
+%{texmfdistdir}/fonts/source/public/dancers
+%{texmfdistdir}/fonts/tfm/public/dancers
+# dice
+%{texmfdistdir}/fonts/source/public/dice
+%{texmfdistdir}/fonts/tfm/public/dice
+# dictsym
+%{texmfdistdir}/fonts/afm/public/dictsym
+%{texmfdistdir}/fonts/map/dvips/dictsym
+%{texmfdistdir}/fonts/tfm/public/dictsym
+%{texmfdistdir}/fonts/type1/public/dictsym
+%{texmfdistdir}/tex/latex/dictsym
+# dingbat
+%{texmfdistdir}/fonts/source/public/dingbat
+%{texmfdistdir}/fonts/tfm/public/dingbat
+%{texmfdistdir}/tex/latex/dingbat
+# doublestroke
+%{texmfdistdir}/fonts/map/dvips/doublestroke
+%{texmfdistdir}/fonts/source/public/doublestroke
+%{texmfdistdir}/fonts/tfm/public/doublestroke
+%{texmfdistdir}/fonts/type1/public/doublestroke
+%{texmfdistdir}/tex/latex/doublestroke
+# dozenal
+%{texmfdistdir}/fonts/map/dvips/dozenal
+%{texmfdistdir}/fonts/source/public/dozenal
+%{texmfdistdir}/fonts/tfm/public/dozenal
+%{texmfdistdir}/fonts/type1/public/dozenal
+%{texmfdistdir}/fonts/vf/public/dozenal
+%{texmfdistdir}/tex/latex/dozenal
+# droid
+%{texmfdistdir}/fonts/afm/public/droid
+%{texmfdistdir}/fonts/enc/dvips/droid
+%{texmfdistdir}/fonts/map/dvips/droid
+%{texmfdistdir}/fonts/tfm/public/droid
+%{texmfdistdir}/fonts/truetype/public/droid
+%{texmfdistdir}/fonts/type1/public/droid
+%{texmfdistdir}/fonts/vf/public/droid
+%{texmfdistdir}/tex/latex/droid
+# duerer
+%{texmfdistdir}/fonts/source/public/duerer
+%{texmfdistdir}/fonts/tfm/public/duerer
+# duerer-latex
+%{texmfdistdir}/tex/latex/duerer-latex
+# ean
+%{texmfdistdir}/tex/generic/ean
+# ecc
+%{texmfdistdir}/fonts/source/public/ecc
+%{texmfdistdir}/fonts/tfm/public/ecc
+# eco
+%{texmfdistdir}/fonts/tfm/public/eco
+%{texmfdistdir}/fonts/vf/public/eco
+%{texmfdistdir}/tex/latex/eco
+# eiad
+%{texmfdistdir}/fonts/source/public/eiad
+%{texmfdistdir}/fonts/tfm/public/eiad
+%{texmfdistdir}/tex/latex/eiad
+# eiad-ltx
+%{texmfdistdir}/fonts/source/public/eiad-ltx
+%{texmfdistdir}/tex/latex/eiad-ltx
+# electrum
+%{texmfdistdir}/fonts/afm/arkandis/electrum
+%{texmfdistdir}/fonts/enc/dvips/electrum
+%{texmfdistdir}/fonts/map/dvips/electrum
+%{texmfdistdir}/fonts/tfm/arkandis/electrum
+%{texmfdistdir}/fonts/type1/arkandis/electrum
+%{texmfdistdir}/fonts/vf/arkandis/electrum
+%{texmfdistdir}/tex/latex/electrum
+# elvish
+%{texmfdistdir}/fonts/source/public/elvish
+%{texmfdistdir}/fonts/tfm/public/elvish
+# epigrafica
+%{texmfdistdir}/fonts/afm/public/epigrafica
+%{texmfdistdir}/fonts/enc/dvips/epigrafica
+%{texmfdistdir}/fonts/map/dvips/epigrafica
+%{texmfdistdir}/fonts/tfm/public/epigrafica
+%{texmfdistdir}/fonts/type1/public/epigrafica
+%{texmfdistdir}/fonts/vf/public/epigrafica
+%{texmfdistdir}/tex/latex/epigrafica
+# epsdice
+%{texmfdistdir}/tex/latex/epsdice
+# esvect
+%{texmfdistdir}/fonts/map/dvips/esvect
+%{texmfdistdir}/fonts/source/public/esvect
+%{texmfdistdir}/fonts/tfm/public/esvect
+%{texmfdistdir}/fonts/type1/public/esvect
+%{texmfdistdir}/tex/latex/esvect
+# eulervm
+%{texmfdistdir}/fonts/tfm/public/eulervm
+%{texmfdistdir}/fonts/vf/public/eulervm
+%{texmfdistdir}/tex/latex/eulervm
+# euxm
+%{texmfdistdir}/fonts/source/public/euxm
+%{texmfdistdir}/fonts/tfm/public/euxm
+# feyn
+%{texmfdistdir}/fonts/source/public/feyn
+%{texmfdistdir}/fonts/tfm/public/feyn
+%{texmfdistdir}/tex/latex/feyn
+# fge
+%{texmfdistdir}/fonts/map/dvips/fge
+%{texmfdistdir}/fonts/source/public/fge
+%{texmfdistdir}/fonts/tfm/public/fge
+%{texmfdistdir}/fonts/type1/public/fge
+%{texmfdistdir}/tex/latex/fge
+# foekfont
+%{texmfdistdir}/fonts/map/dvips/foekfont
+%{texmfdistdir}/fonts/tfm/public/foekfont
+%{texmfdistdir}/fonts/type1/public/foekfont
+%{texmfdistdir}/tex/latex/foekfont
+# fonetika
+%{texmfdistdir}/fonts/afm/public/fonetika
+%{texmfdistdir}/fonts/map/dvips/fonetika
+%{texmfdistdir}/fonts/tfm/public/fonetika
+%{texmfdistdir}/fonts/truetype/public/fonetika
+%{texmfdistdir}/fonts/type1/public/fonetika
+%{texmfdistdir}/tex/latex/fonetika
+# fourier
+%{texmfdistdir}/fonts/afm/public/fourier
+%{texmfdistdir}/fonts/map/dvips/fourier
+%{texmfdistdir}/fonts/tfm/public/fourier
+%{texmfdistdir}/fonts/type1/public/fourier
+%{texmfdistdir}/fonts/vf/public/fourier
+%{texmfdistdir}/tex/latex/fourier
+# fouriernc
+%{texmfdistdir}/fonts/afm/public/fouriernc
+%{texmfdistdir}/fonts/tfm/public/fouriernc
+%{texmfdistdir}/fonts/vf/public/fouriernc
+%{texmfdistdir}/tex/latex/fouriernc
+# frcursive
+%{texmfdistdir}/fonts/source/public/frcursive
+%{texmfdistdir}/fonts/tfm/public/frcursive
+%{texmfdistdir}/metapost/frcursive
+%{texmfdistdir}/tex/latex/frcursive
+# genealogy
+%{texmfdistdir}/fonts/source/public/genealogy
+%{texmfdistdir}/fonts/tfm/public/genealogy
+# gentium
+%{texmfdistdir}/fonts/afm/public/gentium
+%{texmfdistdir}/fonts/enc/dvips/gentium
+%{texmfdistdir}/fonts/map/pdftex/gentium
+%{texmfdistdir}/fonts/tfm/public/gentium
+%{texmfdistdir}/fonts/truetype/public/gentium
+%{texmfdistdir}/tex/context/third/gentium
+# gfsartemisia
+%{texmfdistdir}/fonts/afm/public/gfsartemisia
+%{texmfdistdir}/fonts/enc/dvips/gfsartemisia
+%{texmfdistdir}/fonts/map/dvips/gfsartemisia
+%{texmfdistdir}/fonts/opentype/public/gfsartemisia
+%{texmfdistdir}/fonts/tfm/public/gfsartemisia
+%{texmfdistdir}/fonts/type1/public/gfsartemisia
+%{texmfdistdir}/fonts/vf/public/gfsartemisia
+%{texmfdistdir}/tex/latex/gfsartemisia
+# gfsbodoni
+%{texmfdistdir}/fonts/afm/public/gfsbodoni
+%{texmfdistdir}/fonts/enc/dvips/gfsbodoni
+%{texmfdistdir}/fonts/map/dvips/gfsbodoni
+%{texmfdistdir}/fonts/opentype/public/gfsbodoni
+%{texmfdistdir}/fonts/tfm/public/gfsbodoni
+%{texmfdistdir}/fonts/type1/public/gfsbodoni
+%{texmfdistdir}/fonts/vf/public/gfsbodoni
+%{texmfdistdir}/tex/latex/gfsbodoni
+# gfscomplutum
+%{texmfdistdir}/fonts/afm/public/gfscomplutum
+%{texmfdistdir}/fonts/enc/dvips/gfscomplutum
+%{texmfdistdir}/fonts/map/dvips/gfscomplutum
+%{texmfdistdir}/fonts/opentype/public/gfscomplutum
+%{texmfdistdir}/fonts/tfm/public/gfscomplutum
+%{texmfdistdir}/fonts/type1/public/gfscomplutum
+%{texmfdistdir}/fonts/vf/public/gfscomplutum
+%{texmfdistdir}/tex/latex/gfscomplutum
+# gfsdidot
+%{texmfdistdir}/fonts/afm/public/gfsdidot
+%{texmfdistdir}/fonts/enc/dvips/gfsdidot
+%{texmfdistdir}/fonts/map/dvips/gfsdidot
+%{texmfdistdir}/fonts/opentype/public/gfsdidot
+%{texmfdistdir}/fonts/tfm/public/gfsdidot
+%{texmfdistdir}/fonts/type1/public/gfsdidot
+%{texmfdistdir}/fonts/vf/public/gfsdidot
+%{texmfdistdir}/tex/latex/gfsdidot
+# gfsneohellenic
+%{texmfdistdir}/fonts/afm/public/gfsneohellenic
+%{texmfdistdir}/fonts/enc/dvips/gfsneohellenic
+%{texmfdistdir}/fonts/map/dvips/gfsneohellenic
+%{texmfdistdir}/fonts/opentype/public/gfsneohellenic
+%{texmfdistdir}/fonts/tfm/public/gfsneohellenic
+%{texmfdistdir}/fonts/type1/public/gfsneohellenic
+%{texmfdistdir}/fonts/vf/public/gfsneohellenic
+%{texmfdistdir}/tex/latex/gfsneohellenic
+# gfssolomos
+%{texmfdistdir}/fonts/afm/public/gfssolomos
+%{texmfdistdir}/fonts/enc/dvips/gfssolomos
+%{texmfdistdir}/fonts/map/dvips/gfssolomos
+%{texmfdistdir}/fonts/opentype/public/gfssolomos
+%{texmfdistdir}/fonts/tfm/public/gfssolomos
+%{texmfdistdir}/fonts/type1/public/gfssolomos
+%{texmfdistdir}/fonts/vf/public/gfssolomos
+%{texmfdistdir}/tex/latex/gfssolomos
+# gillcm
+%{texmfdistdir}/fonts/map/dvips/gillcm
+%{texmfdistdir}/fonts/tfm/public/gillcm
+%{texmfdistdir}/fonts/vf/public/gillcm
+%{texmfdistdir}/tex/latex/gillcm
+# gnu-freefont
+%{texmfdistdir}/fonts/opentype/public/gnu-freefont
+%{texmfdistdir}/fonts/truetype/public/gnu-freefont
+# gothic
+%{texmfdistdir}/dvips/gothic
+%{texmfdistdir}/fonts/afm/public/gothic
+%{texmfdistdir}/fonts/map/dvips/gothic
+%{texmfdistdir}/fonts/source/public/gothic
+%{texmfdistdir}/fonts/tfm/public/gothic
+%{texmfdistdir}/fonts/type1/public/gothic
+%{texmfdistdir}/fonts/vf/public/gothic
+# greenpoint
+%{texmfdistdir}/fonts/source/public/greenpoint
+%{texmfdistdir}/fonts/tfm/public/greenpoint
+# groff
+%{texmfdistdir}/fonts/afm/groff
+%{texmfdistdir}/fonts/enc/dvips/groff
+%{texmfdistdir}/fonts/map/dvips/groff
+%{texmfdistdir}/fonts/tfm/groff
+%{texmfdistdir}/fonts/type1/groff
+# hands
+%{texmfdistdir}/fonts/source/public/hands
+%{texmfdistdir}/fonts/tfm/public/hands
+# hfbright
+%{texmfdistdir}/dvips/hfbright
+%{texmfdistdir}/fonts/afm/public/hfbright
+%{texmfdistdir}/fonts/enc/dvips/hfbright
+%{texmfdistdir}/fonts/map/dvips/hfbright
+%{texmfdistdir}/fonts/type1/public/hfbright
+# hfoldsty
+%{texmfdistdir}/fonts/tfm/public/hfoldsty
+%{texmfdistdir}/fonts/vf/public/hfoldsty
+%{texmfdistdir}/tex/latex/hfoldsty
+# ifsym
+%{texmfdistdir}/fonts/source/public/ifsym
+%{texmfdistdir}/fonts/tfm/public/ifsym
+%{texmfdistdir}/tex/latex/ifsym
+# inconsolata
+%{texmfdistdir}/fonts/enc/dvips/inconsolata
+%{texmfdistdir}/fonts/map/dvips/inconsolata
+%{texmfdistdir}/fonts/opentype/public/inconsolata
+%{texmfdistdir}/fonts/tfm/public/inconsolata
+%{texmfdistdir}/fonts/type1/public/inconsolata
+%{texmfdistdir}/tex/latex/inconsolata
+# initials
+%{texmfdistdir}/dvips/initials
+%{texmfdistdir}/fonts/afm/public/initials
+%{texmfdistdir}/fonts/map/dvips/initials
+%{texmfdistdir}/fonts/tfm/public/initials
+%{texmfdistdir}/fonts/type1/public/initials
+%{texmfdistdir}/tex/latex/initials
+# iwona
+%{texmfdistdir}/fonts/afm/nowacki/iwona
+%{texmfdistdir}/fonts/enc/dvips/iwona
+%{texmfdistdir}/fonts/map/dvips/iwona
+%{texmfdistdir}/fonts/opentype/nowacki/iwona
+%{texmfdistdir}/fonts/tfm/nowacki/iwona
+%{texmfdistdir}/fonts/type1/nowacki/iwona
+%{texmfdistdir}/tex/latex/iwona
+%{texmfdistdir}/tex/plain/iwona
+# jablantile
+%{texmfdistdir}/fonts/source/public/jablantile
+# jamtimes
+%{texmfdistdir}/fonts/map/dvips/jamtimes
+%{texmfdistdir}/fonts/tfm/public/jamtimes
+%{texmfdistdir}/fonts/vf/public/jamtimes
+%{texmfdistdir}/tex/latex/jamtimes
+# junicode
+%{texmfdistdir}/fonts/truetype/public/junicode
+# kixfont
+%{texmfdistdir}/fonts/source/public/kixfont
+%{texmfdistdir}/fonts/tfm/public/kixfont
+# knuthotherfonts
+%{texmfdistdir}/fonts/source/public/knuthotherfonts/committee
+%{texmfdistdir}/fonts/source/public/knuthotherfonts/halftone
+%{texmfdistdir}/fonts/source/public/knuthotherfonts/mfbook
+# kpfonts
+%{texmfdistdir}/fonts/afm/public/kpfonts
+%{texmfdistdir}/fonts/enc/dvips/kpfonts
+%{texmfdistdir}/fonts/enc/pdftex/kpfonts
+%{texmfdistdir}/fonts/map/dvips/kpfonts
+%{texmfdistdir}/fonts/source/public/kpfonts
+%{texmfdistdir}/fonts/tfm/public/kpfonts
+%{texmfdistdir}/fonts/type1/public/kpfonts
+%{texmfdistdir}/fonts/vf/public/kpfonts
+%{texmfdistdir}/tex/latex/kpfonts
+# kurier
+%{texmfdistdir}/fonts/afm/nowacki/kurier
+%{texmfdistdir}/fonts/enc/dvips/kurier
+%{texmfdistdir}/fonts/map/dvips/kurier
+%{texmfdistdir}/fonts/opentype/nowacki/kurier
+%{texmfdistdir}/fonts/tfm/nowacki/kurier
+%{texmfdistdir}/fonts/type1/nowacki/kurier
+%{texmfdistdir}/tex/latex/kurier
+%{texmfdistdir}/tex/plain/kurier
+# lato
+%{texmfdistdir}/fonts/afm/public/lato
+%{texmfdistdir}/fonts/enc/dvips/lato
+%{texmfdistdir}/fonts/map/dvips/lato
+%{texmfdistdir}/fonts/tfm/public/lato
+%{texmfdistdir}/fonts/truetype/public/lato
+%{texmfdistdir}/fonts/type1/public/lato
+%{texmfdistdir}/fonts/vf/public/lato
+%{texmfdistdir}/tex/latex/lato
+# lfb
+%{texmfdistdir}/fonts/source/public/lfb
+%{texmfdistdir}/fonts/tfm/public/lfb
+# libertine
+%{texmfdistdir}/dvips/libertine
+%{texmfdistdir}/fonts/afm/public/libertine
+%{texmfdistdir}/fonts/enc/dvips/libertine
+%{texmfdistdir}/fonts/map/dvips/libertine
+%{texmfdistdir}/fonts/opentype/public/libertine
+%{texmfdistdir}/fonts/tfm/public/libertine
+%{texmfdistdir}/fonts/type1/public/libertine
+%{texmfdistdir}/fonts/vf/public/libertine
+%{texmfdistdir}/tex/latex/libertine
+# libris
+%{texmfdistdir}/fonts/afm/arkandis/libris
+%{texmfdistdir}/fonts/enc/dvips/libris
+%{texmfdistdir}/fonts/map/dvips/libris
+%{texmfdistdir}/fonts/tfm/arkandis/libris
+%{texmfdistdir}/fonts/type1/arkandis/libris
+%{texmfdistdir}/fonts/vf/arkandis/libris
+%{texmfdistdir}/tex/latex/libris
+# linearA
+%{texmfdistdir}/fonts/afm/public/linearA
+%{texmfdistdir}/fonts/map/dvips/linearA
+%{texmfdistdir}/fonts/tfm/public/linearA
+%{texmfdistdir}/fonts/type1/public/linearA
+%{texmfdistdir}/tex/latex/linearA
+# lxfonts
+%{texmfdistdir}/fonts/map/dvips/lxfonts
+%{texmfdistdir}/fonts/source/public/lxfonts
+%{texmfdistdir}/fonts/tfm/public/lxfonts
+%{texmfdistdir}/fonts/type1/public/lxfonts
+%{texmfdistdir}/tex/latex/lxfonts
+# ly1
+%{texmfdistdir}/fonts/enc/dvips/ly1
+%{texmfdistdir}/fonts/map/dvips/ly1
+%{texmfdistdir}/fonts/tfm/adobe/ly1
+%{texmfdistdir}/fonts/vf/adobe/ly1
+%{texmfdistdir}/tex/latex/ly1
+%{texmfdistdir}/tex/plain/ly1
+# mathabx
+%{texmfdistdir}/fonts/source/public/mathabx
+%{texmfdistdir}/fonts/tfm/public/mathabx
+%{texmfdistdir}/tex/generic/mathabx
+# mathabx-type1
+%{texmfdistdir}/fonts/map/dvips/mathabx-type1
+%{texmfdistdir}/fonts/type1/public/mathabx-type1
+# mathdesign
+%{texmfdistdir}/dvips/mathdesign
+%{texmfdistdir}/fonts/afm/mathdesign/mdbch
+%{texmfdistdir}/fonts/afm/mathdesign/mdput
+%{texmfdistdir}/fonts/afm/mathdesign/mdugm
+%{texmfdistdir}/fonts/map/dvips/mathdesign
+%{texmfdistdir}/fonts/tfm/mathdesign/mdbch
+%{texmfdistdir}/fonts/tfm/mathdesign/mdput
+%{texmfdistdir}/fonts/tfm/mathdesign/mdugm
+%{texmfdistdir}/fonts/type1/mathdesign/mdbch
+%{texmfdistdir}/fonts/type1/mathdesign/mdput
+%{texmfdistdir}/fonts/type1/mathdesign/mdugm
+%{texmfdistdir}/fonts/vf/mathdesign/mdbch
+%{texmfdistdir}/fonts/vf/mathdesign/mdput
+%{texmfdistdir}/fonts/vf/mathdesign/mdugm
+%{texmfdistdir}/tex/latex/mathdesign
+%{texmfdistdir}/tex/latex/mathdesign/mdbch
+%{texmfdistdir}/tex/latex/mathdesign/mdput
+%{texmfdistdir}/tex/latex/mathdesign/mdugm
+# mdputu
+%{texmfdistdir}/fonts/tfm/public/mdputu
+%{texmfdistdir}/fonts/vf/public/mdputu
+%{texmfdistdir}/tex/latex/mdputu
+# mnsymbol
+%{texmfdistdir}/fonts/enc/dvips/mnsymbol
+%{texmfdistdir}/fonts/map/dvips/mnsymbol
+%{texmfdistdir}/fonts/map/vtex/mnsymbol
+%{texmfdistdir}/fonts/opentype/public/mnsymbol
+%{texmfdistdir}/fonts/source/public/mnsymbol
+%{texmfdistdir}/fonts/tfm/public/mnsymbol
+%{texmfdistdir}/fonts/type1/public/mnsymbol
+%{texmfdistdir}/tex/latex/mnsymbol
+# nkarta
+%{texmfdistdir}/fonts/source/public/nkarta
+%{texmfdistdir}/fonts/tfm/public/nkarta
+%{texmfdistdir}/metapost/nkarta
+# ocherokee
+%{texmfdistdir}/fonts/afm/public/ocherokee
+%{texmfdistdir}/fonts/map/dvips/ocherokee
+%{texmfdistdir}/fonts/ofm/public/ocherokee
+%{texmfdistdir}/fonts/ovf/public/ocherokee
+%{texmfdistdir}/fonts/ovp/public/ocherokee
+%{texmfdistdir}/fonts/tfm/public/ocherokee
+%{texmfdistdir}/fonts/type1/public/ocherokee
+%{texmfdistdir}/omega/ocp/ocherokee
+%{texmfdistdir}/omega/otp/ocherokee
+# ocr-b
+%{texmfdistdir}/fonts/source/public/ocr-b
+%{texmfdistdir}/fonts/tfm/public/ocr-b
+# ocr-b-outline
+%{texmfdistdir}/fonts/map/dvips/ocr-b-outline
+%{texmfdistdir}/fonts/opentype/public/ocr-b-outline
+%{texmfdistdir}/fonts/type1/public/ocr-b-outline
+# ogham
+%{texmfdistdir}/fonts/source/public/ogham
+%{texmfdistdir}/fonts/tfm/public/ogham
+# oinuit
+%{texmfdistdir}/fonts/map/dvips/oinuit
+%{texmfdistdir}/fonts/ofm/public/oinuit
+%{texmfdistdir}/fonts/ovf/public/oinuit
+%{texmfdistdir}/fonts/tfm/public/oinuit
+%{texmfdistdir}/fonts/type1/public/oinuit
+%{texmfdistdir}/omega/ocp/oinuit
+%{texmfdistdir}/tex/lambda/oinuit
+# oldlatin
+%{texmfdistdir}/fonts/source/public/oldlatin
+%{texmfdistdir}/fonts/tfm/public/oldlatin
+# oldstandard
+%{texmfdistdir}/fonts/opentype/public/oldstandard
+# orkhun
+%{texmfdistdir}/fonts/source/public/orkhun
+%{texmfdistdir}/fonts/tfm/public/orkhun
+# osmanian
+%{texmfdistdir}/fonts/source/public/osmanian
+# pacioli
+%{texmfdistdir}/fonts/source/public/pacioli
+%{texmfdistdir}/fonts/tfm/public/pacioli
+%{texmfdistdir}/tex/latex/pacioli
+# phaistos
+%{texmfdistdir}/fonts/afm/public/phaistos
+%{texmfdistdir}/fonts/map/dvips/phaistos
+%{texmfdistdir}/fonts/opentype/public/phaistos
+%{texmfdistdir}/fonts/tfm/public/phaistos
+%{texmfdistdir}/fonts/type1/public/phaistos
+%{texmfdistdir}/tex/latex/phaistos
+# phonetic
+%{texmfdistdir}/fonts/source/public/phonetic
+%{texmfdistdir}/fonts/tfm/public/phonetic
+%{texmfdistdir}/tex/latex/phonetic
+# pigpen
+%{texmfdistdir}/fonts/map/dvips/pigpen
+%{texmfdistdir}/fonts/source/public/pigpen
+%{texmfdistdir}/fonts/tfm/public/pigpen
+%{texmfdistdir}/fonts/type1/public/pigpen
+%{texmfdistdir}/tex/latex/pigpen
+# poltawski
+%{texmfdistdir}/fonts/afm/gust/poltawski
+%{texmfdistdir}/fonts/enc/dvips/poltawski
+%{texmfdistdir}/fonts/map/dvips/poltawski
+%{texmfdistdir}/fonts/opentype/gust/poltawski
+%{texmfdistdir}/fonts/tfm/gust/poltawski
+%{texmfdistdir}/fonts/type1/gust/poltawski
+%{texmfdistdir}/tex/latex/poltawski
+# psafm
+%{texmfdistdir}/fonts/afm/itc/psafm/stonesan
+# ptsans
+%{texmfdistdir}/fonts/afm/paratype/ptsans
+%{texmfdistdir}/fonts/enc/dvips/ptsans
+%{texmfdistdir}/fonts/map/dvips/ptsans
+%{texmfdistdir}/fonts/tfm/paratype/ptsans
+%{texmfdistdir}/fonts/truetype/paratype/ptsans
+%{texmfdistdir}/fonts/type1/paratype/ptsans
+%{texmfdistdir}/fonts/vf/paratype/ptsans
+%{texmfdistdir}/tex/latex/ptsans
+# ptserif
+%{texmfdistdir}/fonts/afm/paratype/ptserif
+%{texmfdistdir}/fonts/enc/dvips/ptserif
+%{texmfdistdir}/fonts/map/dvips/ptserif
+%{texmfdistdir}/fonts/tfm/paratype/ptserif
+%{texmfdistdir}/fonts/truetype/paratype/ptserif
+%{texmfdistdir}/fonts/type1/paratype/ptserif
+%{texmfdistdir}/fonts/vf/paratype/ptserif
+%{texmfdistdir}/tex/latex/ptserif
+# punk
+%{texmfdistdir}/fonts/source/public/punk
+%{texmfdistdir}/fonts/tfm/public/punk
+# punknova
+%{texmfdistdir}/fonts/opentype/public/punknova
+# recycle
+%{texmfdistdir}/fonts/map/dvips/recycle
+%{texmfdistdir}/fonts/source/public/recycle
+%{texmfdistdir}/fonts/tfm/public/recycle
+%{texmfdistdir}/fonts/type1/public/recycle
+%{texmfdistdir}/tex/latex/recycle
+# romande
+%{texmfdistdir}/fonts/afm/arkandis/romande
+%{texmfdistdir}/fonts/enc/dvips/romande
+%{texmfdistdir}/fonts/map/dvips/romande
+%{texmfdistdir}/fonts/tfm/arkandis/romande
+%{texmfdistdir}/fonts/type1/arkandis/romande
+%{texmfdistdir}/fonts/vf/arkandis/romande
+%{texmfdistdir}/tex/latex/romande
+# sauter
+%{texmfdistdir}/fonts/source/public/sauter
+# sauterfonts
+%{texmfdistdir}/tex/latex/sauterfonts
+# semaphor
+%{texmfdistdir}/fonts/afm/public/semaphor
+%{texmfdistdir}/fonts/enc/dvips/semaphor
+%{texmfdistdir}/fonts/map/dvips/semaphor
+%{texmfdistdir}/fonts/opentype/public/semaphor
+%{texmfdistdir}/fonts/source/public/semaphor
+%{texmfdistdir}/fonts/source/public/semaphor/metafont
+%{texmfdistdir}/fonts/tfm/public/semaphor
+%{texmfdistdir}/fonts/type1/public/semaphor
+%{texmfdistdir}/tex/context/third/semaphor
+%{texmfdistdir}/tex/latex/semaphor
+%{texmfdistdir}/tex/plain/semaphor
+# skull
+%{texmfdistdir}/fonts/source/public/skull
+%{texmfdistdir}/tex/latex/skull
+# starfont
+%{texmfdistdir}/fonts/afm/public/starfont
+%{texmfdistdir}/fonts/map/dvips/starfont
+%{texmfdistdir}/fonts/tfm/public/starfont
+%{texmfdistdir}/fonts/type1/public/starfont
+%{texmfdistdir}/tex/latex/starfont
+# staves
+%{texmfdistdir}/fonts/map/dvips/staves
+%{texmfdistdir}/fonts/tfm/public/staves
+%{texmfdistdir}/fonts/type1/public/staves
+%{texmfdistdir}/tex/latex/staves
+# stix
+%{texmfdistdir}/fonts/opentype/public/stix
+# tapir
+%{texmfdistdir}/fonts/source/public/tapir
+%{texmfdistdir}/fonts/type1/public/tapir
+# tengwarscript
+%{texmfdistdir}/fonts/enc/dvips/tengwarscript
+%{texmfdistdir}/fonts/map/dvips/tengwarscript
+%{texmfdistdir}/fonts/tfm/public/tengwarscript
+%{texmfdistdir}/fonts/vf/public/tengwarscript
+%{texmfdistdir}/tex/latex/tengwarscript
+# tfrupee
+%{texmfdistdir}/fonts/afm/public/tfrupee
+%{texmfdistdir}/fonts/map/dvips/tfrupee
+%{texmfdistdir}/fonts/tfm/public/tfrupee
+%{texmfdistdir}/fonts/type1/public/tfrupee
+%{texmfdistdir}/tex/latex/tfrupee
+# tpslifonts
+%{texmfdistdir}/tex/latex/tpslifonts
+# trajan
+%{texmfdistdir}/fonts/afm/public/trajan
+%{texmfdistdir}/fonts/map/dvips/trajan
+%{texmfdistdir}/fonts/tfm/public/trajan
+%{texmfdistdir}/fonts/type1/public/trajan
+%{texmfdistdir}/tex/latex/trajan
+# txfontsb
+%{texmfdistdir}/fonts/afm/public/txfontsb
+%{texmfdistdir}/fonts/enc/dvips/txfontsb
+%{texmfdistdir}/fonts/map/dvips/txfontsb
+%{texmfdistdir}/fonts/tfm/public/txfontsb
+%{texmfdistdir}/fonts/type1/public/txfontsb
+%{texmfdistdir}/fonts/vf/public/txfontsb
+%{texmfdistdir}/tex/latex/txfontsb
+# umtypewriter
+%{texmfdistdir}/fonts/opentype/public/umtypewriter
+# universa
+%{texmfdistdir}/fonts/source/public/universa
+%{texmfdistdir}/fonts/tfm/public/universa
+%{texmfdistdir}/tex/latex/universa
+# venturisadf
+%{texmfdistdir}/fonts/afm/arkandis/venturis
+%{texmfdistdir}/fonts/afm/arkandis/venturis2
+%{texmfdistdir}/fonts/afm/arkandis/venturisold
+%{texmfdistdir}/fonts/afm/arkandis/venturissans
+%{texmfdistdir}/fonts/afm/arkandis/venturissans2
+%{texmfdistdir}/fonts/enc/dvips/venturisadf
+%{texmfdistdir}/fonts/map/dvips/venturis
+%{texmfdistdir}/fonts/map/dvips/venturis2
+%{texmfdistdir}/fonts/map/dvips/venturisold
+%{texmfdistdir}/fonts/map/dvips/venturissans
+%{texmfdistdir}/fonts/map/dvips/venturissans2
+%{texmfdistdir}/fonts/tfm/arkandis/venturis
+%{texmfdistdir}/fonts/tfm/arkandis/venturis2
+%{texmfdistdir}/fonts/tfm/arkandis/venturisold
+%{texmfdistdir}/fonts/tfm/arkandis/venturissans
+%{texmfdistdir}/fonts/tfm/arkandis/venturissans2
+%{texmfdistdir}/fonts/type1/arkandis/venturis
+%{texmfdistdir}/fonts/type1/arkandis/venturis2
+%{texmfdistdir}/fonts/type1/arkandis/venturisold
+%{texmfdistdir}/fonts/type1/arkandis/venturissans
+%{texmfdistdir}/fonts/type1/arkandis/venturissans2
+%{texmfdistdir}/fonts/vf/arkandis/venturis
+%{texmfdistdir}/fonts/vf/arkandis/venturis2
+%{texmfdistdir}/fonts/vf/arkandis/venturisold
+%{texmfdistdir}/fonts/vf/arkandis/venturissans
+%{texmfdistdir}/fonts/vf/arkandis/venturissans2
+%{texmfdistdir}/tex/latex/venturis
+%{texmfdistdir}/tex/latex/venturis2
+%{texmfdistdir}/tex/latex/venturisadf
+%{texmfdistdir}/tex/latex/venturisold
+%{texmfdistdir}/tex/latex/venturissans
+%{texmfdistdir}/tex/latex/venturissans2
+# wsuipa
+%{texmfdistdir}/fonts/source/public/wsuipa
+%{texmfdistdir}/fonts/tfm/public/wsuipa
+%{texmfdistdir}/tex/latex/wsuipa
+# xits
+%{texmfdistdir}/fonts/opentype/public/xits
+# yfonts
+%{texmfdistdir}/tex/latex/yfonts
 
 #-----------------------------------------------------------------------
 %prep
