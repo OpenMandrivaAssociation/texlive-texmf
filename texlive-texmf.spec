@@ -9,6 +9,9 @@
 %define with_system_tex4ht	0
 %define with_system_teckit	0
 
+%define texmfdir		%{_datadir}/texmf
+%define texmfdistdir		%{_datadir}/texmf-dist
+
 Name:		texlive-texmf
 Version:	20100722
 Release:	%mkrel 5
@@ -72,34 +75,34 @@ free software, including support for many languages around the world.
 %{_datadir}/fonts/texmf
 %{_datadir}/fonts/texmf-dist
 %{_datadir}/X11/app-defaults/XDvi
-%dir %{_datadir}/texmf
-%{_datadir}/texmf/chktex
-%dir %{_datadir}/texmf/doc
+%dir %{texmfdir}
+%{texmfdir}/chktex
+%dir %{texmfdir}/doc
 %if %{enable_asymptote}
-%{_datadir}/texmf/asymptote
-%doc %{_datadir}/texmf/doc/asymptote
+%{texmfdir}/asymptote
+%doc %{texmfdir}/doc/asymptote
 %endif
-%{_datadir}/texmf/dvipdfmx
-%{_datadir}/texmf/dvips
-%{_datadir}/texmf/fonts
-%{_datadir}/texmf/hbf2gf
-%{_datadir}/texmf/scripts
-%{_datadir}/texmf/tex
-%{_datadir}/texmf/texconfig
-%{_datadir}/texmf/texdoc
-%{_datadir}/texmf/texdoctk
-%{_datadir}/texmf/ttf2pk
-%{_datadir}/texmf/web2c
-%{_datadir}/texmf/xdvi
+%{texmfdir}/dvipdfmx
+%{texmfdir}/dvips
+%{texmfdir}/fonts
+%{texmfdir}/hbf2gf
+%{texmfdir}/scripts
+%{texmfdir}/tex
+%{texmfdir}/texconfig
+%{texmfdir}/texdoc
+%{texmfdir}/texdoctk
+%{texmfdir}/ttf2pk
+%{texmfdir}/web2c
+%{texmfdir}/xdvi
 %if %{enable_xindy}
-%{_datadir}/texmf/xindy
-%doc %{_datadir}/texmf/doc/xindy
+%{texmfdir}/xindy
+%doc %{texmfdir}/doc/xindy
 %endif
-%dir %{_datadir}/texmf-dist
-%{_datadir}/texmf-dist/bibtex
-%{_datadir}/texmf-dist/context
-%{_datadir}/texmf-dist/dvips
-%{_datadir}/texmf-dist/fonts
+%dir %{texmfdistdir}
+%{texmfdistdir}/bibtex
+%{texmfdistdir}/context
+%{texmfdistdir}/dvips
+%{texmfdistdir}/fonts
 
 # collection-fontsextra
 # Asana-Math
@@ -949,17 +952,17 @@ free software, including support for many languages around the world.
 # yfonts
 %exclude %{texmfdistdir}/tex/latex/yfonts
 
-%{_datadir}/texmf-dist/makeindex
-%{_datadir}/texmf-dist/metafont
-%{_datadir}/texmf-dist/metapost
-%{_datadir}/texmf-dist/mft
-%{_datadir}/texmf-dist/omega
-%{_datadir}/texmf-dist/pbibtex
-%{_datadir}/texmf-dist/scripts
-%{_datadir}/texmf-dist/source
-%{_datadir}/texmf-dist/tex
-%{_datadir}/texmf-dist/tex4ht
-%{_datadir}/texmf-dist/vtex
+%{texmfdistdir}/makeindex
+%{texmfdistdir}/metafont
+%{texmfdistdir}/metapost
+%{texmfdistdir}/mft
+%{texmfdistdir}/omega
+%{texmfdistdir}/pbibtex
+%{texmfdistdir}/scripts
+%dir %{texmfdistdir}/source
+%{texmfdistdir}/tex
+%{texmfdistdir}/tex4ht
+%{texmfdistdir}/vtex
 
 #-----------------------------------------------------------------------
 %package	-n texlive-doc
@@ -978,14 +981,14 @@ free software, including support for many languages around the world.
 
 %files		-n texlive-doc
 %defattr(-,root,root,-)
-%{_datadir}/texmf/doc/*
+%{texmfdir}/doc/*
 %if %{enable_asymptote}
-%exclude %{_datadir}/texmf/doc/asymptote
+%exclude %{texmfdir}/doc/asymptote
 %endif
 %if %{enable_xindy}
-%exclude %{_datadir}/texmf/doc/xindy
+%exclude %{texmfdir}/doc/xindy
 %endif
-%{_datadir}/texmf-dist/doc
+%{texmfdistdir}/doc
 
 #-----------------------------------------------------------------------
 %package	-n texlive-fontsextra
@@ -1850,28 +1853,43 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/tex/latex/yfonts
 
 #-----------------------------------------------------------------------
+%package	-n texlive-source
+Summary:	Tex Live source files
+Group:		Publishing
+
+%description	-n texlive-source
+TeX Live is an easy way to get up and running with the TeX document
+production system. It provides a comprehensive TeX system. It includes
+all the major TeX-related programs, macro packages, and fonts that are
+free software, including support for many languages around the world.
+
+%files		-n texlive-source
+%defattr(-,root,root,-)
+%{texmfdir}/source/*
+
+#-----------------------------------------------------------------------
 %prep
 %setup -q -n texlive-20100722-texmf
 
-perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'			\
-	 -e 's%^(TEXMFDIST\s+= ).*%$1%{_datadir}/texmf-dist%;'			\
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{_datadir}/texmf%;'			\
-	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{_localstatedir}/lib/texmf%;'		\
-	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{_sysconfdir}/texmf%;'		\
-	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'	\
-	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'		\
-	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2010/texmf-config%;'	\
-	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'			\
+perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'			  \
+	 -e 's%^(TEXMFDIST\s+= ).*%$1%{texmfdistdir}%;'			  \
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'			  \
+	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{_localstatedir}/lib/texmf%;'	  \
+	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{_sysconfdir}/texmf%;'	  \
+	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'	  \
+	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'	  \
+	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2010/texmf-config%;'\
+	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'		  \
 	texmf/web2c/texmf.cnf
 
-perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{_datadir}/texmf%;'					 \
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{_datadir}/texmf%;'					 \
-	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{_datadir}/texmf/fonts,%{_datadir}/texmf-dist/fonts\}%;'\
-	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{_datadir}/texmf-extra,%{_datadir}/texmf\}%;'		 \
-	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{_datadir}/texmf-project,%{_datadir}/texmf\}%;'	 \
-	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'				 \
-	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{_datadir}/texmf\}%;'			 \
-	 -e 's%^(TEXMFCNF\s+= ).*%$1%{_datadir}/texmf/web2c%;'					 \
+perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'					\
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'					\
+	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{texmfdir}/fonts,%{texmfdistdir}/fonts\}%;'	\
+	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{_datadir}/texmf-extra,%{texmfdir}\}%;'	\
+	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{_datadir}/texmf-project,%{texmfdir}\}%;'	\
+	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'			\
+	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'			\
+	 -e 's%^(TEXMFCNF\s+= ).*%$1%{texmfdir}/web2c%;'				\
 	texmf/web2c/context.cnf
 
 perl -pi -e 's%^(TEXMFCACHE\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'	\
@@ -1993,7 +2011,7 @@ pushd %{buildroot}%{_datadir}/X11/app-defaults
     ln -sf ../../texmf/xdvi/XDvi XDvi
 popd
 
-pushd %{buildroot}%{_datadir}/texmf
+pushd %{buildroot}%{texmfdir}
 %if !%{enable_asymptote}
     rm -fr asymptote doc/asymptote
 %endif
@@ -2006,7 +2024,7 @@ pushd %{buildroot}%{_datadir}/texmf
     rm -fr doc/gzip
 popd
 
-pushd %{buildroot}%{_datadir}/texmf-dist
+pushd %{buildroot}%{texmfdistdir}
 %if %{with_system_tex4ht}
     rm -fr tex4ht
 %endif
