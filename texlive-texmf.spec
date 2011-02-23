@@ -14,7 +14,7 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 5
+Release:	%mkrel 6
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	Apache2 and Artistic and BSD and FDL and Freeware and GFL and GFSL and GPL and GPLv2 and GPLv3 and LGPL and LGPLv2.1 and LPPL and LPPLv1 and LPPLv1.2 and LPPLv1.3 and OFL and Public Domain
@@ -61,6 +61,7 @@ Obsoletes:	texmf-data <= 2007
 
 #-----------------------------------------------------------------------
 Patch0:		texlive-20100722-texmf-default.patch
+Patch1:		texlive-20100722-texmf-fontsextra.patch
 
 #-----------------------------------------------------------------------
 %description
@@ -837,7 +838,7 @@ free software, including support for many languages around the world.
 %package	-n texlive-fontsextra
 Summary:	TeX Live extra fonts
 Group:		Publishing
-Requires:	texlive-texmf = %{version}-%{release}
+Requires(post):	texlive-texmf = %{version}-%{release}
 
 %description	-n texlive-fontsextra
 TeX Live is an easy way to get up and running with the TeX document
@@ -1539,6 +1540,14 @@ free software, including support for many languages around the world.
 # yfonts
 %{texmfdistdir}/tex/latex/yfonts
 
+%post		-n texlive-fontsextra
+sed -i -e 's/^#! (MixedMap allrunes.map)/\\1/' %{texmfdir}/web2c/updmap.cfg
+
+%postun		-n texlive-fontsextra
+if [ -f %{texmfdir}/web2c/updmap.cfg ]; then
+    sed -i -e 's/^(MixedMap allrunes.map)/#! \\1/' %{texmfdir}/web2c/updmap.cfg
+fi
+
 #-----------------------------------------------------------------------
 %package	-n texlive-source
 Summary:	Tex Live source files
@@ -1586,6 +1595,7 @@ perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
 	texmf/texdoc/texdoc.cnf
 
 %patch0 -p1
+%patch1 -p1
 
 #-----------------------------------------------------------------------
 %build
