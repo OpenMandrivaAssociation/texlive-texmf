@@ -58,6 +58,9 @@ Obsoletes:	texlive-texmf-latex <= 2007
 Obsoletes:	texlive-texmf-usrlocal <= 2007
 Obsoletes:	texlive-texmf-xmltex <= 2007
 Obsoletes:	texmf-data <= 2007
+%if %{with_system_tex4ht}
+Obsoletes:	tex4ht <= 1.0.2008_02_28_2058
+%endif
 
 #-----------------------------------------------------------------------
 Patch0:		texlive-20100722-texmf-default.patch
@@ -805,7 +808,9 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/pbibtex
 %{texmfdistdir}/scripts
 %{texmfdistdir}/tex
+%if !%{with_system_tex4ht}
 %{texmfdistdir}/tex4ht
+%endif
 %{texmfdistdir}/vtex
 
 #-----------------------------------------------------------------------
