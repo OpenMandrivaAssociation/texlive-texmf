@@ -1645,7 +1645,9 @@ sed -i	-e 's/^#! (Map OrnementsADF.map)/\\1/'	\
 	-e 's/^#! (Map yvo.map)/\\1/'	\
 	-e 's/^#! (Map yvt.map)/\\1/'	\
 	 %{texmfdir}/web2c/updmap.cfg
-%{_bindir}/updmap-sys --syncwithtrees
+if [ -x %{_bindir}/updmap-sys ]; then
+    %{_bindir}/updmap-sys --syncwithtrees
+fi
 
 %postun		-n texlive-fontsextra
 if [ -f %{texmfdir}/web2c/updmap.cfg ]; then
@@ -1753,7 +1755,9 @@ sed -i	-e 's/^(Map OrnementsADF.map)/#! \\1/'	\
 	-e 's/^(Map yvo.map)/#! \\1/'	\
 	-e 's/^(Map yvt.map)/#! \\1/'	\
 	 %{texmfdir}/web2c/updmap.cfg
-%{_bindir}/updmap-sys --syncwithtrees
+    if [ -x %{_bindir}/updmap-sys ]; then
+	%{_bindir}/updmap-sys --syncwithtrees
+    fi
 fi
 
 #-----------------------------------------------------------------------
