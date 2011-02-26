@@ -1945,6 +1945,7 @@ mkdir %{buildroot}%{_javadir}
 pushd %{buildroot}%{_javadir}
     ln -sf ../texmf-dist/tex4ht/bin/tex4ht.jar tex4ht.jar
 popd
+%endif
 
 #-----------------------------------------------------------------------
 %clean
