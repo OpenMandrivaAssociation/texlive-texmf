@@ -14,13 +14,14 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 6
+Release:	%mkrel 7
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	Apache2 and Artistic and BSD and FDL and Freeware and GFL and GFSL and GPL and GPLv2 and GPLv3 and LGPL and LGPLv2.1 and LPPL and LPPLv1 and LPPLv1.2 and LPPLv1.3 and OFL and Public Domain
 URL:		http://tug.org/texlive/
 Source0:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz
 Source1:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz.sha256
+Source2:	XDvi-color
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 
@@ -59,7 +60,7 @@ Obsoletes:	texlive-texmf-usrlocal <= 2007
 Obsoletes:	texlive-texmf-xmltex <= 2007
 Obsoletes:	texmf-data <= 2007
 %if %{with_system_tex4ht}
-Obsoletes:	tex4ht <= 1.0.2008_02_28_2058
+Obsoletes:	tex4ht <= 1:1.0.2008_02_28_2058
 %endif
 
 #-----------------------------------------------------------------------
@@ -76,8 +77,6 @@ free software, including support for many languages around the world.
 %files
 %defattr(-,root,root,-)
 %{_bindir}/*
-%{_datadir}/fonts/texmf
-%{_datadir}/fonts/texmf-dist
 %{_datadir}/X11/app-defaults/XDvi
 %dir %{texmfdir}
 %{texmfdir}/chktex
@@ -1914,15 +1913,10 @@ pushd %{buildroot}%{_bindir}
     ln -sf ../share/texmf-dist/scripts/accfonts/vpl2vpl vpl2vpl
 popd
 
-mkdir -p %{buildroot}%{_datadir}/fonts
-pushd %{buildroot}%{_datadir}/fonts
-    ln -sf ../texmf/fonts texmf
-    ln -sf ../texmf-dist/fonts texmf-dist
-popd
-
 mkdir -p %{buildroot}%{_datadir}/X11/app-defaults
 pushd %{buildroot}%{_datadir}/X11/app-defaults
     ln -sf ../../texmf/xdvi/XDvi XDvi
+    cp %{SOURCE2} %{buildroot}%{_datadir}/X11/app-defaults
 popd
 
 pushd %{buildroot}%{texmfdir}
