@@ -59,7 +59,7 @@ Obsoletes:	texlive-texmf-latex <= 2007
 Obsoletes:	texlive-texmf-usrlocal <= 2007
 Obsoletes:	texlive-texmf-xmltex <= 2007
 Obsoletes:	texmf-data <= 2007
-%if %{with_system_tex4ht}
+%if !%{with_system_tex4ht}
 Obsoletes:	tex4ht <= 1:1.0.2008_02_28_2058
 %endif
 
@@ -809,6 +809,7 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/tex
 %if !%{with_system_tex4ht}
 %{texmfdistdir}/tex4ht
+%{_javadir}/tex4ht.jar
 %endif
 %{texmfdistdir}/vtex
 
@@ -1937,6 +1938,12 @@ pushd %{buildroot}%{texmfdistdir}
     rm -fr tex4ht
 %endif
     rm -f ls-R README
+popd
+
+%if !%{with_system_tex4ht}
+mkdir %{buildroot}%{_javadir}
+pushd %{buildroot}%{_javadir}
+    ln -sf ../texmf-dist/tex4ht/bin/tex4ht.jar tex4ht.jar
 popd
 
 #-----------------------------------------------------------------------
