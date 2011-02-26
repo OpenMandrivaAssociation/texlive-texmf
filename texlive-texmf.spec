@@ -77,7 +77,7 @@ free software, including support for many languages around the world.
 %files
 %defattr(-,root,root,-)
 %{_bindir}/*
-%{_datadir}/X11/app-defaults/XDvi
+%{_datadir}/X11/app-defaults/XDvi*
 %dir %{texmfdir}
 %{texmfdir}/chktex
 %dir %{texmfdir}/doc
