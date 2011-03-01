@@ -1847,7 +1847,7 @@ perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
 mkdir -p %{buildroot}%{texmfdir}
 cp -far texmf %{buildroot}%{texmfdir}
 mkdir -p %{buildroot}%{texmfdistdir}
-cp -far texmf %{buildroot}%{texmfdistdir}
+cp -far texmf-dist %{buildroot}%{texmfdistdir}
 
 mkdir -p %{buildroot}%{texmfbindir}
 pushd %{buildroot}%{texmfbindir}
