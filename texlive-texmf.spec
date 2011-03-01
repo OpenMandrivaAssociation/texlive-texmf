@@ -1,3 +1,6 @@
+%define _binary_payload		w9.gzdio
+%define _source_payload		w9.gzdio
+
 %define enable_asymptote	1
 %define enable_xindy		1
 
@@ -9,19 +12,35 @@
 %define with_system_tex4ht	0
 %define with_system_teckit	0
 
-%define texmfdir		%{_datadir}/texmf
-%define texmfdistdir		%{_datadir}/texmf-dist
+%if %mdkversion >= 201100
+  %define texmfbindir		%{_bindir}
+  %define texmfdir		%{_datadir}/texmf
+  %define texmfdistdir		%{_datadir}/texmf-dist
+  %define texmfextradir		%{_datadir}/texmf-extra
+  %define texmfprojectdir	%{_datadir}/texmf-project
+  %define texmfvardir		%{_localstatedir}/lib/texmf
+  %define texmfconfdir		%{_sysconfdir}/texmf
+%else
+  %define texmfbindir		/opt/texlive2010/bin
+  %define texmfdir		/opt/texlive2010/texmf
+  %define texmfextradir		/opt/texlive2010/texmf-extra
+  %define texmfprojectdir	/opt/texlive2010/texmf-project
+  %define texmfdistdir		/opt/texlive2010/texmf-dist
+  %define texmfvardir		/opt/texlive2010/lib/texmf
+  %define texmfconfdir		/opt/texlive2010/texmf
+%endif
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 7
+Release:	%mkrel 8
 Summary:	The TeX formatting system
 Group:		Publishing
-License:	Apache2 and Artistic and BSD and FDL and Freeware and GFL and GFSL and GPL and GPLv2 and GPLv3 and LGPL and LGPLv2.1 and LPPL and LPPLv1 and LPPLv1.2 and LPPLv1.3 and OFL and Public Domain
+License:	http://www.tug.org/texlive/LICENSE.TL
 URL:		http://tug.org/texlive/
 Source0:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz
 Source1:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz.sha256
 Source2:	XDvi-color
+Source3:	http://www.tug.org/texlive/LICENSE.TL
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 
@@ -45,6 +64,7 @@ Provides:	texlive-texmf-usrlocal = %{version}
 Provides:	texlive-texmf-xmltex = %{version}
 Provides:	texmf-data = %{version}
 %endif
+%if %mdkversion >= 201100
 Obsoletes:	textex-cmsuper <= 0.3.3
 Obsoletes:	texlive-fonts <= 2007
 Obsoletes:	texlive-texmf-afm <= 2007
@@ -62,6 +82,7 @@ Obsoletes:	texmf-data <= 2007
 %if !%{with_system_tex4ht}
 Obsoletes:	tex4ht <= 1:1.0.2008_02_28_2058
 %endif
+%endif
 
 #-----------------------------------------------------------------------
 Patch0:		texlive-20100722-texmf-default.patch
@@ -76,8 +97,10 @@ free software, including support for many languages around the world.
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/*
+%{texmfbindir}/*
+%if %mdkversion >= 201100
 %{_datadir}/X11/app-defaults/XDvi*
+%endif
 %dir %{texmfdir}
 %{texmfdir}/chktex
 %dir %{texmfdir}/doc
@@ -809,7 +832,9 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/tex
 %if !%{with_system_tex4ht}
 %{texmfdistdir}/tex4ht
+%if %mdkversion >= 201100
 %{_javadir}/tex4ht.jar
+%endif
 %endif
 %{texmfdistdir}/vtex
 
@@ -1650,8 +1675,8 @@ sed -i	-e 's/^#! \(Map OrnementsADF.map\)/\1/'	\
 	-e 's/^#! \(Map yvo.map\)/\1/'	\
 	-e 's/^#! \(Map yvt.map\)/\1/'	\
 	 %{texmfdir}/web2c/updmap.cfg
-if [ -x %{_bindir}/updmap-sys ]; then
-    %{_bindir}/updmap-sys --syncwithtrees
+if [ -x %{texmfbindir}/updmap-sys ]; then
+    %{texmfbindir}/updmap-sys --syncwithtrees
 fi
 
 %postun		-n texlive-fontsextra
@@ -1760,8 +1785,8 @@ sed -i	-e 's/^\(Map OrnementsADF.map\)/#! \1/'	\
 	-e 's/^\(Map yvo.map\)/#! \1/'	\
 	-e 's/^\(Map yvt.map\)/#! \1/'	\
 	 %{texmfdir}/web2c/updmap.cfg
-    if [ -x %{_bindir}/updmap-sys ]; then
-	%{_bindir}/updmap-sys --syncwithtrees
+    if [ -x %{texmfbindir}/updmap-sys ]; then
+	%{texmfbindir}/updmap-sys --syncwithtrees
     fi
 fi
 
@@ -1787,22 +1812,22 @@ free software, including support for many languages around the world.
 perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'			  \
 	 -e 's%^(TEXMFDIST\s+= ).*%$1%{texmfdistdir}%;'			  \
 	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'			  \
-	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{_localstatedir}/lib/texmf%;'	  \
-	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{_sysconfdir}/texmf%;'	  \
+	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{texmfvardir}%;'		  \
+	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{texmfconfdif}%;'		  \
 	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'	  \
 	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'	  \
 	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2010/texmf-config%;'\
 	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'		  \
 	texmf/web2c/texmf.cnf
 
-perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'					\
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'					\
-	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{texmfdir}/fonts,%{texmfdistdir}/fonts\}%;'	\
-	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{_datadir}/texmf-extra,%{texmfdir}\}%;'	\
-	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{_datadir}/texmf-project,%{texmfdir}\}%;'	\
-	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'			\
-	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'			\
-	 -e 's%^(TEXMFCNF\s+= ).*%$1%{texmfdir}/web2c%;'				\
+perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'				    \
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'				    \
+	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{texmfdir}/fonts,%{texmfdistdir}/fonts\}%;'\
+	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{texmfextradir},%{texmfdir}\}%;'	    \
+	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{texmfprojectdir},%{texmfdir}\}%;'	    \
+	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'		    \
+	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'		    \
+	 -e 's%^(TEXMFCNF\s+= ).*%$1%{texmfdir}/web2c%;'			    \
 	texmf/web2c/context.cnf
 
 perl -pi -e 's%^(TEXMFCACHE\s+= ).*%$1\$HOME/.texlive2010/texmf-var%;'	\
@@ -1819,106 +1844,110 @@ perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
 
 #-----------------------------------------------------------------------
 %install
-mkdir -p %{buildroot}%{_datadir}
-cp -far * %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{texmfdir}
+cp -far texmf %{buildroot}%{texmfdir}
+mkdir -p %{buildroot}%{texmfdistdir}
+cp -far texmf %{buildroot}%{texmfdistdir}
 
-mkdir -p %{buildroot}%{_bindir}
-pushd %{buildroot}%{_bindir}
-    ln -sf ../share/texmf/scripts/a2ping/a2ping.pl a2ping
-    ln -sf ../share/texmf-dist/scripts/fontools/afm2afm afm2afm
-    ln -sf ../share/texmf-dist/scripts/bundledoc/arlatex arlatex
-    ln -sf ../share/texmf-dist/scripts/authorindex/authorindex authorindex
-    ln -sf ../share/texmf-dist/scripts/fontools/autoinst autoinst
-    ln -sf ../share/texmf-dist/scripts/bibexport/bibexport.sh bibexport
-    ln -sf ../share/texmf-dist/scripts/bundledoc/bundledoc bundledoc
-    ln -sf ../share/texmf-dist/scripts/cachepic/cachepic.tlu cachepic
-    ln -sf ../share/texmf-dist/scripts/fontools/cmap2enc cmap2enc
-    ln -sf ../share/texmf-dist/scripts/de-macro/de-macro de-macro
-    ln -sf ../share/texmf-dist/scripts/dviasm/dviasm.py dviasm
-    ln -sf ../share/texmf/scripts/tetex/e2pall.pl e2pall
-    ln -sf ../share/texmf-dist/scripts/bengali/ebong.py ebong
-    ln -sf ../share/texmf-dist/scripts/epspdf/epspdf epspdf
-    ln -sf ../share/texmf-dist/scripts/epspdf/epspdftk epspdftk
-    ln -sf ../share/texmf-dist/scripts/epstopdf/epstopdf.pl epstopdf
-    ln -sf ../share/texmf-dist/scripts/fig4latex/fig4latex fig4latex
-    ln -sf ../share/texmf-dist/scripts/findhyph/findhyph findhyph
-    ln -sf ../share/texmf-dist/scripts/fontools/font2afm font2afm
-    ln -sf ../share/texmf-dist/scripts/fragmaster/fragmaster.pl fragmaster
+mkdir -p %{buildroot}%{texmfbindir}
+pushd %{buildroot}%{texmfbindir}
+    ln -sf %{texmfdir}/scripts/a2ping/a2ping.pl a2ping
+    ln -sf %{texmfdistdir}/scripts/fontools/afm2afm afm2afm
+    ln -sf %{texmfdistdir}/scripts/bundledoc/arlatex arlatex
+    ln -sf %{texmfdistdir}/scripts/authorindex/authorindex authorindex
+    ln -sf %{texmfdistdir}/scripts/fontools/autoinst autoinst
+    ln -sf %{texmfdistdir}/scripts/bibexport/bibexport.sh bibexport
+    ln -sf %{texmfdistdir}/scripts/bundledoc/bundledoc bundledoc
+    ln -sf %{texmfdistdir}/scripts/cachepic/cachepic.tlu cachepic
+    ln -sf %{texmfdistdir}/scripts/fontools/cmap2enc cmap2enc
+    ln -sf %{texmfdistdir}/scripts/de-macro/de-macro de-macro
+    ln -sf %{texmfdistdir}/scripts/dviasm/dviasm.py dviasm
+    ln -sf %{texmfdir}/scripts/tetex/e2pall.pl e2pall
+    ln -sf %{texmfdistdir}/scripts/bengali/ebong.py ebong
+    ln -sf %{texmfdistdir}/scripts/epspdf/epspdf epspdf
+    ln -sf %{texmfdistdir}/scripts/epspdf/epspdftk epspdftk
+    ln -sf %{texmfdistdir}/scripts/epstopdf/epstopdf.pl epstopdf
+    ln -sf %{texmfdistdir}/scripts/fig4latex/fig4latex fig4latex
+    ln -sf %{texmfdistdir}/scripts/findhyph/findhyph findhyph
+    ln -sf %{texmfdistdir}/scripts/fontools/font2afm font2afm
+    ln -sf %{texmfdistdir}/scripts/fragmaster/fragmaster.pl fragmaster
 %if !%{with_system_tex4ht}
-    ln -sf ../share/texmf-dist/scripts/tex4ht/ht.sh ht
-    ln -sf ../share/texmf-dist/scripts/tex4ht/htcontext.sh htcontext
-    ln -sf ../share/texmf-dist/scripts/tex4ht/htlatex.sh htlatex
-    ln -sf ../share/texmf-dist/scripts/tex4ht/htmex.sh htmex
-    ln -sf ../share/texmf-dist/scripts/tex4ht/httex.sh httex
-    ln -sf ../share/texmf-dist/scripts/tex4ht/httexi.sh httexi
-    ln -sf ../share/texmf-dist/scripts/tex4ht/htxelatex.sh htxelatex
-    ln -sf ../share/texmf-dist/scripts/tex4ht/htxetex.sh htxetex
+    ln -sf %{texmfdistdir}/scripts/tex4ht/ht.sh ht
+    ln -sf %{texmfdistdir}/scripts/tex4ht/htcontext.sh htcontext
+    ln -sf %{texmfdistdir}/scripts/tex4ht/htlatex.sh htlatex
+    ln -sf %{texmfdistdir}/scripts/tex4ht/htmex.sh htmex
+    ln -sf %{texmfdistdir}/scripts/tex4ht/httex.sh httex
+    ln -sf %{texmfdistdir}/scripts/tex4ht/httexi.sh httexi
+    ln -sf %{texmfdistdir}/scripts/tex4ht/htxelatex.sh htxelatex
+    ln -sf %{texmfdistdir}/scripts/tex4ht/htxetex.sh htxetex
 %endif
-    ln -sf ../share/texmf-dist/scripts/latex2man/latex2man latex2man
-    ln -sf ../share/texmf-dist/scripts/latexdiff/latexdiff.pl latexdiff
-    ln -sf ../share/texmf-dist/scripts/latexdiff/latexdiff-vc.pl latexdiff-vc
-    ln -sf ../share/texmf-dist/scripts/latexmk/latexmk.pl latexmk
-    ln -sf ../share/texmf-dist/scripts/latexdiff/latexrevise.pl latexrevise
-    ln -sf ../share/texmf-dist/scripts/listings-ext/listings-ext.sh listings-ext.sh
-    ln -sf ../share/texmf-dist/scripts/glossaries/makeglossaries makeglossaries
-    ln -sf ../share/texmf-dist/scripts/mathspic/mathspic.pl mathspic
+    ln -sf %{texmfdistdir}/scripts/latex2man/latex2man latex2man
+    ln -sf %{texmfdistdir}/scripts/latexdiff/latexdiff.pl latexdiff
+    ln -sf %{texmfdistdir}/scripts/latexdiff/latexdiff-vc.pl latexdiff-vc
+    ln -sf %{texmfdistdir}/scripts/latexmk/latexmk.pl latexmk
+    ln -sf %{texmfdistdir}/scripts/latexdiff/latexrevise.pl latexrevise
+    ln -sf %{texmfdistdir}/scripts/listings-ext/listings-ext.sh listings-ext.sh
+    ln -sf %{texmfdistdir}/scripts/glossaries/makeglossaries makeglossaries
+    ln -sf %{texmfdistdir}/scripts/mathspic/mathspic.pl mathspic
 %if !%{with_system_tex4ht}
-    ln -sf ../share/texmf-dist/scripts/tex4ht/mk4ht.pl mk4ht
+    ln -sf %{texmfdistdir}/scripts/tex4ht/mk4ht.pl mk4ht
 %endif
-    ln -sf ../share/texmf-dist/scripts/mkgrkindex/mkgrkindex mkgrkindex
-    ln -sf ../share/texmf-dist/scripts/mkjobtexmf/mkjobtexmf.pl mkjobtexmf
-    ln -sf ../share/texmf-dist/scripts/luaotfload/mkluatexfontdb.lua mkluatexfontdb
-    ln -sf ../share/texmf-dist/scripts/accfonts/mkt1font mkt1font
-    ln -sf ../share/texmf-dist/scripts/context/perl/mptopdf.pl mptopdf
-    ln -sf ../share/texmf-dist/scripts/fontools/ot2kpx ot2kpx
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdf180 pdf180
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdf270 pdf270
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdf90 pdf90
-    ln -sf ../share/texmf-dist/scripts/pax/pdfannotextractor.pl pdfannotextractor
-    ln -sf ../share/texmf-dist/scripts/oberdiek/pdfatfi.pl pdfatfi
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfbook pdfbook
-    ln -sf ../share/texmf-dist/scripts/pdfcrop/pdfcrop.pl pdfcrop
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfflip pdfflip
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam pdfjam
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam-pocketmod pdfjam-pocketmod
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam-slides3up pdfjam-slides3up
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjam-slides6up pdfjam-slides6up
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfjoin pdfjoin
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfnup pdfnup
-    ln -sf ../share/texmf-dist/scripts/pdfjam/pdfpun pdfpun
-    ln -sf ../share/texmf-dist/scripts/ppower4/pdfthumb.tlu pdfthumb
-    ln -sf ../share/texmf-dist/scripts/perltex/perltex.pl perltex
-    ln -sf ../share/texmf-dist/scripts/fontools/pfm2kpx pfm2kpx
-    ln -sf ../share/texmf-dist/scripts/pkfix/pkfix.pl pkfix
-    ln -sf ../share/texmf-dist/scripts/pkfix-helper/pkfix-helper pkfix-helper
-    ln -sf ../share/texmf-dist/scripts/ppower4/ppower4.tlu ppower4
-    ln -sf ../share/texmf-dist/scripts/pst-pdf/ps4pdf ps4pdf
-    ln -sf ../share/texmf-dist/scripts/pst2pdf/pst2pdf pst2pdf
-    ln -sf ../share/texmf-dist/scripts/purifyeps/purifyeps purifyeps
+    ln -sf %{texmfdistdir}/scripts/mkgrkindex/mkgrkindex mkgrkindex
+    ln -sf %{texmfdistdir}/scripts/mkjobtexmf/mkjobtexmf.pl mkjobtexmf
+    ln -sf %{texmfdistdir}/scripts/luaotfload/mkluatexfontdb.lua mkluatexfontdb
+    ln -sf %{texmfdistdir}/scripts/accfonts/mkt1font mkt1font
+    ln -sf %{texmfdistdir}/scripts/context/perl/mptopdf.pl mptopdf
+    ln -sf %{texmfdistdir}/scripts/fontools/ot2kpx ot2kpx
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdf180 pdf180
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdf270 pdf270
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdf90 pdf90
+    ln -sf %{texmfdistdir}/scripts/pax/pdfannotextractor.pl pdfannotextractor
+    ln -sf %{texmfdistdir}/scripts/oberdiek/pdfatfi.pl pdfatfi
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfbook pdfbook
+    ln -sf %{texmfdistdir}/scripts/pdfcrop/pdfcrop.pl pdfcrop
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfflip pdfflip
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfjam pdfjam
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfjam-pocketmod pdfjam-pocketmod
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfjam-slides3up pdfjam-slides3up
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfjam-slides6up pdfjam-slides6up
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfjoin pdfjoin
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfnup pdfnup
+    ln -sf %{texmfdistdir}/scripts/pdfjam/pdfpun pdfpun
+    ln -sf %{texmfdistdir}/scripts/ppower4/pdfthumb.tlu pdfthumb
+    ln -sf %{texmfdistdir}/scripts/perltex/perltex.pl perltex
+    ln -sf %{texmfdistdir}/scripts/fontools/pfm2kpx pfm2kpx
+    ln -sf %{texmfdistdir}/scripts/pkfix/pkfix.pl pkfix
+    ln -sf %{texmfdistdir}/scripts/pkfix-helper/pkfix-helper pkfix-helper
+    ln -sf %{texmfdistdir}/scripts/ppower4/ppower4.tlu ppower4
+    ln -sf %{texmfdistdir}/scripts/pst-pdf/ps4pdf ps4pdf
+    ln -sf %{texmfdistdir}/scripts/pst2pdf/pst2pdf pst2pdf
+    ln -sf %{texmfdistdir}/scripts/purifyeps/purifyeps purifyeps
     ln -sf epstopdf repstopdf
     ln -sf pdfcrop rpdfcrop
-    ln -sf ../share/texmf/scripts/texlive/rungs.tlu rungs
-    ln -sf ../share/texmf-dist/scripts/fontools/showglyphs showglyphs
-    ln -sf ../share/texmf-dist/scripts/splitindex/perl/splitindex.pl splitindex
-    ln -sf ../share/texmf/scripts/simpdftex/simpdftex simpdftex
-    ln -sf ../share/texmf-dist/scripts/svn-multi/svn-multi.pl svn-multi
-    ln -sf ../share/texmf-dist/scripts/texcount/texcount.pl texcount
-    ln -sf ../share/texmf-dist/scripts/texdiff/texdiff texdiff
-    ln -sf ../share/texmf-dist/scripts/texdirflatten/texdirflatten texdirflatten
-    ln -sf ../share/texmf/scripts/texdoc/texdoc.tlu texdoc
-    ln -sf ../share/texmf-dist/scripts/texloganalyser/texloganalyser texloganalyser
-    ln -sf ../share/texmf-dist/scripts/thumbpdf/thumbpdf.pl thumbpdf
-    ln -sf ../share/texmf-dist/scripts/ulqda/ulqda.pl ulqda
-    ln -sf ../share/texmf-dist/scripts/vpe/vpe.pl vpe
-    ln -sf ../share/texmf-dist/scripts/accfonts/vpl2ovp vpl2ovp
-    ln -sf ../share/texmf-dist/scripts/accfonts/vpl2vpl vpl2vpl
+    ln -sf %{texmfdir}/scripts/texlive/rungs.tlu rungs
+    ln -sf %{texmfdistdir}/scripts/fontools/showglyphs showglyphs
+    ln -sf %{texmfdistdir}/scripts/splitindex/perl/splitindex.pl splitindex
+    ln -sf %{texmfdir}/scripts/simpdftex/simpdftex simpdftex
+    ln -sf %{texmfdistdir}/scripts/svn-multi/svn-multi.pl svn-multi
+    ln -sf %{texmfdistdir}/scripts/texcount/texcount.pl texcount
+    ln -sf %{texmfdistdir}/scripts/texdiff/texdiff texdiff
+    ln -sf %{texmfdistdir}/scripts/texdirflatten/texdirflatten texdirflatten
+    ln -sf %{texmfdir}/scripts/texdoc/texdoc.tlu texdoc
+    ln -sf %{texmfdistdir}/scripts/texloganalyser/texloganalyser texloganalyser
+    ln -sf %{texmfdistdir}/scripts/thumbpdf/thumbpdf.pl thumbpdf
+    ln -sf %{texmfdistdir}/scripts/ulqda/ulqda.pl ulqda
+    ln -sf %{texmfdistdir}/scripts/vpe/vpe.pl vpe
+    ln -sf %{texmfdistdir}/scripts/accfonts/vpl2ovp vpl2ovp
+    ln -sf %{texmfdistdir}/scripts/accfonts/vpl2vpl vpl2vpl
 popd
 
-mkdir -p %{buildroot}%{_datadir}/X11/app-defaults
-pushd %{buildroot}%{_datadir}/X11/app-defaults
-    ln -sf ../../texmf/xdvi/XDvi XDvi
-    cp %{SOURCE2} %{buildroot}%{_datadir}/X11/app-defaults
-popd
+%if %mdkversion >= 201100
+    mkdir -p %{buildroot}%{_datadir}/X11/app-defaults
+    pushd %{buildroot}%{_datadir}/X11/app-defaults
+	ln -sf %{texmfdir}/xdvi/XDvi XDvi
+	cp %{SOURCE2} %{buildroot}%{_datadir}/X11/app-defaults
+    popd
+%endif
 
 pushd %{buildroot}%{texmfdir}
 %if !%{enable_asymptote}
@@ -1931,6 +1960,7 @@ pushd %{buildroot}%{texmfdir}
     perl -pi -e 's%/usr/local%/usr%;' dvipdfmx/dvipdfmx.cfg
     rm -f ls-R README
     rm -fr doc/gzip
+    cp -f %{SOURCE3} .
 popd
 
 pushd %{buildroot}%{texmfdistdir}
@@ -1941,10 +1971,12 @@ pushd %{buildroot}%{texmfdistdir}
 popd
 
 %if !%{with_system_tex4ht}
-mkdir %{buildroot}%{_javadir}
-pushd %{buildroot}%{_javadir}
-    ln -sf ../texmf-dist/tex4ht/bin/tex4ht.jar tex4ht.jar
-popd
+    %if %mdkversion >= 201100
+	mkdir %{buildroot}%{_javadir}
+	pushd %{buildroot}%{_javadir}
+	    ln -sf %{texmfdistdir}/tex4ht/bin/tex4ht.jar tex4ht.jar
+	popd
+    %endif
 %endif
 
 #-----------------------------------------------------------------------
