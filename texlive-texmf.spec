@@ -49,23 +49,23 @@ Requires:	perl-Algorithm-Diff
 Requires:	xdg-utils
 
 %if %mdkversion <= 201100
-Provides:	textex-cmsuper = %{version}
-Provides:	texlive-fonts = %{version}
-Provides:	texlive-texmf-afm = %{version}
-Provides:	texlive-texmf-cmsuper = %{version}
-Provides:	texlive-texmf-common = %{version}
-Provides:	texlive-texmf-context = %{version}
-Provides:	texlive-texmf-dvipdfm = %{version}
-Provides:	texlive-texmf-dvips = %{version}
-Provides:	texlive-texmf-fonts = %{version}
-Provides:	texlive-texmf-jadetex = %{version}
-Provides:	texlive-texmf-latex = %{version}
-Provides:	texlive-texmf-usrlocal = %{version}
-Provides:	texlive-texmf-xmltex = %{version}
-Provides:	texmf-data = %{version}
+Provides:	tetex-cmsuper
+Provides:	texlive-fonts
+Provides:	texlive-texmf-afm
+Provides:	texlive-texmf-cmsuper
+Provides:	texlive-texmf-common
+Provides:	texlive-texmf-context
+Provides:	texlive-texmf-dvipdfm
+Provides:	texlive-texmf-dvips
+Provides:	texlive-texmf-fonts
+Provides:	texlive-texmf-jadetex
+Provides:	texlive-texmf-latex
+Provides:	texlive-texmf-usrlocal
+Provides:	texlive-texmf-xmltex
+Provides:	texmf-data
 %endif
 %if %mdkversion >= 201100
-Obsoletes:	textex-cmsuper <= 0.3.3
+Obsoletes:	tetex-cmsuper <= 0.3.3
 Obsoletes:	texlive-fonts <= 2007
 Obsoletes:	texlive-texmf-afm <= 2007
 Obsoletes:	texlive-texmf-fonts <= 2007
