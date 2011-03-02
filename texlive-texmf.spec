@@ -846,6 +846,7 @@ Group:		Publishing
 Provides:	texlive-texmf-doc = %{version}
 %endif
 Obsoletes:	texlive-texmf-doc <= 2007
+Requires:	texlive-texmf = %{version}-%{release}
 
 %description	-n texlive-doc
 TeX Live is an easy way to get up and running with the TeX document
@@ -1794,6 +1795,7 @@ fi
 %package	-n texlive-source
 Summary:	Tex Live source files
 Group:		Publishing
+Requires:	texlive-texmf = %{version}-%{release}
 
 %description	-n texlive-source
 TeX Live is an easy way to get up and running with the TeX document
