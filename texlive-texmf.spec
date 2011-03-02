@@ -112,6 +112,7 @@ free software, including support for many languages around the world.
 %{texmfdir}/dvips
 %{texmfdir}/fonts
 %{texmfdir}/hbf2gf
+%{texmfdir}/LICENSE.TL
 %{texmfdir}/scripts
 %{texmfdir}/tex
 %{texmfdir}/texconfig
