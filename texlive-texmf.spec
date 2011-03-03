@@ -49,6 +49,7 @@ Requires:	perl-Algorithm-Diff
 Requires:	xdg-utils
 
 %if %mdkversion <= 201100
+Provides:	tetex-afm = %{version}
 Provides:	tetex-cmsuper = %{version}
 %if !%{with_system_tex4ht}
 Provides:	tex4ht = 1:%{version}
@@ -68,6 +69,7 @@ Provides:	texlive-texmf-xmltex = %{version}
 Provides:	texmf-data = %{version}
 %endif
 %if %mdkversion >= 201100
+Obsoletes:	tetex-afm <= 3.0
 Obsoletes:	tetex-cmsuper <= 0.3.3
 %if !%{with_system_tex4ht}
 Obsoletes:	tex4ht <= 1:1.0.2008_02_28_2058
@@ -847,8 +849,10 @@ free software, including support for many languages around the world.
 Summary:	Tex Live documentation
 Group:		Publishing
 %if %mdkversion <= 201100
+Provides:	tetex-doc = %{version}
 Provides:	texlive-texmf-doc = %{version}
 %endif
+Obsoletes:	tetex-doc <= 3.0
 Obsoletes:	texlive-texmf-doc <= 2007
 Requires:	texlive-texmf = %{version}-%{release}
 
