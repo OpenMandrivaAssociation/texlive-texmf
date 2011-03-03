@@ -50,6 +50,9 @@ Requires:	xdg-utils
 
 %if %mdkversion <= 201100
 Provides:	tetex-cmsuper = %{version}
+%if !%{with_system_tex4ht}
+Provides:	tex4ht = 1:%{version}
+%endif
 Provides:	texlive-fonts = %{version}
 Provides:	texlive-texmf-afm = %{version}
 Provides:	texlive-texmf-cmsuper = %{version}
@@ -66,6 +69,9 @@ Provides:	texmf-data = %{version}
 %endif
 %if %mdkversion >= 201100
 Obsoletes:	tetex-cmsuper <= 0.3.3
+%if !%{with_system_tex4ht}
+Obsoletes:	tex4ht <= 1:1.0.2008_02_28_2058
+%endif
 Obsoletes:	texlive-fonts <= 2007
 Obsoletes:	texlive-texmf-afm <= 2007
 Obsoletes:	texlive-texmf-fonts <= 2007
@@ -79,9 +85,6 @@ Obsoletes:	texlive-texmf-latex <= 2007
 Obsoletes:	texlive-texmf-usrlocal <= 2007
 Obsoletes:	texlive-texmf-xmltex <= 2007
 Obsoletes:	texmf-data <= 2007
-%if !%{with_system_tex4ht}
-Obsoletes:	tex4ht <= 1:1.0.2008_02_28_2058
-%endif
 %endif
 
 #-----------------------------------------------------------------------
