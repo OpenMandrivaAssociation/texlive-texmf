@@ -49,20 +49,20 @@ Requires:	perl-Algorithm-Diff
 Requires:	xdg-utils
 
 %if %mdkversion <= 201100
-Provides:	tetex-cmsuper
-Provides:	texlive-fonts
-Provides:	texlive-texmf-afm
-Provides:	texlive-texmf-cmsuper
-Provides:	texlive-texmf-common
-Provides:	texlive-texmf-context
-Provides:	texlive-texmf-dvipdfm
-Provides:	texlive-texmf-dvips
-Provides:	texlive-texmf-fonts
-Provides:	texlive-texmf-jadetex
-Provides:	texlive-texmf-latex
-Provides:	texlive-texmf-usrlocal
-Provides:	texlive-texmf-xmltex
-Provides:	texmf-data
+Provides:	tetex-cmsuper = %{version}
+Provides:	texlive-fonts = %{version}
+Provides:	texlive-texmf-afm = %{version}
+Provides:	texlive-texmf-cmsuper = %{version}
+Provides:	texlive-texmf-common = %{version}
+Provides:	texlive-texmf-context = %{version}
+Provides:	texlive-texmf-dvipdfm = %{version}
+Provides:	texlive-texmf-dvips = %{version}
+Provides:	texlive-texmf-fonts = %{version}
+Provides:	texlive-texmf-jadetex = %{version}
+Provides:	texlive-texmf-latex = %{version}
+Provides:	texlive-texmf-usrlocal = %{version}
+Provides:	texlive-texmf-xmltex = %{version}
+Provides:	texmf-data = %{version}
 %endif
 %if %mdkversion >= 201100
 Obsoletes:	tetex-cmsuper <= 0.3.3
