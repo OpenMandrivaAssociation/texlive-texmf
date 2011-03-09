@@ -32,7 +32,7 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 8
+Release:	%mkrel 9
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
@@ -109,6 +109,7 @@ free software, including support for many languages around the world.
 %dir %{texmfdir}
 %{texmfdir}/chktex
 %dir %{texmfdir}/doc
+%{texmfdir}/doc/tetex/teTeX-FAQ
 %if %{enable_asymptote}
 %{texmfdir}/asymptote
 %doc %{texmfdir}/doc/asymptote
@@ -865,6 +866,7 @@ free software, including support for many languages around the world.
 %files		-n texlive-doc
 %defattr(-,root,root,-)
 %{texmfdir}/doc/*
+%exclude %{texmfdir}/doc/tetex/teTeX-FAQ
 %if %{enable_asymptote}
 %exclude %{texmfdir}/doc/asymptote
 %endif
