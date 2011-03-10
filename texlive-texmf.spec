@@ -46,6 +46,8 @@ BuildArch:	noarch
 
 #-----------------------------------------------------------------------
 Requires:	perl-Algorithm-Diff
+Requires(post):	/sbin/install-info
+Requires(preun): /sbin/install-info
 Requires:	xdg-utils
 
 %if %mdkversion <= 201100
@@ -105,6 +107,9 @@ free software, including support for many languages around the world.
 %{texmfbindir}/*
 %if %mdkversion >= 201100
 %{_datadir}/X11/app-defaults/XDvi*
+%{_infodir}/*
+%{_mandir}/man1/*
+%{_mandir}/man5/*
 %endif
 %dir %{texmfdir}
 %{texmfdir}/chktex
@@ -844,6 +849,22 @@ free software, including support for many languages around the world.
 %endif
 %endif
 %{texmfdistdir}/vtex
+
+%if %mdkversion >= 201100
+%post
+for info in	asy-faq asymptote dvipng dvips eplain epspdf fontname \
+		kpathsea latex2e latex2man tds texdraw web2c; do
+    /sbin/install-info %{_infodir}/${info}* %{_infodir}/dir ||:
+done
+
+%preun
+if [ "$1" = "0" ];then
+    for info in	asy-faq asymptote dvipng dvips eplain epspdf fontname \
+		kpathsea latex2e latex2man tds texdraw web2c; do
+	/sbin/install-info --delete %{_infodir}/${info}* %{_infodir}/dir ||:
+    done
+fi
+%endif
 
 #-----------------------------------------------------------------------
 %package	-n texlive-doc
@@ -1973,6 +1994,14 @@ pushd %{buildroot}%{texmfdir}
     rm -f ls-R README
     rm -fr doc/gzip
     cp -f %{SOURCE3} .
+
+    find doc/man \( -name Makefile -o -name \*.pdf \) -exec rm -f {} \;
+%if %mdkversion >= 201100
+    mkdir -p %{buildroot}%{_mandir}
+    mv -f doc/man/* %{buildroot}%{_mandir}
+    mkdir -p %{buildroot}%{_infodir}
+    mv -f doc/info/*.info %{buildroot}%{_infodir}
+%endif
 popd
 
 pushd %{buildroot}%{texmfdistdir}
