@@ -115,7 +115,7 @@ free software, including support for many languages around the world.
 %dir %{texmfdir}
 %{texmfdir}/chktex
 %dir %{texmfdir}/doc
-%{texmfdir}/doc/tetex/teTeX-FAQ
+%{texmfdir}/doc/tetex
 %if %{enable_asymptote}
 %{texmfdir}/asymptote
 %doc %{texmfdir}/doc/asymptote
@@ -888,7 +888,7 @@ free software, including support for many languages around the world.
 %files		-n texlive-doc
 %defattr(-,root,root,-)
 %{texmfdir}/doc/*
-%exclude %{texmfdir}/doc/tetex/teTeX-FAQ
+%exclude %{texmfdir}/doc/tetex
 %if %{enable_asymptote}
 %exclude %{texmfdir}/doc/asymptote
 %endif
@@ -1998,6 +1998,10 @@ pushd %{buildroot}%{texmfdir}
     cp -f %{SOURCE3} .
 
     find doc/man \( -name Makefile -o -name \*.pdf \) -exec rm -f {} \;
+%if %{with_system_psutils}
+    rm -f doc/man/man1/{epsffit,extractres,fixdlsrps,fixfmps,fixmacps,fixpsditps,fixpspps,fixscribeps,fixtpps,fixwfwps,fixwpps,fixwwps,getafm,includeres,psbook,psmerge,psnup,psresize,psselect,pstops}.1
+%endif
+
 %if %mdkversion >= 201100
     mkdir -p %{buildroot}%{_mandir}
     mv -f doc/man/* %{buildroot}%{_mandir}
