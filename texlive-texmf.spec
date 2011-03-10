@@ -32,7 +32,7 @@
 
 Name:		texlive-texmf
 Version:	20100722
-Release:	%mkrel 9
+Release:	%mkrel 10
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
@@ -94,6 +94,7 @@ Obsoletes:	texmf-data <= 2007
 #-----------------------------------------------------------------------
 Patch0:		texlive-20100722-texmf-default.patch
 Patch1:		texlive-20100722-texmf-fontsextra.patch
+Patch2:		texlive-20100722-texmf-epstopdf.patch
 
 #-----------------------------------------------------------------------
 %description
@@ -1871,6 +1872,7 @@ perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
 
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 #-----------------------------------------------------------------------
 %build
