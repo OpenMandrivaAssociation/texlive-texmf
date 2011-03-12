@@ -31,14 +31,22 @@
 %endif
 
 Name:		texlive-texmf
-Version:	20100722
-Release:	%mkrel 10
+Version:	20110312
+Release:	%mkrel 1
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
 URL:		http://tug.org/texlive/
-Source0:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz
-Source1:	ftp://tug.org/historic/systems/texlive/2010/texlive-20100722-texmf.tar.xz.sha256
+# mkdir texlive-texmf; cd texlive-texmf
+# svn co svn://tug.org/texlive/trunk/Master/texmf texmf
+# svn co svn://tug.org/texlive/trunk/Master/texmf-dist texmf-dist
+# cd ..
+# cp -far texlive-texmf texlive-20110312-texmf
+# find texlive-20110312-texmf -name .svn -type d -exec rm -fr {} \; 2>/dev/null
+# tar Jcf texlive-20110312-texmf.tar.xz texlive-20110312-texmf
+Source0:	texlive-20110312-texmf.tar.xz
+# sha256sum texlive-20110312-texmf.tar.xz > texlive-20110312-texmf.tar.xz.sha256
+Source1:	texlive-20110312-texmf.tar.xz.sha256
 Source2:	XDvi-color
 Source3:	http://www.tug.org/texlive/LICENSE.TL
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -92,9 +100,9 @@ Obsoletes:	texmf-data <= 2007
 %endif
 
 #-----------------------------------------------------------------------
-Patch0:		texlive-20100722-texmf-default.patch
-Patch1:		texlive-20100722-texmf-fontsextra.patch
-Patch2:		texlive-20100722-texmf-epstopdf.patch
+Patch0:		texlive-20110312-texmf-default.patch
+Patch1:		texlive-20110312-texmf-fontsextra.patch
+Patch2:		texlive-20110312-texmf-epstopdf.patch
 
 #-----------------------------------------------------------------------
 %description
@@ -147,6 +155,20 @@ free software, including support for many languages around the world.
 # Asana-Math
 %exclude %{texmfdistdir}/fonts/opentype/public/Asana-Math
 %exclude %{texmfdistdir}/fonts/truetype/public/Asana-Math
+# adforn
+%exclude %{texmfdistdir}/fonts/afm/arkandis/adforn
+%exclude %{texmfdistdir}/fonts/enc/dvips/adforn
+%exclude %{texmfdistdir}/fonts/map/dvips/adforn
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/adforn
+%exclude %{texmfdistdir}/fonts/type1/arkandis/adforn
+%exclude %{texmfdistdir}/tex/latex/adforn
+# adfsymbols
+%exclude %{texmfdistdir}/fonts/afm/arkandis/adfsymbols
+%exclude %{texmfdistdir}/fonts/enc/dvips/adfsymbols
+%exclude %{texmfdistdir}/fonts/map/dvips/adfsymbols
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/adfsymbols
+%exclude %{texmfdistdir}/fonts/type1/arkandis/adfsymbols
+%exclude %{texmfdistdir}/tex/latex/adfsymbols
 # allrunes
 %exclude %{texmfdistdir}/fonts/map/dvips/allrunes
 %exclude %{texmfdistdir}/fonts/source/public/allrunes
@@ -217,6 +239,9 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/tfm/public/aurical
 %exclude %{texmfdistdir}/fonts/type1/public/aurical
 %exclude %{texmfdistdir}/tex/latex/aurical
+# b1encoding
+%exclude %{texmfdistdir}/fonts/enc/dvips/b1encoding
+%exclude %{texmfdistdir}/tex/latex/b1encoding
 # barcodes
 %exclude %{texmfdistdir}/fonts/source/public/barcodes
 %exclude %{texmfdistdir}/fonts/tfm/public/barcodes
@@ -242,6 +267,10 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/source/public/bbold
 %exclude %{texmfdistdir}/fonts/tfm/public/bbold
 %exclude %{texmfdistdir}/tex/latex/bbold
+# bbold-type1
+%exclude %{texmfdistdir}/fonts/afm/public/bbold-type1
+%exclude %{texmfdistdir}/fonts/map/dvips/bbold-type1
+%exclude %{texmfdistdir}/fonts/type1/public/bbold-type1
 # belleek
 %exclude %{texmfdistdir}/fonts/map/dvips/belleek
 %exclude %{texmfdistdir}/fonts/truetype/public/belleek
@@ -253,6 +282,13 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/type1/public/bera
 %exclude %{texmfdistdir}/fonts/vf/public/bera
 %exclude %{texmfdistdir}/tex/latex/bera
+# berenisadf
+%exclude %{texmfdistdir}/fonts/afm/arkandis/berenisadf
+%exclude %{texmfdistdir}/fonts/enc/dvips/berenisadf
+%exclude %{texmfdistdir}/fonts/map/dvips/berenisadf
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/berenisadf
+%exclude %{texmfdistdir}/fonts/type1/arkandis/berenisadf
+%exclude %{texmfdistdir}/tex/latex/berenisadf
 # blacklettert1
 %exclude %{texmfdistdir}/fonts/tfm/public/blacklettert1
 %exclude %{texmfdistdir}/fonts/vf/public/blacklettert1
@@ -326,6 +362,20 @@ free software, including support for many languages around the world.
 # cmpica
 %exclude %{texmfdistdir}/fonts/source/public/cmpica
 %exclude %{texmfdistdir}/fonts/tfm/public/cmpica
+# cmtiup
+%exclude %{texmfdistdir}/fonts/source/public/cmtiup
+%exclude %{texmfdistdir}/fonts/tfm/public/cmtiup
+%exclude %{texmfdistdir}/fonts/vf/public/cmtiup
+%exclude %{texmfdistdir}/tex/latex/cmtiup
+# comfortaa
+%exclude %{texmfdistdir}/fonts/afm/public/comfortaa
+%exclude %{texmfdistdir}/fonts/enc/dvips/comfortaa
+%exclude %{texmfdistdir}/fonts/map/dvips/comfortaa
+%exclude %{texmfdistdir}/fonts/tfm/public/comfortaa
+%exclude %{texmfdistdir}/fonts/truetype/public/comfortaa
+%exclude %{texmfdistdir}/fonts/type1/public/comfortaa
+%exclude %{texmfdistdir}/fonts/vf/public/comfortaa
+%exclude %{texmfdistdir}/tex/latex/comfortaa
 # concmath-fonts
 %exclude %{texmfdistdir}/fonts/source/public/concmath-fonts
 %exclude %{texmfdistdir}/fonts/tfm/public/concmath-fonts
@@ -373,6 +423,15 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/type1/public/dozenal
 %exclude %{texmfdistdir}/fonts/vf/public/dozenal
 %exclude %{texmfdistdir}/tex/latex/dozenal
+# droid
+%exclude %{texmfdistdir}/fonts/afm/public/droid
+%exclude %{texmfdistdir}/fonts/enc/dvips/droid
+%exclude %{texmfdistdir}/fonts/map/dvips/droid
+%exclude %{texmfdistdir}/fonts/tfm/public/droid
+%exclude %{texmfdistdir}/fonts/truetype/public/droid
+%exclude %{texmfdistdir}/fonts/type1/public/droid
+%exclude %{texmfdistdir}/fonts/vf/public/droid
+%exclude %{texmfdistdir}/tex/latex/droid
 # duerer
 %exclude %{texmfdistdir}/fonts/source/public/duerer
 %exclude %{texmfdistdir}/fonts/tfm/public/duerer
@@ -394,6 +453,14 @@ free software, including support for many languages around the world.
 # eiad-ltx
 %exclude %{texmfdistdir}/fonts/source/public/eiad-ltx
 %exclude %{texmfdistdir}/tex/latex/eiad-ltx
+# electrum
+%exclude %{texmfdistdir}/fonts/afm/arkandis/electrum
+%exclude %{texmfdistdir}/fonts/enc/dvips/electrum
+%exclude %{texmfdistdir}/fonts/map/dvips/electrum
+%exclude %{texmfdistdir}/fonts/tfm/arkandis/electrum
+%exclude %{texmfdistdir}/fonts/type1/arkandis/electrum
+%exclude %{texmfdistdir}/fonts/vf/arkandis/electrum
+%exclude %{texmfdistdir}/tex/latex/electrum
 # elvish
 %exclude %{texmfdistdir}/fonts/source/public/elvish
 %exclude %{texmfdistdir}/fonts/tfm/public/elvish
@@ -522,6 +589,11 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/type1/public/gfssolomos
 %exclude %{texmfdistdir}/fonts/vf/public/gfssolomos
 %exclude %{texmfdistdir}/tex/latex/gfssolomos
+# gillcm
+%exclude %{texmfdistdir}/fonts/map/dvips/gillcm
+%exclude %{texmfdistdir}/fonts/tfm/public/gillcm
+%exclude %{texmfdistdir}/fonts/vf/public/gillcm
+%exclude %{texmfdistdir}/tex/latex/gillcm
 # gnu-freefont
 %exclude %{texmfdistdir}/fonts/opentype/public/gnu-freefont
 %exclude %{texmfdistdir}/fonts/truetype/public/gnu-freefont
@@ -580,6 +652,11 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/tex/plain/iwona
 # jablantile
 %exclude %{texmfdistdir}/fonts/source/public/jablantile
+# jamtimes
+%exclude %{texmfdistdir}/fonts/map/dvips/jamtimes
+%exclude %{texmfdistdir}/fonts/tfm/public/jamtimes
+%exclude %{texmfdistdir}/fonts/vf/public/jamtimes
+%exclude %{texmfdistdir}/tex/latex/jamtimes
 # junicode
 %exclude %{texmfdistdir}/fonts/truetype/public/junicode
 # kixfont
@@ -602,6 +679,15 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/map/dvips/kurier
 %exclude %{texmfdistdir}/tex/latex/kurier
 %exclude %{texmfdistdir}/tex/plain/kurier
+# lato
+%exclude %{texmfdistdir}/fonts/afm/public/lato
+%exclude %{texmfdistdir}/fonts/enc/dvips/lato
+%exclude %{texmfdistdir}/fonts/map/dvips/lato
+%exclude %{texmfdistdir}/fonts/tfm/public/lato
+%exclude %{texmfdistdir}/fonts/truetype/public/lato
+%exclude %{texmfdistdir}/fonts/type1/public/lato
+%exclude %{texmfdistdir}/fonts/vf/public/lato
+%exclude %{texmfdistdir}/tex/latex/lato
 # lfb
 %exclude %{texmfdistdir}/fonts/source/public/lfb
 %exclude %{texmfdistdir}/fonts/tfm/public/lfb
@@ -645,6 +731,9 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/source/public/mathabx
 %exclude %{texmfdistdir}/fonts/tfm/public/mathabx
 %exclude %{texmfdistdir}/tex/generic/mathabx
+# mathabx-type1
+%exclude %{texmfdistdir}/fonts/map/dvips/mathabx-type1
+%exclude %{texmfdistdir}/fonts/type1/public/mathabx-type1
 # mathdesign
 %exclude %{texmfdistdir}/dvips/mathdesign
 %exclude %{texmfdistdir}/fonts/afm/mathdesign
@@ -653,6 +742,10 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/type1/mathdesign
 %exclude %{texmfdistdir}/fonts/vf/mathdesign
 %exclude %{texmfdistdir}/tex/latex/mathdesign
+# mdputu
+%exclude %{texmfdistdir}/fonts/tfm/public/mdputu
+%exclude %{texmfdistdir}/fonts/vf/public/mdputu
+%exclude %{texmfdistdir}/tex/latex/mdputu
 # mnsymbol
 %exclude %{texmfdistdir}/fonts/enc/dvips/mnsymbol
 %exclude %{texmfdistdir}/fonts/map/dvips/mnsymbol
@@ -676,6 +769,13 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/type1/public/ocherokee
 %exclude %{texmfdistdir}/omega/ocp/ocherokee
 %exclude %{texmfdistdir}/omega/otp/ocherokee
+# ocr-b
+%exclude %{texmfdistdir}/fonts/source/public/ocr-b
+%exclude %{texmfdistdir}/fonts/tfm/public/ocr-b
+# ocr-b-outline
+%exclude %{texmfdistdir}/fonts/map/dvips/ocr-b-outline
+%exclude %{texmfdistdir}/fonts/opentype/public/ocr-b-outline
+%exclude %{texmfdistdir}/fonts/type1/public/ocr-b-outline
 # ogham
 %exclude %{texmfdistdir}/fonts/source/public/ogham
 %exclude %{texmfdistdir}/fonts/tfm/public/ogham
@@ -695,8 +795,6 @@ free software, including support for many languages around the world.
 # orkhun
 %exclude %{texmfdistdir}/fonts/source/public/orkhun
 %exclude %{texmfdistdir}/fonts/tfm/public/orkhun
-# osmanian
-%exclude %{texmfdistdir}/fonts/source/public/osmanian
 # pacioli
 %exclude %{texmfdistdir}/fonts/source/public/pacioli
 %exclude %{texmfdistdir}/fonts/tfm/public/pacioli
@@ -718,11 +816,39 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/tfm/public/pigpen
 %exclude %{texmfdistdir}/fonts/type1/public/pigpen
 %exclude %{texmfdistdir}/tex/latex/pigpen
+# poltawski
+%exclude %{texmfdistdir}/fonts/afm/gust/poltawski
+%exclude %{texmfdistdir}/fonts/enc/dvips/poltawski
+%exclude %{texmfdistdir}/fonts/map/dvips/poltawski
+%exclude %{texmfdistdir}/fonts/opentype/gust/poltawski
+%exclude %{texmfdistdir}/fonts/tfm/gust/poltawski
+%exclude %{texmfdistdir}/fonts/type1/gust/poltawski
+%exclude %{texmfdistdir}/tex/latex/poltawski
 # psafm
 %exclude %{texmfdistdir}/fonts/afm/itc/psafm/stonesan
+# ptsans
+%exclude %{texmfdistdir}/fonts/afm/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/enc/dvips/ptsans
+%exclude %{texmfdistdir}/fonts/map/dvips/ptsans
+%exclude %{texmfdistdir}/fonts/tfm/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/truetype/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/type1/paratype/ptsans
+%exclude %{texmfdistdir}/fonts/vf/paratype/ptsans
+%exclude %{texmfdistdir}/tex/latex/ptsans
+# ptserif
+%exclude %{texmfdistdir}/fonts/afm/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/enc/dvips/ptserif
+%exclude %{texmfdistdir}/fonts/map/dvips/ptserif
+%exclude %{texmfdistdir}/fonts/tfm/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/truetype/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/type1/paratype/ptserif
+%exclude %{texmfdistdir}/fonts/vf/paratype/ptserif
+%exclude %{texmfdistdir}/tex/latex/ptserif
 # punk
 %exclude %{texmfdistdir}/fonts/source/public/punk
 %exclude %{texmfdistdir}/fonts/tfm/public/punk
+# punknova
+%exclude %{texmfdistdir}/fonts/opentype/public/punknova
 # recycle
 %exclude %{texmfdistdir}/fonts/map/dvips/recycle
 %exclude %{texmfdistdir}/fonts/source/public/recycle
@@ -755,6 +881,12 @@ free software, including support for many languages around the world.
 # skull
 %exclude %{texmfdistdir}/fonts/source/public/skull
 %exclude %{texmfdistdir}/tex/latex/skull
+# starfont
+%exclude %{texmfdistdir}/fonts/afm/public/starfont
+%exclude %{texmfdistdir}/fonts/map/dvips/starfont
+%exclude %{texmfdistdir}/fonts/tfm/public/starfont
+%exclude %{texmfdistdir}/fonts/type1/public/starfont
+%exclude %{texmfdistdir}/tex/latex/starfont
 # staves
 %exclude %{texmfdistdir}/fonts/map/dvips/staves
 %exclude %{texmfdistdir}/fonts/tfm/public/staves
@@ -771,6 +903,12 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/tfm/public/tengwarscript
 %exclude %{texmfdistdir}/fonts/vf/public/tengwarscript
 %exclude %{texmfdistdir}/tex/latex/tengwarscript
+# tfrupee
+%exclude %{texmfdistdir}/fonts/afm/public/tfrupee
+%exclude %{texmfdistdir}/fonts/map/dvips/tfrupee
+%exclude %{texmfdistdir}/fonts/tfm/public/tfrupee
+%exclude %{texmfdistdir}/fonts/type1/public/tfrupee
+%exclude %{texmfdistdir}/tex/latex/tfrupee
 # tpslifonts
 %exclude %{texmfdistdir}/tex/latex/tpslifonts
 # trajan
@@ -849,7 +987,6 @@ free software, including support for many languages around the world.
 %{_javadir}/tex4ht.jar
 %endif
 %endif
-%{texmfdistdir}/vtex
 
 %if %mdkversion >= 201100
 %post
@@ -915,6 +1052,20 @@ free software, including support for many languages around the world.
 # Asana-Math
 %{texmfdistdir}/fonts/opentype/public/Asana-Math
 %{texmfdistdir}/fonts/truetype/public/Asana-Math
+# adforn
+%{texmfdistdir}/fonts/afm/arkandis/adforn
+%{texmfdistdir}/fonts/enc/dvips/adforn
+%{texmfdistdir}/fonts/map/dvips/adforn
+%{texmfdistdir}/fonts/tfm/arkandis/adforn
+%{texmfdistdir}/fonts/type1/arkandis/adforn
+%{texmfdistdir}/tex/latex/adforn
+# adfsymbols
+%{texmfdistdir}/fonts/afm/arkandis/adfsymbols
+%{texmfdistdir}/fonts/enc/dvips/adfsymbols
+%{texmfdistdir}/fonts/map/dvips/adfsymbols
+%{texmfdistdir}/fonts/tfm/arkandis/adfsymbols
+%{texmfdistdir}/fonts/type1/arkandis/adfsymbols
+%{texmfdistdir}/tex/latex/adfsymbols
 # allrunes
 %{texmfdistdir}/fonts/map/dvips/allrunes
 %{texmfdistdir}/fonts/source/public/allrunes
@@ -985,6 +1136,9 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/tfm/public/aurical
 %{texmfdistdir}/fonts/type1/public/aurical
 %{texmfdistdir}/tex/latex/aurical
+# b1encoding
+%{texmfdistdir}/fonts/enc/dvips/b1encoding
+%{texmfdistdir}/tex/latex/b1encoding
 # barcodes
 %{texmfdistdir}/fonts/source/public/barcodes
 %{texmfdistdir}/fonts/tfm/public/barcodes
@@ -1010,6 +1164,10 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/source/public/bbold
 %{texmfdistdir}/fonts/tfm/public/bbold
 %{texmfdistdir}/tex/latex/bbold
+# bbold-type1
+%{texmfdistdir}/fonts/afm/public/bbold-type1
+%{texmfdistdir}/fonts/map/dvips/bbold-type1
+%{texmfdistdir}/fonts/type1/public/bbold-type1
 # belleek
 %{texmfdistdir}/fonts/map/dvips/belleek
 %{texmfdistdir}/fonts/truetype/public/belleek
@@ -1021,6 +1179,13 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/type1/public/bera
 %{texmfdistdir}/fonts/vf/public/bera
 %{texmfdistdir}/tex/latex/bera
+# berenisadf
+%{texmfdistdir}/fonts/afm/arkandis/berenisadf
+%{texmfdistdir}/fonts/enc/dvips/berenisadf
+%{texmfdistdir}/fonts/map/dvips/berenisadf
+%{texmfdistdir}/fonts/tfm/arkandis/berenisadf
+%{texmfdistdir}/fonts/type1/arkandis/berenisadf
+%{texmfdistdir}/tex/latex/berenisadf
 # blacklettert1
 %{texmfdistdir}/fonts/tfm/public/blacklettert1
 %{texmfdistdir}/fonts/vf/public/blacklettert1
@@ -1094,6 +1259,20 @@ free software, including support for many languages around the world.
 # cmpica
 %{texmfdistdir}/fonts/source/public/cmpica
 %{texmfdistdir}/fonts/tfm/public/cmpica
+# cmtiup
+%{texmfdistdir}/fonts/source/public/cmtiup
+%{texmfdistdir}/fonts/tfm/public/cmtiup
+%{texmfdistdir}/fonts/vf/public/cmtiup
+%{texmfdistdir}/tex/latex/cmtiup
+# comfortaa
+%{texmfdistdir}/fonts/afm/public/comfortaa
+%{texmfdistdir}/fonts/enc/dvips/comfortaa
+%{texmfdistdir}/fonts/map/dvips/comfortaa
+%{texmfdistdir}/fonts/tfm/public/comfortaa
+%{texmfdistdir}/fonts/truetype/public/comfortaa
+%{texmfdistdir}/fonts/type1/public/comfortaa
+%{texmfdistdir}/fonts/vf/public/comfortaa
+%{texmfdistdir}/tex/latex/comfortaa
 # concmath-fonts
 %{texmfdistdir}/fonts/source/public/concmath-fonts
 %{texmfdistdir}/fonts/tfm/public/concmath-fonts
@@ -1141,6 +1320,15 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/type1/public/dozenal
 %{texmfdistdir}/fonts/vf/public/dozenal
 %{texmfdistdir}/tex/latex/dozenal
+# droid
+%{texmfdistdir}/fonts/afm/public/droid
+%{texmfdistdir}/fonts/enc/dvips/droid
+%{texmfdistdir}/fonts/map/dvips/droid
+%{texmfdistdir}/fonts/tfm/public/droid
+%{texmfdistdir}/fonts/truetype/public/droid
+%{texmfdistdir}/fonts/type1/public/droid
+%{texmfdistdir}/fonts/vf/public/droid
+%{texmfdistdir}/tex/latex/droid
 # duerer
 %{texmfdistdir}/fonts/source/public/duerer
 %{texmfdistdir}/fonts/tfm/public/duerer
@@ -1162,6 +1350,14 @@ free software, including support for many languages around the world.
 # eiad-ltx
 %{texmfdistdir}/fonts/source/public/eiad-ltx
 %{texmfdistdir}/tex/latex/eiad-ltx
+# electrum
+%{texmfdistdir}/fonts/afm/arkandis/electrum
+%{texmfdistdir}/fonts/enc/dvips/electrum
+%{texmfdistdir}/fonts/map/dvips/electrum
+%{texmfdistdir}/fonts/tfm/arkandis/electrum
+%{texmfdistdir}/fonts/type1/arkandis/electrum
+%{texmfdistdir}/fonts/vf/arkandis/electrum
+%{texmfdistdir}/tex/latex/electrum
 # elvish
 %{texmfdistdir}/fonts/source/public/elvish
 %{texmfdistdir}/fonts/tfm/public/elvish
@@ -1290,6 +1486,11 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/type1/public/gfssolomos
 %{texmfdistdir}/fonts/vf/public/gfssolomos
 %{texmfdistdir}/tex/latex/gfssolomos
+# gillcm
+%{texmfdistdir}/fonts/map/dvips/gillcm
+%{texmfdistdir}/fonts/tfm/public/gillcm
+%{texmfdistdir}/fonts/vf/public/gillcm
+%{texmfdistdir}/tex/latex/gillcm
 # gnu-freefont
 %{texmfdistdir}/fonts/opentype/public/gnu-freefont
 %{texmfdistdir}/fonts/truetype/public/gnu-freefont
@@ -1348,6 +1549,11 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/tex/plain/iwona
 # jablantile
 %{texmfdistdir}/fonts/source/public/jablantile
+# jamtimes
+%{texmfdistdir}/fonts/map/dvips/jamtimes
+%{texmfdistdir}/fonts/tfm/public/jamtimes
+%{texmfdistdir}/fonts/vf/public/jamtimes
+%{texmfdistdir}/tex/latex/jamtimes
 # junicode
 %{texmfdistdir}/fonts/truetype/public/junicode
 # kixfont
@@ -1370,6 +1576,15 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/map/dvips/kurier
 %{texmfdistdir}/tex/latex/kurier
 %{texmfdistdir}/tex/plain/kurier
+# lato
+%{texmfdistdir}/fonts/afm/public/lato
+%{texmfdistdir}/fonts/enc/dvips/lato
+%{texmfdistdir}/fonts/map/dvips/lato
+%{texmfdistdir}/fonts/tfm/public/lato
+%{texmfdistdir}/fonts/truetype/public/lato
+%{texmfdistdir}/fonts/type1/public/lato
+%{texmfdistdir}/fonts/vf/public/lato
+%{texmfdistdir}/tex/latex/lato
 # lfb
 %{texmfdistdir}/fonts/source/public/lfb
 %{texmfdistdir}/fonts/tfm/public/lfb
@@ -1413,6 +1628,9 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/source/public/mathabx
 %{texmfdistdir}/fonts/tfm/public/mathabx
 %{texmfdistdir}/tex/generic/mathabx
+# mathabx-type1
+%{texmfdistdir}/fonts/map/dvips/mathabx-type1
+%{texmfdistdir}/fonts/type1/public/mathabx-type1
 # mathdesign
 %{texmfdistdir}/dvips/mathdesign
 %{texmfdistdir}/fonts/afm/mathdesign
@@ -1421,6 +1639,10 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/type1/mathdesign
 %{texmfdistdir}/fonts/vf/mathdesign
 %{texmfdistdir}/tex/latex/mathdesign
+# mdputu
+%{texmfdistdir}/fonts/tfm/public/mdputu
+%{texmfdistdir}/fonts/vf/public/mdputu
+%{texmfdistdir}/tex/latex/mdputu
 # mnsymbol
 %{texmfdistdir}/fonts/enc/dvips/mnsymbol
 %{texmfdistdir}/fonts/map/dvips/mnsymbol
@@ -1444,6 +1666,13 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/type1/public/ocherokee
 %{texmfdistdir}/omega/ocp/ocherokee
 %{texmfdistdir}/omega/otp/ocherokee
+# ocr-b
+%{texmfdistdir}/fonts/source/public/ocr-b
+%{texmfdistdir}/fonts/tfm/public/ocr-b
+# ocr-b-outline
+%{texmfdistdir}/fonts/map/dvips/ocr-b-outline
+%{texmfdistdir}/fonts/opentype/public/ocr-b-outline
+%{texmfdistdir}/fonts/type1/public/ocr-b-outline
 # ogham
 %{texmfdistdir}/fonts/source/public/ogham
 %{texmfdistdir}/fonts/tfm/public/ogham
@@ -1463,8 +1692,6 @@ free software, including support for many languages around the world.
 # orkhun
 %{texmfdistdir}/fonts/source/public/orkhun
 %{texmfdistdir}/fonts/tfm/public/orkhun
-# osmanian
-%{texmfdistdir}/fonts/source/public/osmanian
 # pacioli
 %{texmfdistdir}/fonts/source/public/pacioli
 %{texmfdistdir}/fonts/tfm/public/pacioli
@@ -1486,11 +1713,39 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/tfm/public/pigpen
 %{texmfdistdir}/fonts/type1/public/pigpen
 %{texmfdistdir}/tex/latex/pigpen
+# poltawski
+%{texmfdistdir}/fonts/afm/gust/poltawski
+%{texmfdistdir}/fonts/enc/dvips/poltawski
+%{texmfdistdir}/fonts/map/dvips/poltawski
+%{texmfdistdir}/fonts/opentype/gust/poltawski
+%{texmfdistdir}/fonts/tfm/gust/poltawski
+%{texmfdistdir}/fonts/type1/gust/poltawski
+%{texmfdistdir}/tex/latex/poltawski
 # psafm
 %{texmfdistdir}/fonts/afm/itc/psafm/stonesan
+# ptsans
+%{texmfdistdir}/fonts/afm/paratype/ptsans
+%{texmfdistdir}/fonts/enc/dvips/ptsans
+%{texmfdistdir}/fonts/map/dvips/ptsans
+%{texmfdistdir}/fonts/tfm/paratype/ptsans
+%{texmfdistdir}/fonts/truetype/paratype/ptsans
+%{texmfdistdir}/fonts/type1/paratype/ptsans
+%{texmfdistdir}/fonts/vf/paratype/ptsans
+%{texmfdistdir}/tex/latex/ptsans
+# ptserif
+%{texmfdistdir}/fonts/afm/paratype/ptserif
+%{texmfdistdir}/fonts/enc/dvips/ptserif
+%{texmfdistdir}/fonts/map/dvips/ptserif
+%{texmfdistdir}/fonts/tfm/paratype/ptserif
+%{texmfdistdir}/fonts/truetype/paratype/ptserif
+%{texmfdistdir}/fonts/type1/paratype/ptserif
+%{texmfdistdir}/fonts/vf/paratype/ptserif
+%{texmfdistdir}/tex/latex/ptserif
 # punk
 %{texmfdistdir}/fonts/source/public/punk
 %{texmfdistdir}/fonts/tfm/public/punk
+# punknova
+%{texmfdistdir}/fonts/opentype/public/punknova
 # recycle
 %{texmfdistdir}/fonts/map/dvips/recycle
 %{texmfdistdir}/fonts/source/public/recycle
@@ -1523,6 +1778,12 @@ free software, including support for many languages around the world.
 # skull
 %{texmfdistdir}/fonts/source/public/skull
 %{texmfdistdir}/tex/latex/skull
+# starfont
+%{texmfdistdir}/fonts/afm/public/starfont
+%{texmfdistdir}/fonts/map/dvips/starfont
+%{texmfdistdir}/fonts/tfm/public/starfont
+%{texmfdistdir}/fonts/type1/public/starfont
+%{texmfdistdir}/tex/latex/starfont
 # staves
 %{texmfdistdir}/fonts/map/dvips/staves
 %{texmfdistdir}/fonts/tfm/public/staves
@@ -1539,6 +1800,12 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/tfm/public/tengwarscript
 %{texmfdistdir}/fonts/vf/public/tengwarscript
 %{texmfdistdir}/tex/latex/tengwarscript
+# tfrupee
+%{texmfdistdir}/fonts/afm/public/tfrupee
+%{texmfdistdir}/fonts/map/dvips/tfrupee
+%{texmfdistdir}/fonts/tfm/public/tfrupee
+%{texmfdistdir}/fonts/type1/public/tfrupee
+%{texmfdistdir}/tex/latex/tfrupee
 # tpslifonts
 %{texmfdistdir}/tex/latex/tpslifonts
 # trajan
@@ -1841,7 +2108,7 @@ free software, including support for many languages around the world.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -q -n texlive-20100722-texmf
+%setup -q -n texlive-%{version}-texmf
 
 perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'			  \
 	 -e 's%^(TEXMFDIST\s+= ).*%$1%{texmfdistdir}%;'			  \
@@ -2015,6 +2282,8 @@ pushd %{buildroot}%{texmfdistdir}
     rm -fr tex4ht
 %endif
     rm -f ls-R README
+    # .in files in documentation confuse find-provides
+    rm -f doc/bibtex/urlbst/*.in
 popd
 
 %if !%{with_system_tex4ht}
@@ -2025,7 +2294,3 @@ popd
 	popd
     %endif
 %endif
-
-#-----------------------------------------------------------------------
-%clean
-rm -rf %{buildroot}
