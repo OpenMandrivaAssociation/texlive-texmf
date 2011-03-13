@@ -999,7 +999,7 @@ done
 if [ "$1" = "0" ];then
     for info in	asy-faq asymptote dvipng dvips eplain epspdf fontname \
 		kpathsea latex2e latex2man tds texdraw web2c; do
-	/sbin/install-info --delete %{_infodir}/${info}* %{_infodir}/dir ||:
+	/sbin/install-info --remove %{_infodir}/${info}* %{_infodir}/dir ||:
     done
 fi
 %endif
@@ -2294,3 +2294,7 @@ popd
 	popd
     %endif
 %endif
+
+#-----------------------------------------------------------------------
+%clean
+rm -rf %{buildroot}
