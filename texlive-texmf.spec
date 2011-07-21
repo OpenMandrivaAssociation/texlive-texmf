@@ -12,7 +12,7 @@
 %define with_system_tex4ht	0
 %define with_system_teckit	0
 
-%if %mdkversion >= 201100
+%if %mdkversion >= 201200
   %define texmfbindir		%{_bindir}
   %define texmfdir		%{_datadir}/texmf
   %define texmfdistdir		%{_datadir}/texmf-dist
@@ -21,32 +21,24 @@
   %define texmfvardir		%{_localstatedir}/lib/texmf
   %define texmfconfdir		%{_sysconfdir}/texmf
 %else
-  %define texmfbindir		/opt/texlive2010/bin
-  %define texmfdir		/opt/texlive2010/texmf
-  %define texmfextradir		/opt/texlive2010/texmf-extra
-  %define texmfprojectdir	/opt/texlive2010/texmf-project
-  %define texmfdistdir		/opt/texlive2010/texmf-dist
-  %define texmfvardir		/opt/texlive2010/lib/texmf
-  %define texmfconfdir		/opt/texlive2010/texmf
+  %define texmfbindir		/opt/texlive2011/bin
+  %define texmfdir		/opt/texlive2011/texmf
+  %define texmfextradir		/opt/texlive2011/texmf-extra
+  %define texmfprojectdir	/opt/texlive2011/texmf-project
+  %define texmfdistdir		/opt/texlive2011/texmf-dist
+  %define texmfvardir		/opt/texlive2011/lib/texmf
+  %define texmfconfdir		/opt/texlive2011/texmf
 %endif
 
 Name:		texlive-texmf
-Version:	20110312
-Release:	%mkrel 2
+Version:	20110705
+Release:	%mkrel 1
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
 URL:		http://tug.org/texlive/
-# mkdir texlive-texmf; cd texlive-texmf
-# svn co svn://tug.org/texlive/trunk/Master/texmf texmf
-# svn co svn://tug.org/texlive/trunk/Master/texmf-dist texmf-dist
-# cd ..
-# cp -far texlive-texmf texlive-20110312-texmf
-# find texlive-20110312-texmf -name .svn -type d -exec rm -fr {} \; 2>/dev/null
-# tar Jcf texlive-20110312-texmf.tar.xz texlive-20110312-texmf
-Source0:	texlive-20110312-texmf.tar.xz
-# sha256sum texlive-20110312-texmf.tar.xz > texlive-20110312-texmf.tar.xz.sha256
-Source1:	texlive-20110312-texmf.tar.xz.sha256
+Source0:	texlive-20110705-texmf.tar.xz
+Source1:	texlive-20110705-texmf.tar.xz.sha256
 Source2:	XDvi-color
 Source3:	http://www.tug.org/texlive/LICENSE.TL
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -58,7 +50,7 @@ Requires(post):	/sbin/install-info
 Requires(preun): /sbin/install-info
 Requires:	xdg-utils
 
-%if %mdkversion <= 201100
+%if %mdkversion <= 201200
 Provides:	tetex-afm = %{version}
 Provides:	tetex-cmsuper = %{version}
 %if !%{with_system_tex4ht}
@@ -100,9 +92,9 @@ Obsoletes:	texmf-data <= 2007
 %endif
 
 #-----------------------------------------------------------------------
-Patch0:		texlive-20110312-texmf-default.patch
-Patch1:		texlive-20110312-texmf-fontsextra.patch
-Patch2:		texlive-20110312-texmf-epstopdf.patch
+Patch0:		texlive-20110705-texmf-default.patch
+Patch1:		texlive-20110705-texmf-fontsextra.patch
+Patch2:		texlive-20110705-texmf-epstopdf.patch
 
 #-----------------------------------------------------------------------
 %description
@@ -1008,7 +1000,7 @@ fi
 %package	-n texlive-doc
 Summary:	Tex Live documentation
 Group:		Publishing
-%if %mdkversion <= 201100
+%if %mdkversion <= 201200
 Provides:	tetex-doc = %{version}
 Provides:	texlive-texmf-doc = %{version}
 %endif
