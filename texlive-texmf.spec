@@ -41,6 +41,7 @@ Source0:	ftp://tug.org/historic/systems/texlive/2011/texlive-20110705-texmf.tar.
 Source1:	ftp://tug.org/historic/systems/texlive/2011/texlive-20110705-texmf.tar.xz.sha256
 Source2:	XDvi-color
 Source3:	http://www.tug.org/texlive/LICENSE.TL
+Source4:	http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 
@@ -2081,6 +2082,10 @@ popd
 	popd
     %endif
 %endif
+
+tar zxf %{SOURCE4}
+mkdir -p %{buildroot}%{texmfdir}/tlpkg
+mv -f install-tl-*/tlpkg/TeXLive %{buildroot}%{texmfdir}/tlpkg
 
 #-----------------------------------------------------------------------
 %clean
