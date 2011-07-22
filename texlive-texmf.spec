@@ -556,14 +556,6 @@ free software, including support for many languages around the world.
 # gnu-freefont
 %exclude %{texmfdistdir}/fonts/opentype/public/gnu-freefont
 %exclude %{texmfdistdir}/fonts/truetype/public/gnu-freefont
-# gothic
-%exclude %{texmfdistdir}/dvips/gothic
-%exclude %{texmfdistdir}/fonts/afm/public/gothic
-%exclude %{texmfdistdir}/fonts/map/dvips/gothic
-%exclude %{texmfdistdir}/fonts/source/public/gothic
-%exclude %{texmfdistdir}/fonts/tfm/public/gothic
-%exclude %{texmfdistdir}/fonts/type1/public/gothic
-%exclude %{texmfdistdir}/fonts/vf/public/gothic
 # greenpoint
 %exclude %{texmfdistdir}/fonts/source/public/greenpoint
 %exclude %{texmfdistdir}/fonts/tfm/public/greenpoint
@@ -1372,14 +1364,6 @@ free software, including support for many languages around the world.
 # gnu-freefont
 %{texmfdistdir}/fonts/opentype/public/gnu-freefont
 %{texmfdistdir}/fonts/truetype/public/gnu-freefont
-# gothic
-%{texmfdistdir}/dvips/gothic
-%{texmfdistdir}/fonts/afm/public/gothic
-%{texmfdistdir}/fonts/map/dvips/gothic
-%{texmfdistdir}/fonts/source/public/gothic
-%{texmfdistdir}/fonts/tfm/public/gothic
-%{texmfdistdir}/fonts/type1/public/gothic
-%{texmfdistdir}/fonts/vf/public/gothic
 # greenpoint
 %{texmfdistdir}/fonts/source/public/greenpoint
 %{texmfdistdir}/fonts/tfm/public/greenpoint
@@ -1738,7 +1722,6 @@ sed -i	-e 's/^#! \(MixedMap allrunes.map\)/\1/'	\
 	-e 's/^#! \(Map gfsdidot.map\)/\1/'	\
 	-e 's/^#! \(Map gfsneohellenic.map\)/\1/'	\
 	-e 's/^#! \(Map gfssolomos.map\)/\1/'	\
-	-e 's/^#! \(Map yfrak.map\)/\1/'	\
 	-e 's/^#! \(Map ugq.map\)/\1/'	\
 	-e 's/^#! \(MixedMap hfbright.map\)/\1/'	\
 	-e 's/^#! \(Map fi4.map\)/\1/'	\
@@ -1836,7 +1819,6 @@ sed -i	-e 's/^\(MixedMap allrunes.map\)/#! \1/'	\
 	-e 's/^\(Map gfsdidot.map\)/#! \1/'	\
 	-e 's/^\(Map gfsneohellenic.map\)/#! \1/'	\
 	-e 's/^\(Map gfssolomos.map\)/#! \1/'	\
-	-e 's/^\(Map yfrak.map\)/#! \1/'	\
 	-e 's/^\(Map ugq.map\)/#! \1/'	\
 	-e 's/^\(MixedMap hfbright.map\)/#! \1/'	\
 	-e 's/^\(Map fi4.map\)/#! \1/'	\
