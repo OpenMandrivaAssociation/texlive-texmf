@@ -130,6 +130,7 @@ free software, including support for many languages around the world.
 %{texmfdir}/tex
 %{texmfdir}/texconfig
 %{texmfdir}/texdoctk
+%{texmfdir}/tlpkg
 %{texmfdir}/ttf2pk
 %{texmfdir}/web2c
 %{texmfdir}/xdvi
@@ -2029,6 +2030,7 @@ pushd %{buildroot}%{texmfbindir}
     ln -sf %{texmfdistdir}/scripts/vpe/vpe.pl vpe
     ln -sf %{texmfdistdir}/scripts/accfonts/vpl2ovp vpl2ovp
     ln -sf %{texmfdistdir}/scripts/accfonts/vpl2vpl vpl2vpl
+    ln -sf %{texmfdir}/scripts/tetex/updmap.pl updmap
 popd
 
 %if %mdkversion >= 201100
@@ -2086,6 +2088,9 @@ popd
 tar zxf %{SOURCE4}
 mkdir -p %{buildroot}%{texmfdir}/tlpkg
 mv -f install-tl-*/tlpkg/TeXLive %{buildroot}%{texmfdir}/tlpkg
+
+perl -pi -e 's|TEXMFROOT|TEXMFMAIN|g;'			\
+    %{buildroot}%{texmfdir}/scripts/tetex/updmap.pl
 
 #-----------------------------------------------------------------------
 %clean
