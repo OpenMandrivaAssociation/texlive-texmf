@@ -37,8 +37,8 @@ Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
 URL:		http://tug.org/texlive/
-Source0:	texlive-20110705-texmf.tar.xz
-Source1:	texlive-20110705-texmf.tar.xz.sha256
+Source0:	ftp://tug.org/historic/systems/texlive/2011/texlive-20110705-texmf.tar.xz
+Source1:	ftp://tug.org/historic/systems/texlive/2011/texlive-20110705-texmf.tar.xz.sha256
 Source2:	XDvi-color
 Source3:	http://www.tug.org/texlive/LICENSE.TL
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -687,9 +687,6 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/vf/mathdesign/mdput
 %exclude %{texmfdistdir}/fonts/vf/mathdesign/mdugm
 %exclude %{texmfdistdir}/tex/latex/mathdesign
-%exclude %{texmfdistdir}/tex/latex/mathdesign/mdbch
-%exclude %{texmfdistdir}/tex/latex/mathdesign/mdput
-%exclude %{texmfdistdir}/tex/latex/mathdesign/mdugm
 # mnsymbol
 %exclude %{texmfdistdir}/fonts/enc/dvips/mnsymbol
 %exclude %{texmfdistdir}/fonts/map/dvips/mnsymbol
@@ -793,7 +790,6 @@ free software, including support for many languages around the world.
 %exclude %{texmfdistdir}/fonts/map/dvips/semaphor
 %exclude %{texmfdistdir}/fonts/opentype/public/semaphor
 %exclude %{texmfdistdir}/fonts/source/public/semaphor
-%exclude %{texmfdistdir}/fonts/source/public/semaphor/metafont
 %exclude %{texmfdistdir}/fonts/tfm/public/semaphor
 %exclude %{texmfdistdir}/fonts/type1/public/semaphor
 %exclude %{texmfdistdir}/tex/context/third/semaphor
@@ -1507,9 +1503,6 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/vf/mathdesign/mdput
 %{texmfdistdir}/fonts/vf/mathdesign/mdugm
 %{texmfdistdir}/tex/latex/mathdesign
-%{texmfdistdir}/tex/latex/mathdesign/mdbch
-%{texmfdistdir}/tex/latex/mathdesign/mdput
-%{texmfdistdir}/tex/latex/mathdesign/mdugm
 # mnsymbol
 %{texmfdistdir}/fonts/enc/dvips/mnsymbol
 %{texmfdistdir}/fonts/map/dvips/mnsymbol
@@ -1613,7 +1606,6 @@ free software, including support for many languages around the world.
 %{texmfdistdir}/fonts/map/dvips/semaphor
 %{texmfdistdir}/fonts/opentype/public/semaphor
 %{texmfdistdir}/fonts/source/public/semaphor
-%{texmfdistdir}/fonts/source/public/semaphor/metafont
 %{texmfdistdir}/fonts/tfm/public/semaphor
 %{texmfdistdir}/fonts/type1/public/semaphor
 %{texmfdistdir}/tex/context/third/semaphor
