@@ -1,6 +1,8 @@
 %define _binary_payload		w9.gzdio
 %define _source_payload		w9.gzdio
 
+%define _requires_exceptions	perl(Text::Unidecode)\\|perl(Tie::Watch)\\|perl(SelfLoader)
+
 %define enable_asymptote	0
 %define enable_xindy		0
 
@@ -32,7 +34,7 @@
 
 Name:		texlive-texmf
 Version:	20110705
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
