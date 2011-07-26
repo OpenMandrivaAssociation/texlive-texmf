@@ -94,6 +94,10 @@ Obsoletes:	texlive-texmf-xmltex <= 2007
 Obsoletes:	texmf-data <= 2007
 %endif
 
+Conflicts:	texlive-doc < %{version}-%{release}
+Conflicts:	texlive-fontsextra < %{version}-%{release}
+Conflicts:	texlive-source < %{version}-%{release}
+
 #-----------------------------------------------------------------------
 Patch0:		texlive-20110705-texmf-default.patch
 Patch1:		texlive-20110705-texmf-fontsextra.patch
