@@ -18,14 +18,19 @@
   %define texmfbindir		%{_bindir}
   %define texmfdir		%{_datadir}/texmf
   %define texmfdistdir		%{_datadir}/texmf-dist
+  %define texmflocaldir		%{_datadir}/texmf-local
   %define texmfextradir		%{_datadir}/texmf-extra
+  %define texmffontsdir		%{_datadir}/texmf-fonts
   %define texmfprojectdir	%{_datadir}/texmf-project
   %define texmfvardir		%{_localstatedir}/lib/texmf
   %define texmfconfdir		%{_sysconfdir}/texmf
 %else
   %define texmfbindir		/opt/texlive2011/bin
   %define texmfdir		/opt/texlive2011/texmf
+  %define texmfdistdir		/opt/texlive2011/texmf-dist
+  %define texmflocaldir		/opt/texlive2011/texmf-local
   %define texmfextradir		/opt/texlive2011/texmf-extra
+  %define texmffontsdir		/opt/texlive2011/texmf-fonts
   %define texmfprojectdir	/opt/texlive2011/texmf-project
   %define texmfdistdir		/opt/texlive2011/texmf-dist
   %define texmfvardir		/opt/texlive2011/lib/texmf
@@ -897,6 +902,7 @@ free software, including support for many languages around the world.
 %endif
 %endif
 %{texmfdistdir}/texdoc
+%dir %{texmflocaldir}
 
 %if %mdkversion >= 201100
 %post
@@ -1907,36 +1913,37 @@ free software, including support for many languages around the world.
 
 perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'			  \
 	 -e 's%^(TEXMFDIST\s+= ).*%$1%{texmfdistdir}%;'			  \
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'			  \
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmflocaldir}%;'		  \
 	 -e 's%^(TEXMFSYSVAR\s+= ).*%$1%{texmfvardir}%;'		  \
 	 -e 's%^(TEXMFSYSCONFIG\s+= ).*%$1%{texmfconfdir}%;'		  \
-	 -e 's%^(TEXMFHOME\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'	  \
+	 -e 's%^(TEXMFHOME\s+= ).*%$1\$HOME/texmf%;'			  \
 	 -e 's%^(TEXMFVAR\s+= ).*%$1\$HOME/.texlive2011/texmf-var%;'	  \
 	 -e 's%^(TEXMFCONFIG\s+= ).*%$1\$HOME/.texlive2011/texmf-config%;'\
 	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'		  \
 	texmf/web2c/texmf.cnf
 
 perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'				    \
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmfdir}%;'				    \
+	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmflocaldir}%;'			    \
 	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{texmfdir}/fonts,%{texmfdistdir}/fonts\}%;'\
 	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{texmfextradir},%{texmfdir}\}%;'	    \
 	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{texmfprojectdir},%{texmfdir}\}%;'	    \
 	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2011/texmf-var%;'		    \
-	 -e 's%^(HOMETEXMF\s+= ).*%$1\{\$HOME/texmf,%{texmfdir}\}%;'		    \
+	 -e 's%^(HOMETEXMF\s+= ).*%$1\$HOME/texmf%;'		  		    \
 	 -e 's%^(TEXMFCNF\s+= ).*%$1%{texmfdir}/web2c%;'			    \
 	texmf/web2c/context.cnf
 
 perl -pi -e 's%^(\s*TEXMFMAIN\s+=\s+").*%$1%{texmfdir}",%;'				\
 	 -e 's%\bTEXMFCONTEXT\b%TEXMFDIST%g;'						\
 	 -e 's%^(\s*TEXMFDIST\s+=\s+).*%$1"%{texmfdistdir}",%;'				\
-	 -e 's%^(\s*TEXMFLOCAL\s+=\s+).*%$1"%{texmfdir}",%;'				\
+	 -e 's%^(\s*TEXMFLOCAL\s+=\s+).*%$1"%{texmflocaldir}",%;'			\
 	 -e 's%^(\s*TEXMFSYSVAR\s+=\s+).*%$1"%{texmfvardir}",%;'			\
 	 -e 's%^(\s*TEXMFSYSCONFIG\s+=\s+).*%$1"%{texmfconfdir}",%;'			\
-	 -e 's%^(\s*TEXMFHOME\s+=\s+").*%$1\{\$HOME/texmf,%{texmfdir}\}",%;'		\
+	 -e 's%^(\s*TEXMFHOME\s+=\s+").*%$1\$HOME/texmf",%;'				\
 	 -e 's%^(\s*TEXMFVAR\s+=\s+").*%$1\$HOME/.texlive2011/texmf-var",%;'		\
-	 -e 's%^(\s*TEXMFCACHE\s+=\s+").*%$1\$HOME/.texlive2011/texmf-var",%;'		\
 	 -e 's%^(\s*TEXMFCONFIG\s+=\s+").*%$1\$HOME/.texlive2011/texmf-config",%;'	\
 	 -e 's%^(\s*FONTCONFIG_PATH\s+=\s+").*%$1%{_sysconfdir}/fonts",%;'		\
+	 -e 's%^local texmflocal.*$%%;'							\
+	 -e 's%^texmflocal.*$%%;'							\
 	texmf/web2c/texmfcnf.lua
 
 perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
@@ -2107,6 +2114,8 @@ mv -f install-tl-*/tlpkg/TeXLive %{buildroot}%{texmfdir}/tlpkg
 
 perl -pi -e 's|TEXMFROOT|TEXMFMAIN|g;'			\
     %{buildroot}%{texmfdir}/scripts/tetex/updmap.pl
+
+mkdir -p %{buildroot}%{texmflocaldir}
 
 #-----------------------------------------------------------------------
 %clean
