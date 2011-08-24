@@ -1927,7 +1927,8 @@ perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'				    \
 	texmf/web2c/context.cnf
 
 perl -pi -e 's%^(\s*TEXMFMAIN\s+=\s+").*%$1%{texmfdir}",%;'				\
-	 -e 's%^(\s*TEXMFCONTEXT\s+=\s+).*%$1"%{texmfdistdir}",%;'			\
+	 -e 's%\bTEXMFCONTEXT\b%TEXMFDIST%g;'						\
+	 -e 's%^(\s*TEXMFDIST\s+=\s+).*%$1"%{texmfdistdir}",%;'				\
 	 -e 's%^(\s*TEXMFLOCAL\s+=\s+).*%$1"%{texmfdir}",%;'				\
 	 -e 's%^(\s*TEXMFSYSVAR\s+=\s+).*%$1"%{texmfvardir}",%;'			\
 	 -e 's%^(\s*TEXMFSYSCONFIG\s+=\s+).*%$1"%{texmfconfdir}",%;'			\
@@ -1935,6 +1936,7 @@ perl -pi -e 's%^(\s*TEXMFMAIN\s+=\s+").*%$1%{texmfdir}",%;'				\
 	 -e 's%^(\s*TEXMFVAR\s+=\s+").*%$1\$HOME/.texlive2011/texmf-var",%;'		\
 	 -e 's%^(\s*TEXMFCACHE\s+=\s+").*%$1\$HOME/.texlive2011/texmf-var",%;'		\
 	 -e 's%^(\s*TEXMFCONFIG\s+=\s+").*%$1\$HOME/.texlive2011/texmf-config",%;'	\
+	 -e 's%^(\s*FONTCONFIG_PATH\s+=\s+").*%$1%{_sysconfdir}/fonts",%;'		\
 	texmf/web2c/texmfcnf.lua
 
 perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
