@@ -1942,8 +1942,8 @@ perl -pi -e 's%^(\s*TEXMFMAIN\s+=\s+").*%$1%{texmfdir}",%;'				\
 	 -e 's%^(\s*TEXMFVAR\s+=\s+").*%$1\$HOME/.texlive2011/texmf-var",%;'		\
 	 -e 's%^(\s*TEXMFCONFIG\s+=\s+").*%$1\$HOME/.texlive2011/texmf-config",%;'	\
 	 -e 's%^(\s*FONTCONFIG_PATH\s+=\s+").*%$1%{_sysconfdir}/fonts",%;'		\
-	 -e 's%^local texmflocal.*$%%;'							\
-	 -e 's%^texmflocal.*$%%;'							\
+	 -e 's|^local texmflocal.*$||;'							\
+	 -e 's|^texmflocal.*$||;'							\
 	texmf/web2c/texmfcnf.lua
 
 perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
