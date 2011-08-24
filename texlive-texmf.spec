@@ -1922,16 +1922,6 @@ perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'			  \
 	 -e 's%^(OSFONTDIR\s+= ).*%$1%{_datadir}/fonts%;'		  \
 	texmf/web2c/texmf.cnf
 
-perl -pi -e 's%^(TEXMFMAIN\s+= ).*%$1%{texmfdir}%;'				    \
-	 -e 's%^(TEXMFLOCAL\s+= ).*%$1%{texmflocaldir}%;'			    \
-	 -e 's%^(TEXMFFONTS\s+= ).*%$1\{%{texmfdir}/fonts,%{texmfdistdir}/fonts\}%;'\
-	 -e 's%^(TEXMFEXTRA\s+= ).*%$1\{%{texmfextradir},%{texmfdir}\}%;'	    \
-	 -e 's%^(TEXMFPROJECT\s+= ).*%$1\{%{texmfprojectdir},%{texmfdir}\}%;'	    \
-	 -e 's%^(VARTEXMF\s+= ).*%$1\$HOME/.texlive2011/texmf-var%;'		    \
-	 -e 's%^(HOMETEXMF\s+= ).*%$1\$HOME/texmf%;'		  		    \
-	 -e 's%^(TEXMFCNF\s+= ).*%$1%{texmfdir}/web2c%;'			    \
-	texmf/web2c/context.cnf
-
 perl -pi -e 's%^(\s*TEXMFMAIN\s+=\s+").*%$1%{texmfdir}",%;'				\
 	 -e 's%\bTEXMFCONTEXT\b%TEXMFDIST%g;'						\
 	 -e 's%^(\s*TEXMFDIST\s+=\s+).*%$1"%{texmfdistdir}",%;'				\
