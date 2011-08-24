@@ -107,6 +107,8 @@ Conflicts:	texlive-source < %{version}-%{release}
 Patch0:		texlive-20110705-texmf-default.patch
 Patch1:		texlive-20110705-texmf-fontsextra.patch
 Patch2:		texlive-20110705-texmf-epstopdf.patch
+# http://tug.org/svn/texlive/trunk/Master/texmf-dist/tex/context/base/type-one.mkii?r1=23189&r2=23188&pathrev=23189
+Patch3:		texlive-20110705-texmf-context-hotfixes.patch
 
 #-----------------------------------------------------------------------
 %description
@@ -1942,6 +1944,7 @@ perl -pi -e 's%^# (viewer_pdf = )xpdf.*%$1xdg-open%;'	\
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 #-----------------------------------------------------------------------
 %build
