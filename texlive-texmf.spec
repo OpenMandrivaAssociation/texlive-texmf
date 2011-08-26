@@ -1970,9 +1970,9 @@ pushd %{buildroot}%{texmfbindir}
     ln -sf %{texmfdistdir}/scripts/de-macro/de-macro de-macro
     ln -sf %{texmfdistdir}/scripts/dviasm/dviasm.py dviasm
     ln -sf %{texmfdir}/scripts/tetex/e2pall.pl e2pall
-    ln -sf %{texmfdistdir}/scripts/bengali/ebong.py ebong
-    ln -sf %{texmfdistdir}/scripts/epspdf/epspdf epspdf
-    ln -sf %{texmfdistdir}/scripts/epspdf/epspdftk epspdftk
+    ln -sf %{texmfdistdir}/scripts/ebong/ebong.py ebong
+    ln -sf %{texmfdistdir}/scripts/epspdf/epspdf.rb epspdf
+    ln -sf %{texmfdistdir}/scripts/epspdf/epspdftk.tcl epspdftk
     ln -sf %{texmfdistdir}/scripts/epstopdf/epstopdf.pl epstopdf
     ln -sf %{texmfdistdir}/scripts/fig4latex/fig4latex fig4latex
     ln -sf %{texmfdistdir}/scripts/findhyph/findhyph findhyph
