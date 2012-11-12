@@ -1,0 +1,10 @@
+--- texlive-20110705-texmf/texmf-dist/scripts/epstopdf/epstopdf.pl.orig	2011-07-21 22:35:18.000000000 +0200
++++ texlive-20110705-texmf/texmf-dist/scripts/epstopdf/epstopdf.pl	2011-07-21 22:35:38.000000000 +0200
+@@ -1,6 +1,4 @@
+-eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+-  if 0;
+-use strict;
++#!/usr/bin/env perl
+ 
+ # $Id: epstopdf.pl 18319 2010-05-17 16:34:21Z karl $
+ # (Copyright lines below.)

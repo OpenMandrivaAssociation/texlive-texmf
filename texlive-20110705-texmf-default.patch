@@ -1,0 +1,42 @@
+--- texlive-20110705-texmf/texmf/scripts/texlive/tlmgr.pl.orig	2011-07-21 22:32:19.000000000 +0200
++++ texlive-20110705-texmf/texmf/scripts/texlive/tlmgr.pl	2011-07-21 22:32:45.000000000 +0200
+@@ -48,26 +48,17 @@ BEGIN {
+     $Master =~ s,/*[^/]*$,,;
+     if ($ismain) {
+       $bindir = $Master;
+-      $Master = "$Master/../..";
+-    } else {
+-      # for the time being, this code will not be used or tested
+-      $Master = "$Master/../../..";
+-      # no code yet for $bindir; would have to detect platform
+     }
+     # make subprograms (including kpsewhich) have the right path:
+     $ENV{"PATH"} = "$bindir:$ENV{PATH}";
+     $kpsewhichname = "kpsewhich";
+   }
+-  if (-r "$bindir/$kpsewhichname") {
+-    # if not in bootstrapping mode => kpsewhich exists, so use it to get $Master
+-    chomp($Master = `kpsewhich -var-value=SELFAUTOPARENT`);
+-  }
++  chomp($Master = `kpsewhich -var-value=TEXMFMAIN`);
+   $::installerdir = $Master;
+ 
+   #
+   # make Perl find our packages first:
+-  unshift (@INC, "$Master/tlpkg");
+-  unshift (@INC, "$Master/texmf/scripts/texlive");
++  unshift (@INC, "$Master/scripts/texlive");
+ }
+ 
+ use Cwd qw/abs_path/;
+--- texlive-20110705-texmf/texmf/scripts/texlive/tlmgrgui.pl.orig	2011-06-16 14:30:37.000000000 +0200
++++ texlive-20110705-texmf/texmf/scripts/texlive/tlmgrgui.pl	2011-07-21 22:32:45.000000000 +0200
+@@ -2269,7 +2269,7 @@ on the command line.
+   } else {
+     my $io = IO::String->new($txt);
+     my $parser = Pod::Text->new (sentence => 0, width => 78);
+-    $parser->parse_from_file("$Master/texmf/scripts/texlive/tlmgr.pl", $io);
++    $parser->parse_from_file("$Master/scripts/texlive/tlmgr.pl", $io);
+   }
+   my $sw = $mw->Toplevel(-title => __("Help"));
+   $sw->transient($mw);

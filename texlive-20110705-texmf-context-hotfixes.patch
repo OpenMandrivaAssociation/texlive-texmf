@@ -1,0 +1,20 @@
+--- texlive-20110705-texmf/texmf-dist/tex/context/base/type-one.mkii	2011/07/20 10:18:59	23188
++++ texlive-20110705-texmf/texmf-dist/tex/context/base/type-one.mkii	2011/07/20 15:26:48	23189
+@@ -1483,7 +1483,7 @@
+         \definefontsynonym [AntykwaPoltawskiego-Expanded-CapsBold]              [\typescriptthree-antpb6-sc]   [encoding=\typescriptthree]
+         \definefontsynonym [AntykwaPoltawskiego-Expanded-CapsBoldItalic]        [\typescriptthree-antpbi6-sc]  [encoding=\typescriptthree]
+ 
+-        \loadmapfile[poltawski-\typescriptthree.map]
++        \loadmapfile[ap-\typescriptthree.map]
+     \stoptypescript
+ 
+     \starttypescript [serif] [antykwa-poltawskiego] [name]
+@@ -1911,7 +1911,7 @@
+     \starttypescript
+         \definefontsynonym [ZapfDingbats]          [uzdr]
+         \definefontsynonym [RalfSmithFormalScript] [rsfs10]
+-        \definefontsynonym [MartinVogel]           [fmvr8x]
++        \definefontsynonym [MartinVogel]           [umvs]
+     \stoptypescript
+ 
+ \stoptypescriptcollection
