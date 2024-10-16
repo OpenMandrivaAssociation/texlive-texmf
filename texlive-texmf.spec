@@ -43,7 +43,7 @@ Release:	%mkrel 3
 Summary:	The TeX formatting system
 Group:		Publishing
 License:	http://www.tug.org/texlive/LICENSE.TL
-URL:		http://tug.org/texlive/
+URL:		https://tug.org/texlive/
 Source0:	ftp://tug.org/historic/systems/texlive/2011/texlive-20110705-texmf.tar.xz
 Source1:	ftp://tug.org/historic/systems/texlive/2011/texlive-20110705-texmf.tar.xz.sha256
 Source2:	XDvi-color
